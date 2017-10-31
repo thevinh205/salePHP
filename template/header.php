@@ -28,6 +28,16 @@
             <img class="vohangmenu_hinh imggiohang" src="resources/img/giohang.png">
             <div class="vohangmenu_soluong soluonghangdat">0</div>
         </div>
+        <div class="kengangmenu">
+        </div>
+        <div class="menubar">
+            <div class="itemMenu tooltip" name="PRIMUS">
+                BẢNG GIÁ
+            </div>
+            <div class="itemMenu tooltip" name="PRIMUS">
+                LIÊN HỆ
+            </div>
+        </div>
     </div>
 
 <!--         <div id="fb-root"></div>

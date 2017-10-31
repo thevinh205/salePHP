@@ -104,3 +104,39 @@ div {
     width: 40pt;
     text-align: center;
 }
+
+.kengangmenu {
+    background: white;
+    height: 1pt;
+}
+
+.menubar {
+    background: black;
+    height: 23pt;
+}
+
+.itemMenu {
+    background: #183544;
+    padding-left: 10pt;
+    padding-right: 10pt;
+    height: 100%;
+    text-align: center;
+    color: white;
+    padding-top: 1pt;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.content {
+    background: #F1F1F1;
+    width: 90%;
+    position: absolute;
+    text-align: center;
+    left: 100pt;
+    top: 108pt;
+}

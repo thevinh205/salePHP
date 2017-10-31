@@ -7,7 +7,9 @@ and open the template in the editor.
 <html>
     <body>
         <?php include 'template/header.php';?>
-        
+        <div class=""content>
+            
+        </div>
    
     </body>
 </html>
