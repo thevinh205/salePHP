@@ -7,38 +7,43 @@
         <script src="resources/js/jquery.min.js" ></script>
         <script src="resources/js/jquery-ui.min.js" ></script>
         <script src="resources/js/common.js"></script>
+        <header class="clearfix">
+            <div class="head-area">
+                <div id="logo" itemscope="" itemtype="http://schema.org/WPHeader">
+                    <div class="header section" id="header">
+                        <div class="widget Header" data-version="1" id="Header1">
+                        <div id="header-inner">
+                            <a href="http://www.phukientinnhiem.com/" itemprop="url" style="display: block"><h1 style="display:none;"></h1>
+<!--                                <img alt="Phụ kiện Tín Nhiệm TN" height="66px; " id="Header1_headerimg" src="http://nationalspeakingweek.org/wp-content/uploads/2014/02/voicethread.jpg" style="display: block" width="177px; ">-->
+<!--                                <p style="font-weight: bold; font-size: 25px; margin-left: 100px;">VT</p>-->
+                            </a>
+                        </div>
+                    </div></div>
+                </div>
+                <nav id="navigation" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+                    <ul>
+                        <li class="active" itemprop="name"><a href="/" itemprop="url">Hàng mới về</a></li>
+                        <li itemprop="name"><a href="/p/bang-gia-phan-phoi-si-le-gia-re-nhat.html" itemprop="url">Bảng giá sỉ</a></li>
+                        <li itemprop="name"><a href="/p/bang-gia-si-my-pham-gia-re-cuc-tot_28.html" itemprop="url">Mỹ phẩm</a></li>
+                        <li itemprop="name"><a href="/p/khach-o-tinh-at-hang-voi-hoa-on-tren.html" itemprop="url">Hướng dẫn</a></li>
+                    </ul>
+                </nav>
+                <div class="m-button">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8" id="search">
+                    <div class="input-group clearfix">
+                        <form action="/search" id="searchform" method="get">
+                            <input class="form-control radius-2x pull-right" name="q" placeholder="Search" type="text" value="">
+                        </form>
+                        <button class="btn btn-default btn-lg  pull-right" type="button"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </header>
     </head>
         
-    <div class="menu">
-        <div class="logomenu">
-            <img class="logohatec" src="resources/img/logopk.png"/>
-        </div>
-        <div class="tencongtymenu">
-            <div class="tencty">PHỤ KIỆN GIÁ RẺ VT</div>
-            <div class="diachi1">Tel: 0166 381 0003</div>
-            <div class="diachi2">Địa chỉ: 15A Nguyễn Trung Trực, F.5, Q. Bình Thạnh, Tp.HCM</div>
-        </div>
-        <div class="fanpagehatec">
-            <img class="fanpagehatecHinh" src="resources/img/fanpagepk.png">
-        </div>
-        <div class="hotlinemenu">
-            <img class="hotline" src="resources/img/dienthoaiext0.png">
-        </div>
-        <div class="vohangmenu">
-            <img class="vohangmenu_hinh imggiohang" src="resources/img/giohang.png">
-            <div class="vohangmenu_soluong soluonghangdat">0</div>
-        </div>
-        <div class="kengangmenu">
-        </div>
-        <div class="menubar">
-            <div class="itemMenu tooltip" name="PRIMUS">
-                BẢNG GIÁ
-            </div>
-            <div class="itemMenu tooltip" name="PRIMUS">
-                LIÊN HỆ
-            </div>
-        </div>
-    </div>
+    
 
 <!--         <div id="fb-root"></div>
         <script>(function(d, s, id) {

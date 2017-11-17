@@ -1,142 +1,144 @@
-body {
-    background: #F1F1F1;
-    width: 100%;
-    font-family: Verdana,sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-    display: block;
-}
-
 div {
     display: block;
 }
 
-.menu {
-    position: fixed;
-    height: 100px;
-    width: 100%;
-    z-index: 30;
-    background: black;
-    top: 0pt;
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background-color: #FFffff;
+    font: normal normal 14px Verdana, Open Sans;
+    color: #333333;
+    display: block;
 }
 
-.logomenu {
-    height: 50pt;
-    width: 72pt;
-    padding-left: 10pt;
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: auto;
+    text-decoration: none;
 }
 
-.logohatec {
-    width: 55pt;
-    height: inherit;
+header {
+    position: relative;
+    margin: 0 auto;
+    padding: 20px 0;
+    width: 1170px;
 }
 
-.tencongtymenu {
-    height: 50pt;
-    width: 300pt;
-    position: absolute;
-    left: 73pt;
-    top: 0pt;
+.head-area {
+    padding: 0px 0;
 }
 
-.tencty {
-    color: white;
-    padding-top: 2pt;
-    font-weight: bold;
-    font-size: 14.5pt;
+#logo {
+    width: 188px;
+    float: left;
 }
 
-.diachi1 {
-    color: white;
-    font-size: 8pt;
-}
-
-.diachi2 {
-    color: white;
-    font-size: 8pt;
-    word-spacing: 2.8pt;
-}
-
-.fanpagehatec {
-    position: absolute;
-    left: 360pt;
-    z-index: 60;
-    top: 3pt;
-    cursor: pointer;
-}
-
-.fanpagehatecHinh {
-    width: 170pt;
-}
-
-.hotlinemenu {
-    height: 50pt;
-    width: 180pt;
-    position: absolute;
-    right: 200pt;
-    top: 0pt;
-}
-
-.hotline {
-    width: 100%;
-    height: inherit;
-    padding-bottom: 4pt;
-}
-.vohangmenu {
-    background: black;
-    height: 50pt;
-    width: 100pt;
-    position: absolute;
-    right: 20pt;
-    top: 0pt;
-}
-.vohangmenu_hinh {
-    width: 55pt;
-    height: inherit;
-    cursor: pointer;
-}
-.vohangmenu_soluong {
-    color: orange;
-    font-size: 16pt;
-    position: absolute;
-    top: 10pt;
-    right: 10pt;
-    width: 40pt;
-    text-align: center;
-}
-
-.kengangmenu {
-    background: white;
-    height: 1pt;
-}
-
-.menubar {
-    background: black;
-    height: 23pt;
-}
-
-.itemMenu {
-    background: #183544;
-    padding-left: 10pt;
-    padding-right: 10pt;
-    height: 100%;
-    text-align: center;
-    color: white;
-    padding-top: 1pt;
-    cursor: pointer;
+#logo, #navigation {
     display: inline-block;
+    margin-right: 2%;
 }
 
-.tooltip {
+#navigation {
+    width: 466px;
+    float: left;
+    padding-top: 20px;
+    padding-left: 125px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+nav ul li {
     position: relative;
     display: inline-block;
 }
 
-.content {
-    background: #F1F1F1;
-    width: 90%;
+#search {
+    margin: -2px auto;
+    float: right;
+}
+
+#search .input-group {
+    position: relative;
+    float: right;
+    width: 200px;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+#search .form-control {
+    padding: 0px 15px;
+    line-height: 40px;
+    background: #f9f9f9;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Georgia';
+    font-style: italic;
+    color: #cccccc !important;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.pull-left {
+    float: left !important;
+}
+
+#search button {
     position: absolute;
-    text-align: center;
-    left: 100pt;
-    top: 108pt;
+    right: 0px;
+    line-height: 40px;
+    color: #bbbbbb;
+    font-size: 14px;
+    background: none;
+    width: 40px;
+    padding: 0px;
+    z-index: 99;
+    border: none;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.active a, nav ul li:hover a {
+    color: #5BC0EB;
+    border-bottom: 3px solid #5BC0EB;
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+
+ul {
+    list-style-type: none;
+}
+
+nav ul li a {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 0;
+    border-bottom: 3px solid transparent;
+    margin: 0px 10px;
+    font-family: Verdana, Lato ,sans-serif;
+}
+
+.content {
+    background: #f9f9f9;
+    padding-top: 20px;
 }
