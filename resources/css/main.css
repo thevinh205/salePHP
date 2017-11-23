@@ -141,4 +141,79 @@ nav ul li a {
 .content {
     background: #f9f9f9;
     padding-top: 20px;
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.widget-title {
+    position: absolute;
+    top: 200px;
+    left: 15%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 70%;
+    height: 100px;
+}
+
+.product-list {
+    float: left;
+}
+
+td {
+    padding: 3px;
+    vertical-align: middle;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+table {
+    border-spacing: 0;
+}
+
+.footer-wrapper {
+    background: #222222;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1170px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: transparent;
+}
+
+footer {
+    padding: 30px 0;
+    color: #a0a0a0;
+    height: 350px;
+}
+
+footer .footer-section {
+    width: 30%;
+    margin-right: 5%;
+    float: left;
+}
+
+footer .footer-section {
+    width: 30%;
+    margin-right: 5%;
+    float: left;
+}
+
+footer .footer-section {
+    width: 30%;
+    margin-right: 0%;
+    float: left;
 }
