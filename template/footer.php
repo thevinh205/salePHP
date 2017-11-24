@@ -10,7 +10,7 @@
     FONT-WEIGHT: bold;
     color: white;
     font-family: verdana;
-">PHỤ KIỆN TÍN NHIỆM</p>
+">PHỤ KIỆN VT</p>
 <div class="box-content about">
 					<p>Phân phối giá sỉ phụ kiện điện thoại, máy tính, đồ chơi, đồ gia dụng giá rẻ nhất. Chuyên pin sạc dự phòng, tai nghe bluetooth, loa bluetooth, màn hình LCD, bàn phím, chuột các loại.</p>						<ul class="list-unstyled list space-top-20">							<li><i class="fa fa-map-marker"></i>A34 QL22, Trung Mỹ Tây, quận 12, HCM</li>							<li><i class="fa fa-phone"></i>0166.381.0003 (Mr. Vinh)</li>							<li><i class="fa fa-envelope-o"></i>thevinh205@gmail.com</li>
 
@@ -44,7 +44,7 @@
 </div></div>
 <div class="footer-section section" id="section-4"><div class="widget HTML" data-version="1" id="HTML10">
 <div class="widget-content">
-    <img src="http://online.gov.vn/PublicImages/2015/08/27/11/20150827110756-dathongbao.png" style="width: 350px">
+    <img src="http://online.gov.vn/PublicImages/2015/08/27/11/20150827110756-dathongbao.png" style="width: 300px">
 </div>
 <div class="clear"></div>
 <div class="clear"></div>
@@ -58,8 +58,7 @@
 <h2 class="title"><span>Thời gian làm việc</span></h2>
 <div class="widget-content">
 <div class="box-content">
-<p>T2 - T7  : ------------- 9h - 18h</p>
-<p>Chủ Nhật: ------------- 9h - 14h</p>				</div>
+<p>8h -> 21h hằng ngày</p></div>
 </div>
 <div class="clear"></div>
 <div class="clear"></div>
