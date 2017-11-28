@@ -223,6 +223,8 @@ and open the template in the editor.
                                 </td>
                                 <td align="center" style="width: 15%">
                                     <span><font size="4"><b><font color="purple">325k</font></b></font></span>
+                                    <br/>
+                                    <span><font size="4"><b><font color="red">(Tạm hết)</font></b></font></span>
                                 </td>
                                 <td style="width: 40%">
                                     <span>
@@ -368,6 +370,206 @@ and open the template in the editor.
                                 </td>
                                 <td align="center" style="width: 15%">
                                     <span><font size="3"><b><font color="#000">3T</font></b></font></span>
+                                </td>
+                            </tr>
+                            
+<!--***********************************************************************************Quạt****************************************************************************************-->
+                            <tr>
+                                <td colspan="5" style="text-align:center;">
+                                    <a name="usbbatlua"><b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">Quạt</b></a><br>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/quat-3-cap.jpg" alt="Quạt 3 cấp" title="Quạt 3 cấp" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">30k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Quạt 3 cấp" target="_blank">Quạt <font color="red"> 3 cấp</font></a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">1T</font></b></font></span>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/quat-long-sat-nho.jpg" alt="Quạt lồng sắt" title="Quạt lồng sắt" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">33k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Quạt lồng sắt" target="_blank">Quạt <font color="red"> lồng sắt nhỏ</font></a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">1T</font></b></font></span>
+                                </td>
+                            </tr>
+                            
+<!--***********************************************************************************ĐẾ ĐT****************************************************************************************-->
+                            <tr>
+                                <td colspan="5" style="text-align:center;">
+                                    <a name="usbbatlua"><b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">Đế điện thoại</b></a><br>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/de-gau.jpg" alt="Đế gấu" title="Đế gấu" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">10k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Giá đỡ ĐT hình gấu lớn" target="_blank">Giá đỡ ĐT <font color="red"> hình gấu lớn</font></a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">TEST</font></b></font></span>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/kep-duoi-khi.jpg" alt="Giá đỡ kẹp đuôi khỉ ĐT" title="Giá đỡ kẹp đuôi khỉ ĐT" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">11k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Giá đỡ kẹp đuôi khỉ ĐT" target="_blank">Giá đỡ <font color="red"> kẹp đuôi khỉ ĐT</font></a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">TEST</font></b></font></span>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/khung-sat-do-ipad.jpg" alt="Khung sắt đỡ ipad" title="Giá đỡ bạch tuột" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">14k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Khung sắt đỡ ipad" target="_blank">Khung sắt đỡ <font color="red"> ipad</font></a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">TEST</font></b></font></span>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/de-bach-tuot.jpg" alt="Giá đỡ bạch tuột" title="Giá đỡ bạch tuột" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">17k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Giá đỡ bạch tuột" target="_blank">Giá đỡ ĐT <font color="red"> bạch tuột</font></a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">TEST</font></b></font></span>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/gay-tripod.jpg" alt="Chân chụp hình tripod" title="Chân chụp hình tripod" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">66k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Chân chụp hình tripod" target="_blank">Chân chụp hình <font color="red"> tripod cao 1.1m</font></a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">TEST</font></b></font></span>
+                                </td>
+                            </tr>
+<!--***********************************************************************************Pin sạc dự phòng****************************************************************************************-->
+                            <tr>
+                                <td colspan="5" style="text-align:center;">
+                                    <a name="usbbatlua"><b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">Pin sạc dự phòng</b></a><br>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/du-phong-arun-5600.jpg" alt="Pin sạc dự phòng arun 5600mah" title="Pin sạc dự phòng arun 5600mah" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">62k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Pin sạc dự phòng arun 5600mah" target="_blank">Pin sạc dự phòng <font color="red"> arun 5600mah</font></a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">6T</font></b></font></span>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/du-phong-arun-10400.jpg" alt="Pin sạc dự phòng arun 10400mah" title="Pin sạc dự phòng arun 10400mah" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">138k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Pin sạc dự phòng arun 10400mah" target="_blank">Pin sạc dự phòng <font color="red"> arun 10400mah</font></a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">6T</font></b></font></span>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/du-phong-romoss-10400.jpg" alt="Pin sạc dự phòng romoss 10400mah sense4" title="Pin sạc dự phòng romoss 10400mah sense4" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">181k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Pin sạc dự phòng romoss 10400mah sense4" target="_blank">Pin sạc dự phòng <font color="red"> romoss 10400mah sense4</font></a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">6T</font></b></font></span>
                                 </td>
                             </tr>
                         </tbody>
