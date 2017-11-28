@@ -669,6 +669,24 @@ and open the template in the editor.
                             <tr valign="top">
                                 <td style="text-align: center; width: 30%">
                                     <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/cap-ss-re.jpg" alt="Cáp samsung rẻ" title="Cáp samsung rẻ" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">4.5k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Cáp samsung rẻ" target="_blank">Cáp <font color="red"> samsung rẻ</font></a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">TEST</font></b></font></span>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
                                         <img border="0" src="resources/img/sanpham/cap-pinyue.jpg" alt="Cáp pinyue" title="Cáp pinyue" style="max-width: 450px"></a>
                                 </td>
                                 <td align="center" style="width: 15%">
@@ -767,6 +785,42 @@ and open the template in the editor.
                                 <td style="width: 40%">
                                     <span>
                                         <font size="4"><b><a href="http://www.phukienvt.com" title="Cáp Earldom" target="_blank">Cáp <font color="red"> SZP type-C</font></a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">TEST</font></b></font></span>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/cap-3-dau.jpg" alt="Cáp 3 đầu" title="Cáp 3 đầu" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">18k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Cáp 3 đầu" target="_blank">Cáp <font color="red"> 3 đầu</font></a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">TEST</font></b></font></span>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/cap-nhieu-dau.jpg" alt="Cáp rút 4 đầu" title="Cáp rút 4 đầu" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">29k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Cáp rút 4 đầu" target="_blank">Cáp <font color="red"> rút 4 đầu</font></a></b> </font>
                                         <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
                                     </span>
                                 </td>
