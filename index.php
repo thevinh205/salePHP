@@ -669,14 +669,14 @@ and open the template in the editor.
                             <tr valign="top">
                                 <td style="text-align: center; width: 30%">
                                     <a href="javascript:void(0)" imageanchor="1">
-                                        <img border="0" src="resources/img/sanpham/cap-lapu.jpg" alt="Cáp Lapu" title="Cáp Lapu" style="max-width: 450px"></a>
+                                        <img border="0" src="resources/img/sanpham/cap-pinyue.jpg" alt="Cáp pinyue" title="Cáp pinyue" style="max-width: 450px"></a>
                                 </td>
                                 <td align="center" style="width: 15%">
-                                    <span><font size="4"><b><font color="purple">15k</font></b></font></span>
+                                    <span><font size="4"><b><font color="purple">12k</font></b></font></span>
                                 </td>
                                 <td style="width: 40%">
                                     <span>
-                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Cáp Lapu" target="_blank">Cáp đầu micro<font color="red"> Lapu</font> dây dù cực bền</a></b> </font>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Cáp pinyue" target="_blank">Cáp sạc đầu micro<font color="red"> pinyue</font></a></b> </font>
                                         <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
                                     </span>
                                 </td>
@@ -694,7 +694,43 @@ and open the template in the editor.
                                 </td>
                                 <td style="width: 40%">
                                     <span>
-                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Cáp Earldom" target="_blank">Cáp đầu micro<font color="red"> Earldom</font> sạc nhanh</a></b> </font>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Cáp Earldom" target="_blank">Cáp sạc đầu micro<font color="red"> Earldom</font> sạc nhanh</a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">TEST</font></b></font></span>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/cap-lapu.jpg" alt="Cáp Lapu" title="Cáp Lapu" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">18k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Cáp Lapu" target="_blank">Cáp sạc đầu micro<font color="red"> Lapu</font> dây dù cực bền</a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">TEST</font></b></font></span>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/cap-pinyue-ip.jpg" alt="Cáp pinyue iphone 5,6,7" title="Cáp pinyue iphone 5,6,7" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">14k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Cáp Lapu" target="_blank">Cáp sạc iphone 5,6,7<font color="red"> pinyue</font> </a></b> </font>
                                         <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
                                     </span>
                                 </td>
@@ -712,7 +748,7 @@ and open the template in the editor.
                                 </td>
                                 <td style="width: 40%">
                                     <span>
-                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Cáp Lapu" target="_blank">Cáp iphone 5,6,7<font color="red"> Lapu</font> dây dù cực bền</a></b> </font>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Cáp Lapu" target="_blank">Cáp sạc iphone 5,6,7<font color="red"> Lapu</font> dây dù cực bền</a></b> </font>
                                         <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
                                     </span>
                                 </td>
