@@ -6,7 +6,8 @@ and open the template in the editor.
 -->
 <html>
     <body>
-        <div class="outerwapper" style="background: url(http://s.baomoi.xdn.vn/web/styles/img/hoa-dao.png?v0.10) no-repeat;     background-position: calc(50% - 574px) 0; height: 1000px">
+<!--        <div class="outerwapper" style="background: url(http://s.baomoi.xdn.vn/web/styles/img/hoa-dao.png?v0.10) no-repeat;     background-position: calc(50% - 574px) 0; height: 1000px">-->
+            <div class="outerwapper">
             <?php include 'template/header.php';?>
             <div class="content">
                 <div class="widget-title">
@@ -373,6 +374,67 @@ and open the template in the editor.
                                 </td>
                             </tr>
                             
+<!--***********************************************************************************Mic karaoke****************************************************************************************-->
+                            <tr>
+                                <td colspan="5" style="text-align:center;">
+                                    <a name="usbbatlua"><b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">Mic karaoke</b></a><br>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/mic-q7.jpg" alt="Mic karaoke q7" title="Mic karaoke q7" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">145k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Mic karaoke q7" target="_blank">Mic karaoke <font color="red"> q7</font></a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">6T</font></b></font></span>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/mic-q10.jpg" alt="Mic karaoke q10" title="Mic karaoke q10" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">230k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Mic karaoke q10" target="_blank">Mic karaoke <font color="red"> q10</font></a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">6T</font></b></font></span>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/mic-ws-858.jpg" alt="Mic karaoke WS-858" title="Mic karaoke WS-858" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">220k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Mic karaoke WS-858" target="_blank">Mic karaoke <font color="red"> WS-858</font></a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">6T</font></b></font></span>
+                                </td>
+                            </tr>
+                            
 <!--***********************************************************************************Quạt****************************************************************************************-->
                             <tr>
                                 <td colspan="5" style="text-align:center;">
@@ -570,6 +632,110 @@ and open the template in the editor.
                                 </td>
                                 <td align="center" style="width: 15%">
                                     <span><font size="3"><b><font color="#000">6T</font></b></font></span>
+                                </td>
+                            </tr>
+           
+<!--***********************************************************************************Camera****************************************************************************************-->
+                            <tr>
+                                <td colspan="5" style="text-align:center;">
+                                    <a name="usbbatlua"><b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">Camera</b></a><br>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/camera-yoosee.jpg" alt="Camera Yousee wifi 2 râu" title="Camera Yousee wifi 2 râu" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">345k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Camera Yousee wifi 2 râu" target="_blank">Camera <font color="red"> Yousee wifi 2 râu</font></a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">12T</font></b></font></span>
+                                </td>
+                            </tr>
+                            
+<!--***********************************************************************************Cáp sạc****************************************************************************************-->
+                            <tr>
+                                <td colspan="5" style="text-align:center;">
+                                    <a name="usbbatlua"><b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">Cáp sạc</b></a><br>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/cap-lapu.jpg" alt="Cáp Lapu" title="Cáp Lapu" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">15k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Cáp Lapu" target="_blank">Cáp đầu micro<font color="red"> Lapu</font> dây dù cực bền</a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">TEST</font></b></font></span>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/cap-earldom.jpg" alt="Cáp Earldom" title="Cáp Earldom" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">15k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Cáp Earldom" target="_blank">Cáp đầu micro<font color="red"> Earldom</font> sạc nhanh</a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">TEST</font></b></font></span>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/cap-lapu-ip.jpg" alt="Cáp Lapu iphone 5,6,7" title="Cáp Lapu iphone 5,6,7" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">20k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Cáp Lapu" target="_blank">Cáp iphone 5,6,7<font color="red"> Lapu</font> dây dù cực bền</a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">TEST</font></b></font></span>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td style="text-align: center; width: 30%">
+                                    <a href="javascript:void(0)" imageanchor="1">
+                                        <img border="0" src="resources/img/sanpham/cap-szp-typeC.jpg" alt="Cáp SZP type-C" title="Cáp SZP type-C" style="max-width: 450px"></a>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="4"><b><font color="purple">20k</font></b></font></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span>
+                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Cáp Earldom" target="_blank">Cáp <font color="red"> SZP type-C</font></a></b> </font>
+                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
+                                    </span>
+                                </td>
+                                <td align="center" style="width: 15%">
+                                    <span><font size="3"><b><font color="#000">TEST</font></b></font></span>
                                 </td>
                             </tr>
                         </tbody>

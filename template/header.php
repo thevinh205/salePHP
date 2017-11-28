@@ -24,7 +24,7 @@
                     <ul>
                         <li class="active" itemprop="name"><a href="/" itemprop="url">Hàng mới về</a></li>
                         <li itemprop="name"><a href="/p/bang-gia-phan-phoi-si-le-gia-re-nhat.html" itemprop="url">Bảng giá sỉ</a></li>
-                        <li itemprop="name"><a href="/p/bang-gia-si-my-pham-gia-re-cuc-tot_28.html" itemprop="url">Mỹ phẩm</a></li>
+<!--                        <li itemprop="name"><a href="/p/bang-gia-si-my-pham-gia-re-cuc-tot_28.html" itemprop="url">Mỹ phẩm</a></li>-->
                         <li itemprop="name"><a href="/p/khach-o-tinh-at-hang-voi-hoa-on-tren.html" itemprop="url">Hướng dẫn</a></li>
                     </ul>
                 </nav>
