@@ -358,7 +358,7 @@ and open the template in the editor.
                             <tr valign="top">
                                 <td style="text-align: center; width: 30%">
                                     <a href="javascript:void(0)" imageanchor="1">
-                                        <img border="0" src="resources/img/sanpham/Loakeo-amoi.png" alt="Loa kéo giá rẻ" title="Loa kéo giá rẻ" style="max-width: 450px"></a>
+                                        <img border="0" src="resources/img/sanpham/Loakeo-amoi.jpg" alt="Loa kéo giá rẻ" title="Loa kéo giá rẻ" style="max-width: 450px"></a>
                                 </td>
                                 <td align="center" style="width: 15%">
                                     <span><font size="4"><b><font color="purple">1250k</font></b></font></span>
