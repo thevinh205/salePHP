@@ -2,6 +2,7 @@
     include("config.php");
 ?>
 <html>
+    <head><link rel="icon" type="image/gif" href="resources/img/icon/long-den.jpg" /></head>
     <body>
 <!--        <div class="outerwapper" style="background: url(http://s.baomoi.xdn.vn/web/styles/img/hoa-dao.png?v0.10) no-repeat;     background-position: calc(50% - 574px) 0; height: 1000px">-->
             <div class="outerwapper">
@@ -56,7 +57,7 @@
                                 </td>
                             </tr>
                             <?php
-                                 $sql="select id,name,avatar, price_sell from product where status='open' ";
+                                 $sql="SELECT p.id, p.name, p.price_sell, p.avatar, sp.count FROM shop_party_relationship sp left join product p on sp.product_id=p.id where sp.type='product';";
                                   $result=mysqli_query($con,$sql);
                                   
                                    while($tv_2=mysqli_fetch_array($result))
@@ -68,11 +69,15 @@
                                         echo    "</td>";
                                         echo    "<td align='center' style='width: 15%'>";
                                         echo        "<span><font size='4'><b><font color='purple'>".substr($tv_2['price_sell'], 0, -3)."k</font></b> </font></span>";
+                                        if($tv_2['count'] == 0) {
+                                            echo "<br/>";
+                                            echo "<span><font size='4'><b><font color='red'>(Tạm hết)</font></b></font></span>";
+                                        }
                                         echo    "</td>";
                                         echo    "<td style='width: 40%'>";
                                         echo        "<span>";
-                                        echo            "<font size='4'><b><a href='http://www.phukienvt.com' title='".$tv_2['name']."' target='_blank'>".$tv_2['name']."</a></b> </font>";
-                                        echo            "<b><font color='green' size='3' style='background-color: yellow'> MỚI VỀ HÀNG 30/11</font></b>";
+                                        echo            "<font size='4'><b><span title='".$tv_2['name']."'>".$tv_2['name']."</span></b> </font>";
+//                                        echo            "<b><font color='green' size='3' style='background-color: yellow'> MỚI VỀ HÀNG 30/11</font></b>";
                                         echo        "</span>";
                                         echo    "</td>";
                                         echo    "<td align='center' style='width: 15%'>";
