@@ -55,34 +55,8 @@
                                     <br>
                                 </td>
                             </tr>
-                            <?php
-                                 $sql="select id,name,avatar, price_sell from product where status='open' ";
-                                  $result=mysqli_query($con,$sql);
-                                  
-                                   while($tv_2=mysqli_fetch_array($result))
-                                    {
-                                        echo "<tr valign='top'>";
-                                        echo    "<td style='text-align: center; width: 30%'>";
-                                        echo        "<a href='javascript:void(0)' imageanchor='1'>";
-                                        echo            "<img border='0' src='resources/img/sanpham/".$tv_2['id']."/".$tv_2['avatar']."' alt='".$tv_2['name']."' title='".$tv_2['name']."' style='max-width: 350px'></a>";
-                                        echo    "</td>";
-                                        echo    "<td align='center' style='width: 15%'>";
-                                        echo        "<span><font size='4'><b><font color='purple'>".substr($tv_2['price_sell'], 0, -3)."k</font></b> </font></span>";
-                                        echo    "</td>";
-                                        echo    "<td style='width: 40%'>";
-                                        echo        "<span>";
-                                        echo            "<font size='4'><b><a href='http://www.phukienvt.com' title='".$tv_2['name']."' target='_blank'>".$tv_2['name']."</a></b> </font>";
-                                        echo            "<b><font color='green' size='3' style='background-color: yellow'> MỚI VỀ HÀNG 30/11</font></b>";
-                                        echo        "</span>";
-                                        echo    "</td>";
-                                        echo    "<td align='center' style='width: 15%'>";
-                                        echo        "<span><font size='3'><b><font color='#000'>3T</font></b></font></span>";
-                                        echo    "</td>";
-                                        echo "</tr>";
-                                    }
-                            ?>
                             
-<!--                            <tr valign="top">
+                            <tr valign="top">
                                 <td style="text-align: center; width: 30%">
                                     <a href="javascript:void(0)" imageanchor="1">
                                         <img border="0" src="resources/img/sanpham/Loa-BLT-001.jpg" alt="Loa bluetooth giá rẻ" title="Loa bluetooth giá rẻ" style="max-width: 450px"></a>
@@ -119,7 +93,7 @@
                                 </td>
                             </tr>
                             
-***********************************************************************************LOA VI TÍNH****************************************************************************************
+<!--***********************************************************************************LOA VI TÍNH****************************************************************************************-->
                             <tr>
                                 <td colspan="5" style="text-align:center;">
                                     <a name="usbbatlua"><b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">LOA VI TÍNH</b></a><br>
@@ -180,7 +154,7 @@
                                 </td>
                             </tr>
                             
-***********************************************************************************LOA BLUETOOTH****************************************************************************************
+<!--***********************************************************************************LOA BLUETOOTH****************************************************************************************-->
                             <tr>
                                 <td colspan="5" style="text-align:center;">
                                     <a name="usbbatlua"><b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">LOA BLUETOOTH</b></a><br>
@@ -261,7 +235,7 @@
                                 </td>
                             </tr>
                             
-***********************************************************************************Tai nghe****************************************************************************************
+<!--***********************************************************************************Tai nghe****************************************************************************************-->
                             <tr>
                                 <td colspan="5" style="text-align:center;">
                                     <a name="usbbatlua"><b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">Tai nghe</b></a><br>
@@ -322,7 +296,7 @@
                                 </td>
                             </tr>
                             
-***********************************************************************************Tai nghe Headphone****************************************************************************************
+<!--***********************************************************************************Tai nghe Headphone****************************************************************************************-->
                             <tr>
                                 <td colspan="5" style="text-align:center;">
                                     <a name="usbbatlua"><b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">Tai nghe Headphone</b></a><br>
@@ -347,7 +321,7 @@
                                 </td>
                             </tr>
                             
-***********************************************************************************Tai nghe bluetooth****************************************************************************************
+<!--***********************************************************************************Tai nghe bluetooth****************************************************************************************-->
                             <tr>
                                 <td colspan="5" style="text-align:center;">
                                     <a name="usbbatlua"><b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">Tai nghe Headphone</b></a><br>
@@ -372,7 +346,7 @@
                                 </td>
                             </tr>
                             
-***********************************************************************************Loa kéo****************************************************************************************
+<!--***********************************************************************************Loa kéo****************************************************************************************-->
                             <tr>
                                 <td colspan="5" style="text-align:center;">
                                     <a name="usbbatlua"><b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">Loa kéo</b></a><br>
@@ -397,7 +371,7 @@
                                 </td>
                             </tr>
                             
-***********************************************************************************Mic karaoke****************************************************************************************
+<!--***********************************************************************************Mic karaoke****************************************************************************************-->
                             <tr>
                                 <td colspan="5" style="text-align:center;">
                                     <a name="usbbatlua"><b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">Mic karaoke</b></a><br>
@@ -458,7 +432,7 @@
                                 </td>
                             </tr>
                             
-***********************************************************************************Quạt****************************************************************************************
+<!--***********************************************************************************Quạt****************************************************************************************-->
                             <tr>
                                 <td colspan="5" style="text-align:center;">
                                     <a name="usbbatlua"><b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">Quạt</b></a><br>
@@ -501,7 +475,7 @@
                                 </td>
                             </tr>
                             
-***********************************************************************************ĐẾ ĐT****************************************************************************************
+<!--***********************************************************************************ĐẾ ĐT****************************************************************************************-->
                             <tr>
                                 <td colspan="5" style="text-align:center;">
                                     <a name="usbbatlua"><b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">Đế điện thoại</b></a><br>
@@ -597,7 +571,7 @@
                                     <span><font size="3"><b><font color="#000">TEST</font></b></font></span>
                                 </td>
                             </tr>
-***********************************************************************************Pin sạc dự phòng****************************************************************************************
+<!--***********************************************************************************Pin sạc dự phòng****************************************************************************************-->
                             <tr>
                                 <td colspan="5" style="text-align:center;">
                                     <a name="usbbatlua"><b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">Pin sạc dự phòng</b></a><br>
@@ -658,7 +632,7 @@
                                 </td>
                             </tr>
            
-***********************************************************************************Camera****************************************************************************************
+<!--***********************************************************************************Camera****************************************************************************************-->
                             <tr>
                                 <td colspan="5" style="text-align:center;">
                                     <a name="usbbatlua"><b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">Camera</b></a><br>
@@ -683,7 +657,7 @@
                                 </td>
                             </tr>
                             
-***********************************************************************************Cáp sạc****************************************************************************************
+<!--***********************************************************************************Cáp sạc****************************************************************************************-->
                             <tr>
                                 <td colspan="5" style="text-align:center;">
                                     <a name="usbbatlua"><b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">Cáp sạc</b></a><br>
@@ -850,7 +824,7 @@
                                 <td align="center" style="width: 15%">
                                     <span><font size="3"><b><font color="#000">TEST</font></b></font></span>
                                 </td>
-                            </tr>-->
+                            </tr>
                         </tbody>
                     </table>
                 </center>
