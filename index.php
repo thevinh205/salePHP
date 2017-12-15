@@ -89,7 +89,7 @@
                                         echo "</tr>";
                                     }
                             ?>
-                            <tr valign="top">
+<!--                            <tr valign="top">
                                 <td style="text-align: center; width: 30%">
                                     <a href="javascript:void(0)" imageanchor="1">
                                         <img border="0" src="resources/img/sanpham/cap-nhieu-dau.jpg" alt="Cáp rút 4 đầu" title="Cáp rút 4 đầu" style="max-width: 450px"></a>
