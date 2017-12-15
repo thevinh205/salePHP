@@ -30,11 +30,11 @@
 <div class="widget-content">
 <div class="box-content">
 <p>Chủ TK: <b>Nguyễn Hoàng Thế Vinh</b></p>
-<p><b style="color:#5BC0EB;">+</b> Vietcombank: 000000 - CN HCM</p>
+<p><b style="color:#5BC0EB;">+</b> Vietcombank: 0331.00046.5611 - CN HCM</p>
 <p><b style="color:#5BC0EB;">+</b> Sacombank: 0601.5689.7143 - CN Cộng Hòa</p>
 
 <p>Chủ TK: <b>Nguyễn Thị Thùy Trang</b></p>
-<p><b style="color:#5BC0EB;">+</b> Agribank: 000000 - CN Suối Tân</p>
+<p><b style="color:#5BC0EB;">+</b> Agribank: 4706215025868 - CN Suối Tân-Cam Lâm- Khánh Hòa</p>
 
 <p>Quý khách vui lòng ghi rõ Nội dung chuyển khoản với Tên / SĐT</p>
 			</div>
