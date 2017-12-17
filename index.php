@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
     include("config.php");
 ?>
 <html>
@@ -68,7 +68,7 @@
                                         echo "<tr valign='top'>";
                                         echo    "<td style='text-align: center; width: 30%'>";
                                         echo        "<a href='javascript:void(0)' imageanchor='1'>";
-                                        echo            "<img border='0' src='resources/img/sanpham/".$tv_2['id']."/".$tv_2['avatar']."' alt='".$tv_2['name']."' title='".$tv_2['name']."' style='max-width: 350px'></a>";
+                                        echo            "<img border='0' src='resources/img/sanpham/".$tv_2['id']."/".$tv_2['avatar']."' alt='".$tv_2['name']."' title='".$tv_2['name']."' style='max-width: 300px; max-height: 300px'></a>";
                                         echo    "</td>";
                                         echo    "<td align='center' style='width: 15%'>";
                                         echo        "<span><font size='4'><b><font color='purple'>".substr($tv_2['price_sell'], 0, -3)."k</font></b> </font></span>";
