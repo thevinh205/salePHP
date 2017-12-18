@@ -1,4 +1,4 @@
-﻿<html xmlns:th="http://www.thymeleaf.org">
+﻿<html>
 	<?php 
 	    include("../config.php");
 		$productId = $_GET['productIdEdit'];
@@ -28,18 +28,18 @@
                 <label class="form-control-label col-sm-4">Loại sản phẩm</label>
                 <div class="col-sm-8"> 
                     <select class="form-control" name="productTypeEdit" id="productTypeEdit">
-						<?php
-							$sql2="SELECT type_id, type_name FROM product_type";
-							$result2=mysqli_query($con,$sql2);
-							while($tv_3=mysqli_fetch_array($result2)){
-								if($tv_3['type_id'] == $row1['product_type']){
-									 echo "<option selected='selected' value='$tv_3[type_id]'>$tv_3[type_name]</option>";
-								}
-								else{
-									 echo "<option value='$tv_3[type_id]'>$tv_3[type_name]</option>";
-								}
-							}
-						?>
+                        <?php
+                                $sql2="SELECT type_id, type_name FROM product_type";
+                                $result2=mysqli_query($con,$sql2);
+                                while($tv_3=mysqli_fetch_array($result2)){
+                                        if($tv_3['type_id'] == $row1['product_type']){
+                                                 echo "<option selected='selected' value='$tv_3[type_id]'>$tv_3[type_name]</option>";
+                                        }
+                                        else{
+                                                 echo "<option value='$tv_3[type_id]'>$tv_3[type_name]</option>";
+                                        }
+                                }
+                        ?>
                     </select>
 
                 </div>

@@ -1,18 +1,20 @@
 <?php 
-    include("config.php");
+    include("../config.php");
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
     <title>Chi tiết cửa hàng</title>
-	<script src="static/js/jquery.min.js"></script>
-    <div th:replace="layout/header :: header-css"/>
-    <script src="../static/js/shop.js"></script>
-    <link rel="stylesheet" href="../static/css/shop.css" />
-    <link rel="stylesheet" href="../static/css/main.css" />
+    <script src="../static/js/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" 
                   href="../static/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
+    <script src="../static/js/shop.js"></script>
+    <script src="../static/js/common.js"></script>
     <script src="../static/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="../static/css/shop.css" />
+    <link rel="stylesheet" href="../static/css/main.css" />
+    
 </head>
 <body>
 
@@ -23,9 +25,9 @@
     <div class="container">
         <div class="row">
             <?php 
-			    include("../layout/left-menu.html");
-			?>
-            <input type="hidden" th:value="${shop.id}" id="shopId"/>
+                include("../layout/left-menu.html");
+            ?>
+            <input type="hidden" value="<?php echo $_GET['shopId']; ?>" id="shopId"/>
             <div class="body">
                 <div class="header">
                     <span>Chi tiết <span th:text="${shop.name}"></span></span>

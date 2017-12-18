@@ -7,16 +7,20 @@ $(document).ready(function(){
         var productId = $("input[name*='productIdAdd']").val();
         var productName = $("input[name*='productNameAdd']").val();
         
-        var url = "/shop/searchProductAdd";
+        var url = "product_list_add.php";
         $.ajax({	
             type: 'POST', 
             url: url, 
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
             data: {
                 productId : productId, 
-                productName: productName},
+                productName: productName
+            },
             success: function(data){ 
                 $("div[class*='list-product-add']").html(data);
+                $(".numbers").each(function(c, obj){
+                    $(obj).text(addCommas(parseFloat($(obj).text())));
+                });
             },
             error: function(XMLHttpRequest, textStatus, errorThrown){
             }
@@ -32,14 +36,16 @@ $(document).ready(function(){
     $(".deleteProductAction").click( function(){
         var productIdDelete = $("#productIdDelete").val();
         var shopId = $("#shopId").val();
-        var url = "/shop/removeProductShop";
+        var url = "shop.php";
         $.ajax({	
             type: 'POST', 
             url: url, 
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
             data: {
                 shopId : shopId,
-                productId : productIdDelete},
+                productId : productIdDelete,
+                type : 'deleteProductShop'
+            },
             success: function(data){ 
                 $("#deleteProduct").modal('toggle');
                 showNotificationHeader("Xóa sản phẩm thành công");
@@ -61,7 +67,7 @@ function addProductToShop(e) {
         $(row).find(".count").addClass("input-error");
     }
     else {
-        var url = "/shop/addProductToShop";
+        var url = "shop.php";
         $.ajax({	
             type: 'POST', 
             url: url, 
@@ -69,7 +75,9 @@ function addProductToShop(e) {
             data: {
                 shopId : shopId,
                 productId : productId, 
-                count: count},
+                count: count,
+                type: 'addProductToShop'
+            },
             success: function(data){ 
                 alert('Thêm sản phẩm thành công');
                 $(row).find(".count").val("");
@@ -101,8 +109,7 @@ function editCountProductAction(e) {
     var count = row.find(".count-product-input").val();
     var productId = $(row).find(".productId").text();
     var shopId = $("#shopId").val();
-    
-    var url = "/shop/product/edit";
+    var url = "shop.php";
     $.ajax({	
         type: 'POST', 
         url: url, 
@@ -110,7 +117,9 @@ function editCountProductAction(e) {
         data: {
             shopId : shopId,
             productId : productId, 
-            count: count},
+            count: count,
+            type: 'editProductShop'
+        },
         success: function(data){ 
             showNotificationHeader("Chỉnh sửa sản phẩm thành công");
             row.find(".count-product-text").text(count);
@@ -126,12 +135,13 @@ function searchProductShop(page) {
     var productId = $("input[name*='productId']").val();
     var productName = $("input[name*='productName']").val();
     var productType = $("select[name*='productType']").val();
-    var url = "/shop/searchProductList";
+    var url = "product_list.php";
     $.ajax({	
         type: 'POST', 
         url: url, 
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-        data: { shopId: shopId, 
+        data: { 
+            shopId: shopId, 
             page: page,
             productId : productId, 
             productName: productName,
@@ -139,6 +149,9 @@ function searchProductShop(page) {
         },
         success: function(data){ 
             $("div[id*='contentTab']").html(data);
+            $(".numbers").each(function(c, obj){
+                $(obj).text(addCommas(parseFloat($(obj).text())));
+            });
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
         }

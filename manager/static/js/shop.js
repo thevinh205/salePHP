@@ -2,19 +2,31 @@ function changeTab(tabName){
     try{
         if(null != tabName){
             var shopId = $("#shopId").val();
-            var url = "/shop/" + tabName + "?shopId=" + shopId;
+            var url = "";
+            if(tabName == 'productList')
+                url = "product_list.php?shopId=" + shopId;
             if(tabName == 'orderList')
-                url = "/order/" + tabName + "?shopId=" + shopId;
+                url = "order_list.php?shopId=" + shopId;
             if(tabName == 'employeeList')
-                url = "/user/" + tabName + "?shopId=" + shopId;
+                url = "employee.php?shopId=" + shopId;
             $.ajax({	
-                type: 'GET', 
+                type: 'POST', 
                 url: url, 
-                cache: false,
-                contentType: false,
-                processData: false,
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                data: {
+                    shopId: shopId, 
+                    page: 1,
+                    productId :'', 
+                    productName: '',
+                    productType: 'all',
+                    orderId: '',
+                    totalPriceOrder:0
+                },
                 success: function(data){ 
                     $("div[id*='contentTab']").html(data);
+                    $(".numbers").each(function(c, obj){
+                        $(obj).text(addCommas(parseFloat($(obj).text())));
+                    });
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown){
                 }
@@ -27,15 +39,23 @@ function changeTab(tabName){
 
 $(document).ready(function(){
     var shopId = $("#shopId").val();
-    var url = "/shop/productList?shopId=" + shopId;
+    var url = "product_list.php";
     $.ajax({	
-        type: 'GET', 
+        type: 'POST', 
         url: url, 
-        cache: false,
-        contentType: false,
-        processData: false,
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+        data: { 
+            shopId: shopId, 
+            page: 1,
+            productId :'', 
+            productName: '',
+            productType: 'all'
+        },
         success: function(data){ 
             $("div[id*='contentTab']").html(data);
+            $(".numbers").each(function(c, obj){
+                $(obj).text(addCommas(parseFloat($(obj).text())));
+            });
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
         }
