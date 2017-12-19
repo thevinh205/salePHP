@@ -10,14 +10,13 @@
           <th>Tên</th>
           <th>Giá</th>
           <th class="text-center">Số lượng</th>
-          <th class="text-center"></th>
       </tr>
     </thead>
     <tbody>
         <?php
-            $productId = $_POST['productId'];
-            $productName = $_POST['productName'];
-            $sql="SELECT p.id, name, price_sell, avatar FROM product p where p.id LIKE '%$productId%' and name like '%$productName%'";
+            $shopId = $_POST['shopId'];
+            $orderId = $_POST['orderId'];
+            $sql="SELECT p.id, name, price_sell, avatar, count FROM order_party_relationship op LEFT JOIN product p on op.product_id=p.id where op.shop_id=$shopId and op.order_id=$orderId";
             $result=mysqli_query($con,$sql);
             $index = 1;
             while($tv_2=mysqli_fetch_array($result)){
@@ -29,12 +28,7 @@
                 echo    "<td class='productId'>$tv_2[id]</td>";
                 echo    "<td class='productName'>$tv_2[name]</td>";
                 echo    "<td  class='priceSell numbers'>$tv_2[price_sell]</td>";
-                echo    "<td><input type='number' class='count'/></td>";
-                echo    "<td style='width: 110px; text-align: center'>";
-                echo        "<a href='javascript:void(0)' style='margin-right: 10px' title='Thêm' onclick='addProductToShop(this)'>";
-                echo            "<i class='glyphicon glyphicon-plus'></i>";
-                echo        "</a>";
-                echo    "</td>";
+                echo    "<td><span class='count'/>$tv_2[count]</span>";
                 echo "</tr>";
                 $index++;
             }

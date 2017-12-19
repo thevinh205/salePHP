@@ -20,7 +20,9 @@ function changeTab(tabName){
                     productName: '',
                     productType: 'all',
                     orderId: '',
-                    totalPriceOrder:0
+                    totalPriceOrder:0,
+                    fromDate:'',
+                    toDate: ''
                 },
                 success: function(data){ 
                     $("div[id*='contentTab']").html(data);

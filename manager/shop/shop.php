@@ -51,6 +51,45 @@
                 echo "Error add new product to shop: " . $sql . "<br>" . mysqli_error($con);
             }
         }  
+    } else if($type == 'createOrder') {
+        $shopId = $_POST['shopId'];
+        $priceTotal = $_POST['priceTotal'];
+        $listProductId = $_POST['listProductId'];
+        $pieces = explode(";", $listProductId);
+        
+        $sql = "INSERT INTO order_header (employee_username, status, total_price, shop_id, create_date) 
+        VALUES ('thevinh', 'resolve', $priceTotal, $shopId, NOW())";
+
+        if (mysqli_query($con, $sql)) {
+            $last_id = mysqli_insert_id($con);
+            for($i=0; $i<count($pieces); $i++) {
+                if($pieces[$i] != '') {
+                    $piecesProduct = explode(":", $pieces[$i]);
+                    $sql = "INSERT INTO order_party_relationship (shop_id, order_id, product_id, count, status, create_date) 
+                        VALUES ($shopId, $last_id, '".$piecesProduct[0]."',$piecesProduct[1], 'open', NOW())";
+                    if (mysqli_query($con, $sql)) {
+                        echo "Create order successful ";
+                    } else {
+                        echo "Error in create order party: " . $sql . "<br>" . mysqli_error($con);
+                    }
+                }
+            }
+        } else {
+            echo "Error add new order header: " . $sql . "<br>" . mysqli_error($con);
+        }
+    } else if($type == 'updateOrder') {
+        $orderId = $_POST['orderId'];
+        $total_price = $_POST['total'];
+        $status = $_POST['status'];
+        echo $total_price;
+        $sql = "UPDATE order_header SET total_price=$total_price, status='".$status."'
+		WHERE id=$orderId";
+		
+        if (mysqli_query($con, $sql)) {
+            echo "Edit order successfully";
+        } else {
+            echo "Error edit order: " . $sql . "<br>" . mysqli_error($con);
+        }
     }
 ?>
 

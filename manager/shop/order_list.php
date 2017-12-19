@@ -50,47 +50,92 @@
                 <th class="text-center">Hành động</th>
             </tr>
           </thead>
-          <tbody>
-            <tr th:each="order, stat : ${orderList}">
-                <td th:text="${stat.index} + 1" class="text-center"></td>
-                <td th:text="${order.orderId}" class="orderId"></td>
-                <td th:text="${#dates.format(order.createDate, 'dd-MM-yyyy HH:mm')}"></td>
-                <td><a href="javascript:void(0)" data-toggle="modal" data-target="#popupOrderProductList" onclick="showListProductOfOrder(this)">Sản phẩm</a></td>
-                <td th:text="${order.employeeName}" class="employee"></td>
-                <td>
-                    <span th:text="${#numbers.formatInteger(order.total,3,'COMMA')}" class="order-total-text"></span>
-                    <input th:value="${#numbers.formatInteger(order.total,3,'COMMA')}" class="form-control order-total-input numbers hide" style="text-align: center"/>
-                </td>
-                <td>
-                    <input type="hidden" th:value="${order.status}" class="order-status-text"/>
-                    <select class="form-control status-order" name="statusList" disabled="disabled">
-                        <option th:each="choice : ${statusList}" 
-                         th:value="${choice.key}" 
-                         th:selected="(${choice.key} == ${order.status})" 
-                         th:text="${choice.name}"></option>
-                    </select>
-                </td>
-                <td style="width: 110px; text-align: center">
-                    <div class="btn-edit-order hide">
-                        <a href="javascript:void(0)" style="margin-right: 10px" title="Chỉnh sửa" onclick="editOrderAction(this)">
-                            <i class="glyphicon glyphicon-ok-sign"></i>
-                        </a>
-                        <a href="javascript:void(0)" class="linkDeleteProduct" onclick="cancelEditOrder(this)">
-                            <i class="	glyphicon glyphicon-remove-sign" title="Hủy bỏ"></i>
-                        </a>
-                    </div>
-                    <div class="btn-show-edit-order">
-                        <a href="javascript:void(0)" style="margin-right: 10px" title="Chỉnh sửa" onclick="showEditOrder(this)">
-                            <i class="glyphicon glyphicon-edit"></i>
-                        </a>
-                    </div>
-                </td>
-            </tr>
+          <tbody
+            <?php 
+                $shopId = $_POST['shopId'];
+                $fromDate = $_POST['fromDate'];
+                $toDate = $_POST['toDate'];
+                if($fromDate == '')
+                    $fromDate = 0;
+                $sql = "";
+                if($toDate != ''){
+                    $toDate = date('Y-m-d',strtotime($toDate . "+1 days"));
+                    $sql="SELECT id, create_date, employee_username, total_price, status FROM order_header od where shop_id= $shopId and create_date>='$fromDate' and create_date<'$toDate'";
+                } else {
+                    $sql="SELECT id, create_date, employee_username, total_price, status FROM order_header od where shop_id= $shopId and create_date>='$fromDate' and create_date<NOW()";
+                }
+                
+	        $result=mysqli_query($con,$sql);
+	        $index = 1;
+                $totalPriceOrder = 0;
+                while($tv_2=mysqli_fetch_array($result)){
+                    $totalPriceOrder += $tv_2['total_price'];
+                    echo "<tr>";
+                    echo    "<td class='text-center'>$index</td>";
+                    echo    "<td class='orderId'>$tv_2[id]</td>";
+                    echo    "<td>$tv_2[create_date]</td>";
+                    echo    "<td><a href='javascript:void(0)' data-toggle='modal' data-target='#popupOrderProductList' onclick='showListProductOfOrder(this)'>Sản phẩm</a></td>";
+                    echo    "<td class='employee'>$tv_2[employee_username]</td>";
+                    echo    "<td>";
+                    echo        "<span class='order-total-text numbers'>$tv_2[total_price]</span>";
+                    echo        "<input value='$tv_2[total_price]' class='form-control order-total-input numbers hide' style='text-align: center'/>";
+                    echo    "</td>";
+                    echo    "<td>";
+                    echo        "<input type='hidden' value='$tv_2[status]' class='order-status-text'/>";
+                    echo        "<select class='form-control status-order' name='statusList' disabled='disabled'>";
+                    $sql2="SELECT s.key, s.name FROM status s where type='order'";
+                    $result2=mysqli_query($con,$sql2);
+                    while($tv_3=mysqli_fetch_array($result2)){
+                        if($tv_3['key'] == $tv_2['status']){
+                            echo "<option selected='selected' value='$tv_3[key]'>$tv_3[name]</option>";
+                        }
+                        else{
+                            echo "<option value='$tv_3[key]'>$tv_3[name]</option>";
+                        }
+                    }
+                    echo        "</select>";
+                    echo    "</td>";
+                    echo    "<td style='width: 110px; text-align: center'>";
+                    echo        "<div class='btn-edit-order hide'>";
+                    echo            "<a href='javascript:void(0)' style='margin-right: 10px' title='Chỉnh sửa' onclick='editOrderAction(this)'>";
+                    echo                "<i class='glyphicon glyphicon-ok-sign'></i>";
+                    echo            "</a>";
+                    echo            "<a href='javascript:void(0)' class='linkDeleteProduct' onclick='cancelEditOrder(this)'>";
+                    echo                "<i class='glyphicon glyphicon-remove-sign' title='Hủy bỏ'></i>";
+                    echo            "</a>";
+                    echo        "</div>";
+                    echo        "<div class='btn-show-edit-order'>";
+                    echo            "<a href='javascript:void(0)' style='margin-right: 10px' title='Chỉnh sửa' onclick='showEditOrder(this)'>";
+                    echo                "<i class='glyphicon glyphicon-edit'></i>";
+                    echo            "</a>";
+                    echo        "</div>";
+                    echo    "</td>";
+                    echo "</tr>"; 
+                    $index++;
+                }
+            ?>
+            
           </tbody>
         </table>
+<!--        <div class="pagination">
+            <?php
+                $sql="SELECT count(*) as total FROM order_header od where shop_id= $shopId";
+                $result=mysqli_query($con,$sql);
+                $data=mysqli_fetch_assoc($result);
+                $totalPage = $data['total']/30;
+                if($data['total']%30 > 0)
+                        $totalPage +=1;
+                for($i=1; $i<=$totalPage; $i++) {
+                    if(($i-1) == $page)
+                        echo "<a href='javascript:void(0)' class='page active'>$i</a>";
+                    else
+                        echo "<a href='javascript:void(0)' class='page gradient' onclick='searchOrderShop($i)'>$i</a>";
+                }
+            ?>
+        </div>-->
         <div style="font-weight: bold">
             <span>Tổng cộng:</span>
-            <span class="price-total"><?php echo $_POST['totalPriceOrder']; ?></span> VNĐ
+            <span class="price-total numbers"><?php echo $totalPriceOrder; ?></span> VNĐ
         </div>
     </div>
 </div>

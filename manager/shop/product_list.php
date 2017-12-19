@@ -75,7 +75,7 @@
                     echo "<tr id='$tv_2[id]'>";
                     echo    "<td >$index</td>";
                     echo    "<td>";
-                    echo        "<img src='../resources/img/sanpham/$tv_2[id]/$tv_2[avatar]' width='100' height='100'/>";
+                    echo        "<img src='../../resources/img/sanpham/$tv_2[id]/$tv_2[avatar]' width='100' height='100'/>";
                     echo    "</td>";
                     echo    "<td>";
                     echo    	"<span class='productId'>$tv_2[id]</span>";
@@ -133,7 +133,7 @@
                     if(($i-1) == $page)
                         echo "<a href='javascript:void(0)' class='page active'>$i</a>";
                     else
-                        echo "<a href='javascript:void(0)' class='page gradient' onclick='searchProductShop($i)'>$i</a>";
+                        echo "<a href='javascript:void(0)' class='page gradient' onclick='searchOrderShop($i)'>$i</a>";
                 }
             ?>
         </div>

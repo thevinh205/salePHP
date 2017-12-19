@@ -6,7 +6,7 @@ $(document).ready(function(){
         var orderId = $("input[name*='orderId']").val();
         var fromDate = $("input[name*='fromDate']").val();
         var toDate = $("input[name*='toDate']").val();
-        var url = "/order/search";
+        var url = "order_list.php";
         $.ajax({	
             type: 'POST', 
             url: url, 
@@ -14,15 +14,12 @@ $(document).ready(function(){
             data: { shopId: shopId, 
                 orderId : orderId, 
                 fromDate: fromDate,
-                toDate: toDate},
+                toDate: toDate
+            },
             success: function(data){ 
                 $("div[id*='contentTab']").html(data);
                 $('input.numbers').keyup(function(event) {
-
-                    // skip for arrow keys
                     if(event.which >= 37 && event.which <= 40) return;
-
-                    // format number
                     $(this).val(function(index, value) {
                       return value
                       .replace(/\D/g, "")
@@ -30,6 +27,9 @@ $(document).ready(function(){
                       ;
                     });
               });
+              $(".numbers").each(function(c, obj){
+                $(obj).text(addCommas(parseFloat($(obj).text())));
+            });
             },
             error: function(XMLHttpRequest, textStatus, errorThrown){
             }
@@ -41,7 +41,7 @@ $(document).ready(function(){
         var productName = $("input[name*='productNameAdd']").val();
         var shopId = $("#shopId").val();
         
-        var url = "/shop/searchProductAddOrder";
+        var url = "product_order_add.php";
         $.ajax({	
             type: 'POST', 
             url: url, 
@@ -52,6 +52,9 @@ $(document).ready(function(){
                 productName: productName},
             success: function(data){ 
                 $("div[class*='list-product-add']").html(data);
+                $(".numbers").each(function(c, obj){
+                    $(obj).text(addCommas(parseFloat($(obj).text())));
+                });
             },
             error: function(XMLHttpRequest, textStatus, errorThrown){
             }
@@ -132,7 +135,7 @@ function createOrderAction() {
     var shopId = $("#shopId").val();
     var priceTotal = $(".price-total-add").val();
     priceTotal = priceTotal.replace(/\,/g, '');
-    var url = "/order/add";
+    var url = "shop.php";
     $.ajax({	
             type: 'POST', 
             url: url, 
@@ -140,8 +143,11 @@ function createOrderAction() {
             data: {
                 shopId : shopId, 
                 priceTotal: priceTotal,
-                listProductId: listProductId},
+                listProductId: listProductId,
+                type : 'createOrder'
+            },
             success: function(data){ 
+                alert(data);
                 $('#popupCreateOrder').modal('toggle');
                 showNotificationHeader("Tạo đơn hàng thành công");
             },
@@ -152,16 +158,22 @@ function createOrderAction() {
 
 function showListProductOfOrder(e) {
     var row = $(e).closest("tr");
+    var shopId = $("#shopId").val();
     var orderId = $(row).find(".orderId").text();
-    var url = "/order/productListOfOrder";
+    var url = "product_order_list.php";
     $.ajax({	
-            type: 'GET', 
+            type: 'POST', 
             url: url, 
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
             data: {
-                orderId : orderId},
+                orderId : orderId,
+                shopId : shopId
+            },
             success: function(data){ 
                 $("div[class*='product-order-list']").html(data);
+                $(".numbers").each(function(c, obj){
+                    $(obj).text(addCommas(parseFloat($(obj).text())));
+                });
             },
             error: function(XMLHttpRequest, textStatus, errorThrown){
             }
@@ -175,6 +187,15 @@ function showEditOrder(e) {
     row.find(".btn-edit-order").removeClass("hide");
     row.find(".btn-show-edit-order").addClass("hide");
     row.find(".status-order").removeAttr("disabled");
+    row.find(".order-total-input").keyup(function(event) {
+            if(event.which >= 37 && event.which <= 40) return;
+            $(this).val(function(index, value) {
+              return value
+              .replace(/\D/g, "")
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+              ;
+            });
+      });
 }
 
 function cancelEditOrder(e) {
@@ -193,15 +214,16 @@ function editOrderAction(e) {
     var orderId = $(row).find(".orderId").text();
     var total = row.find(".order-total-input").val();
     var status = row.find(".status-order").val();
-    var url = "/order";
+    var url = "shop.php";
     $.ajax({	
-        type: 'PUT', 
+        type: 'POST', 
         url: url, 
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
         data: {
             orderId : orderId,
-            total : total,
-            status : status
+            total : total.replace(/\,/g, ''),
+            status : status,
+            type : 'updateOrder'
         },
         success: function(data){ 
             row.find(".order-total-text").removeClass("hide");
@@ -210,8 +232,35 @@ function editOrderAction(e) {
             row.find(".btn-show-edit-order").removeClass("hide");
             row.find(".status-order").attr("disabled","disabled");
             row.find(".order-total-text").text(total);
+            showNotificationHeader("Chỉnh sửa đơn hàng thành công");
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
         }
     });
+}
+
+function searchOrderShop(page) {
+    var shopId = $("#shopId").val();
+    var fromDate = $("input[name*='fromDate']").val();
+    var toDate = $("input[name*='toDate']").val();
+    var url = "order_list.php";
+    $.ajax({	
+        type: 'POST', 
+        url: url, 
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+        data: { 
+            shopId: shopId, 
+            page: page,
+            fromDate : fromDate, 
+            toDate: toDate
+        },
+        success: function(data){ 
+            $("div[id*='contentTab']").html(data);
+            $(".numbers").each(function(c, obj){
+                $(obj).text(addCommas(parseFloat($(obj).text())));
+            });
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown){
+        }
+    }); 
 }

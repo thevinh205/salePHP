@@ -17,7 +17,8 @@
         <?php
             $productId = $_POST['productId'];
             $productName = $_POST['productName'];
-            $sql="SELECT p.id, name, price_sell, avatar FROM product p where p.id LIKE '%$productId%' and name like '%$productName%'";
+            $shopId = $_POST['shopId'];
+            $sql="SELECT p.id, name, price_sell, avatar FROM shop_party_relationship sp LEFT JOIN product p on sp.product_id=p.id where sp.shop_id=$shopId and p.id LIKE '%$productId%' and name like '%$productName%'";
             $result=mysqli_query($con,$sql);
             $index = 1;
             while($tv_2=mysqli_fetch_array($result)){
