@@ -68,7 +68,7 @@
                 }
                 
 	        $result=mysqli_query($con,$sql);
-	        $index = 1;
+	        $index = $offset + 1;
                 $totalPriceOrder = 0;
                 while($tv_2=mysqli_fetch_array($result)){
                     $totalPriceOrder += $tv_2['total_price'];
