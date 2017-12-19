@@ -4,11 +4,13 @@ function changeTab(tabName){
             var shopId = $("#shopId").val();
             var url = "";
             if(tabName == 'productList')
-                url = "product_list.php?shopId=" + shopId;
+                url = "product_list.php";
             if(tabName == 'orderList')
-                url = "order_list.php?shopId=" + shopId;
+                url = "order_list.php";
             if(tabName == 'employeeList')
-                url = "employee.php?shopId=" + shopId;
+                url = "employee.php";
+			if(tabName == 'statistic')
+                url = "statistic.php";
             $.ajax({	
                 type: 'POST', 
                 url: url, 
@@ -68,16 +70,21 @@ function statisticAction() {
     var shopId = $("#shopId").val();
     var fromDate = $(".fromDate").val();
     var toDate = $(".toDate").val();
-    var url = "/shop/statistic?shopId=" + shopId;
+    var url = "statistic.php";
     $.ajax({	
         type: 'POST', 
         url: url, 
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
         data: {
             fromDate : fromDate, 
-            toDate: toDate},
+            toDate: toDate,
+			shopId : shopId
+			},
         success: function(data){ 
             $("div[id*='contentTab']").html(data);
+			$(".numbers").each(function(c, obj){
+				$(obj).text(addCommas(parseFloat($(obj).text())));
+			});
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
         }

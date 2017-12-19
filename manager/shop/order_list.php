@@ -119,6 +119,12 @@
             
           </tbody>
         </table>
+		
+		<div style="font-weight: bold">
+            <span>Tổng cộng:</span>
+            <span class="price-total-order numbers"><?php echo $totalPriceOrder; ?></span> VNĐ
+        </div>
+		
         <div class="pagination">
             <?php
                 if($toDate != ''){
@@ -139,10 +145,7 @@
                 }
             ?>
         </div>
-        <div style="font-weight: bold">
-            <span>Tổng cộng:</span>
-            <span class="price-total-order numbers"><?php echo $totalPriceOrder; ?></span> VNĐ
-        </div>
+        
     </div>
 </div>
 
