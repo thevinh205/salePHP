@@ -147,7 +147,6 @@ function createOrderAction() {
                 type : 'createOrder'
             },
             success: function(data){ 
-                alert(data);
                 $('#popupCreateOrder').modal('toggle');
                 showNotificationHeader("Tạo đơn hàng thành công");
             },
