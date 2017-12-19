@@ -27,7 +27,7 @@
                 echo    "</td>";
                 echo    "<td class='productId'>$tv_2[id]</td>";
                 echo    "<td class='productName'>$tv_2[name]</td>";
-                echo    "<td  class='priceSell numbers'>$tv_2[price_sell]</td>";
+                echo    "<td  class='priceSell numbers-product'>$tv_2[price_sell]</td>";
                 echo    "<td><span class='count'/>$tv_2[count]</span>";
                 echo "</tr>";
                 $index++;

@@ -57,12 +57,14 @@
                 $toDate = $_POST['toDate'];
                 if($fromDate == '')
                     $fromDate = 0;
+                $page = $_POST['page'] - 1;
+      		$offset = $page * 30;
                 $sql = "";
                 if($toDate != ''){
                     $toDate = date('Y-m-d',strtotime($toDate . "+1 days"));
-                    $sql="SELECT id, create_date, employee_username, total_price, status FROM order_header od where shop_id= $shopId and create_date>='$fromDate' and create_date<'$toDate'";
+                    $sql="SELECT id, create_date, employee_username, total_price, status FROM order_header od where shop_id= $shopId and create_date>='$fromDate' and create_date<'$toDate' LIMIT $offset,30";
                 } else {
-                    $sql="SELECT id, create_date, employee_username, total_price, status FROM order_header od where shop_id= $shopId and create_date>='$fromDate' and create_date<NOW()";
+                    $sql="SELECT id, create_date, employee_username, total_price, status FROM order_header od where shop_id= $shopId and create_date>='$fromDate' and create_date<NOW() LIMIT $offset,30";
                 }
                 
 	        $result=mysqli_query($con,$sql);
@@ -117,9 +119,13 @@
             
           </tbody>
         </table>
-<!--        <div class="pagination">
+        <div class="pagination">
             <?php
-                $sql="SELECT count(*) as total FROM order_header od where shop_id= $shopId";
+                if($toDate != ''){
+                    $sql="SELECT count(*) as total FROM order_header od where shop_id= $shopId and create_date>='$fromDate' and create_date<'$toDate'";
+                } else {
+                    $sql="SELECT count(*) as total FROM order_header od where shop_id= $shopId and create_date>='$fromDate' and create_date<NOW()";
+                }
                 $result=mysqli_query($con,$sql);
                 $data=mysqli_fetch_assoc($result);
                 $totalPage = $data['total']/30;
@@ -132,10 +138,10 @@
                         echo "<a href='javascript:void(0)' class='page gradient' onclick='searchOrderShop($i)'>$i</a>";
                 }
             ?>
-        </div>-->
+        </div>
         <div style="font-weight: bold">
             <span>Tổng cộng:</span>
-            <span class="price-total numbers"><?php echo $totalPriceOrder; ?></span> VNĐ
+            <span class="price-total-order numbers"><?php echo $totalPriceOrder; ?></span> VNĐ
         </div>
     </div>
 </div>

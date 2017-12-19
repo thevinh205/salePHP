@@ -14,7 +14,8 @@ $(document).ready(function(){
             data: { shopId: shopId, 
                 orderId : orderId, 
                 fromDate: fromDate,
-                toDate: toDate
+                toDate: toDate,
+                page: 1
             },
             success: function(data){ 
                 $("div[id*='contentTab']").html(data);
@@ -170,7 +171,7 @@ function showListProductOfOrder(e) {
             },
             success: function(data){ 
                 $("div[class*='product-order-list']").html(data);
-                $(".numbers").each(function(c, obj){
+                $(".numbers-product").each(function(c, obj){
                     $(obj).text(addCommas(parseFloat($(obj).text())));
                 });
             },
@@ -242,6 +243,7 @@ function searchOrderShop(page) {
     var shopId = $("#shopId").val();
     var fromDate = $("input[name*='fromDate']").val();
     var toDate = $("input[name*='toDate']").val();
+    var orderId = $("input[name*='orderId']").val();
     var url = "order_list.php";
     $.ajax({	
         type: 'POST', 
@@ -251,7 +253,8 @@ function searchOrderShop(page) {
             shopId: shopId, 
             page: page,
             fromDate : fromDate, 
-            toDate: toDate
+            toDate: toDate,
+            orderId : orderId
         },
         success: function(data){ 
             $("div[id*='contentTab']").html(data);
