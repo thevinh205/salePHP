@@ -3,14 +3,7 @@
 ?>
 <html>
     <body>
-    	<script src="../static/js/jquery.min.js"></script>
-        <script src="../static/js/common.js"></script>
-    	<script src="../static/js/product.js"></script>
-    	<link rel="stylesheet" type="text/css" 
-                  href="../static/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet"  href="../static/css/main.css" />
-
-        <script src="../static/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+		<script src="../static/js/product.js"></script>
     	 
       	<?php 
 		    include("../layout/header.html");

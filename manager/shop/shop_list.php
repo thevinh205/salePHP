@@ -4,9 +4,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Danh sách cửa hàng</title>
-    <link rel="stylesheet" type="text/css" 
-                  href="../static/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet"  href="../static/css/main.css" />
     <link rel="stylesheet" href="../static/css/shop.css" />
 </head>
 <body>

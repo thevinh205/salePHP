@@ -52,13 +52,15 @@
             }
         }  
     } else if($type == 'createOrder') {
+		session_start();
         $shopId = $_POST['shopId'];
         $priceTotal = $_POST['priceTotal'];
         $listProductId = $_POST['listProductId'];
         $pieces = explode(";", $listProductId);
+		$username = $_SESSION["username"];
         
         $sql = "INSERT INTO order_header (employee_username, status, total_price, shop_id, create_date) 
-        VALUES ('thevinh', 'resolve', $priceTotal, $shopId, NOW())";
+        VALUES ('$username', 'resolve', $priceTotal, $shopId, NOW())";
 
         if (mysqli_query($con, $sql)) {
             $last_id = mysqli_insert_id($con);

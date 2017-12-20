@@ -5,15 +5,9 @@
 <html>
 <head>
     <title>Chi tiết cửa hàng</title>
-    <script src="../static/js/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" 
-                  href="../static/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
+	<script src="../static/js/jquery.min.js"></script>
     <script src="../static/js/shop.js"></script>
-    <script src="../static/js/common.js"></script>
-    <script src="../static/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
-    
     <link rel="stylesheet" href="../static/css/shop.css" />
-    <link rel="stylesheet" href="../static/css/main.css" />
     
 </head>
 <body>

@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(isset($_SESSION['username'])) {
+        $newURL = "../shop/shop_list.php";
+        header('Location: '.$newURL);
+    }
+?>
 <html>
     <link rel="stylesheet"  href="../static/css/login.css" />
     <script src="../static/js/jquery.min.js"></script>

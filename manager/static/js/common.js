@@ -59,11 +59,12 @@ function login() {
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
             data: {
                 username: username, 
-                password: password
+                password: password,
+				type: 'login'
             },
             success: function(data){ 
                 if(data == "success"){
-                    window.location.replace("../product/product_list.php");
+                    window.location.replace("../shop/shop_list.php");
                 } else {
                     $(".message-login-fail").removeClass("hidden");
                 }
@@ -73,6 +74,19 @@ function login() {
         }); 
 }
 
-function logoutPopup() {
-    document.getElementById('light').style.display='block';
+function logout() {
+	var url = "../login/login.php";
+    $.ajax({	
+		type: 'POST', 
+		url: url, 
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		data: {
+			type: 'logout'
+		},
+		success: function(data){ 
+			window.location.replace("../login");
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown){
+		}
+	}); 
 }
