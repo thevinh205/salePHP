@@ -21,12 +21,13 @@ $(document).ready(function(){
         }else if(phoneNumber.trim().length == 0){
             $("input[name*='phoneNumber']").focus();
         }else {
-            var url = "/user/addEmployee";
+            var url = "shop.php";
             $.ajax({	
                 type: 'POST', 
                 url: url, 
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-                data: { shopId: shopId, 
+                data: { 
+                    shopId: shopId, 
                     name : name, 
                     username: username,
                     password: password,
@@ -36,9 +37,11 @@ $(document).ready(function(){
                     birthDate: birthDate,
                     identityCard: identityCard,
                     position: role,
-                    gender: gender
+                    gender: gender,
+                    type: 'addEmployee'
                 },
                 success: function(data){ 
+                    alert(data);
                     $("#addEmployee").modal('toggle');
                     showNotificationHeader("Thêm nhân viên thành công");
                 },

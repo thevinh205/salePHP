@@ -8,7 +8,7 @@ function changeTab(tabName){
             if(tabName == 'orderList')
                 url = "order_list.php";
             if(tabName == 'employeeList')
-                url = "employee.php";
+                url = "employee_list.php";
 			if(tabName == 'statistic')
                 url = "statistic.php";
             $.ajax({	

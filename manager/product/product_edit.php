@@ -72,7 +72,7 @@
                     <div class="list-file-preview">
                         <div class="img-wrap" th:each="fileName, stat1 : ${listFileName}">
                             <span class="close" onclick="deleteImage(this)">&times;</span>
-                            <img src="../resources/img/sanpham/<?php echo $row1['id'] . '/' . $row1['avatar'];?>" 
+                            <img src="../../resources/img/sanpham/<?php echo $row1['id'] . '/' . $row1['avatar'];?>" 
                                  class="image-preview"/>
                             <input type="hidden" class="img-name-delete" th:value="${fileName}"></input>
                         </div>

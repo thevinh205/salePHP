@@ -35,7 +35,7 @@
                     echo "<tr id='$tv_2[id]'>";
                     echo    "<td >$index</td>";
                     echo    "<td>";
-                    echo        "<img src='../resources/img/sanpham/$tv_2[id]/$tv_2[avatar]' width='100' height='100'/>";
+                    echo        "<img src='../../resources/img/sanpham/$tv_2[id]/$tv_2[avatar]' width='100' height='100'/>";
                     echo    "</td>";
                     echo    "<td>";
                     echo    	"<span class='productId'>$tv_2[id]</span>";

@@ -1,25 +1,25 @@
 <?php 
-    include("config.php");
+    include("../config.php");
 ?>
 <html>
     <body>
-    	<script src="static/js/jquery.min.js"></script>
-        <script src="static/js/common.js"></script>
-    	<script src="static/js/product.js"></script>
+    	<script src="../static/js/jquery.min.js"></script>
+        <script src="../static/js/common.js"></script>
+    	<script src="../static/js/product.js"></script>
     	<link rel="stylesheet" type="text/css" 
-                  href="static/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet"  href="static/css/main.css" />
+                  href="../static/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet"  href="../static/css/main.css" />
 
-        <script src="static/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+        <script src="../static/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
     	 
       	<?php 
-		    include("layout/header.html");
+		    include("../layout/header.html");
 		?>  
 		
 		<div class="container">
 	        <div class="row">
 	            <?php 
-				    include("layout/left-menu.html");
+				    include("../layout/left-menu.html");
 				?>  
 	            
 	            <div class="body">

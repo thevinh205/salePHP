@@ -48,3 +48,31 @@ function addCommas(nStr){
    }
    return x1 + x2;
 }
+
+function login() {
+    var username = $("input[name*='username']").val();
+    var password = $("input[name*='password']").val();
+    var url = "login.php";
+    $.ajax({	
+            type: 'POST', 
+            url: url, 
+            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+            data: {
+                username: username, 
+                password: password
+            },
+            success: function(data){ 
+                if(data == "success"){
+                    window.location.replace("../product/product_list.php");
+                } else {
+                    $(".message-login-fail").removeClass("hidden");
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+            }
+        }); 
+}
+
+function logoutPopup() {
+    document.getElementById('light').style.display='block';
+}

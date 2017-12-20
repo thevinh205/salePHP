@@ -90,6 +90,32 @@
         } else {
             echo "Error edit order: " . $sql . "<br>" . mysqli_error($con);
         }
+    } else if($type == 'addEmployee') {
+        $shopId = $_POST['shopId'];
+        $name = $_POST['name'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        $phoneNumber = $_POST['phoneNumber'];
+        $address = $_POST['address'];
+        $birthDate = $_POST['birthDate'];
+        $identityCard = $_POST['identityCard'];
+        $position = $_POST['position'];
+        $gender = $_POST['gender'];
+        $sql = "INSERT INTO member (username, email, phone_number, name, address, level, state, birthday, create_date, gender, password, role, identity_card) 
+        VALUES ('$username', '$email', '$phoneNumber', '$name', '$address', 1, 'open', '$birthDate', NOW(), '$gender', '$password', '$position', '$identityCard')";
+        if (mysqli_query($con, $sql)) {
+            $last_id = mysqli_insert_id($con);
+            $sql = "INSERT INTO shop_party_relationship (shop_id, member_id, type, create_date, position) 
+                        VALUES ($shopId, $last_id, 'employee', NOW(), '$position')";
+            if (mysqli_query($con, $sql)) {
+                echo "Add employee to shop successful ";
+            } else {
+                echo "Error in add employee to shop: " . $sql . "<br>" . mysqli_error($con);
+            }
+        } else {
+            echo "Error add new employee: " . $sql . "<br>" . mysqli_error($con);
+        }
     }
 ?>
 

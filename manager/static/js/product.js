@@ -45,7 +45,7 @@ function showAddProduct() {
         var type = fileTypes[fileTypes.length - 1];
         avatar = 1 + "." + type;
     }
-    var url = "product/product.php";
+    var url = "product.php";
     $.ajax({	
             type: 'POST', 
             url: url, 
@@ -124,7 +124,7 @@ function showAddProduct() {
  }
  
  function loadProductTable(page) {
-    var url = "product/product_table.php";
+    var url = "product_table.php";
     var productId = $("input[name*='productId']").val();
     var productName = $("input[name*='productName']").val();
     $.ajax({	
@@ -158,7 +158,7 @@ function linkDeleteProduct(e){
  function deleteProduct() {
     var productIdDelete = $("#productIdDelete").val();
 
-    var url = "product/product.php";
+    var url = "product.php";
     $.ajax({	
         type: 'POST', 
         url: url, 
@@ -180,7 +180,7 @@ function linkDeleteProduct(e){
  function showEditProduct(e) {
     var row = $(e).closest("tr");
     var productIdEdit = $(row).find(".productId").text();
-    var url = "product/product_edit.php?productIdEdit=" + productIdEdit;
+    var url = "product_edit.php?productIdEdit=" + productIdEdit;
     $.ajax({	
         type: 'GET', 
         url: url, 
@@ -222,7 +222,7 @@ function linkDeleteProduct(e){
             }
         }
     }
-    var url = "product/product.php";
+    var url = "product.php";
     $.ajax({	
         type: 'POST', 
         url: url, 
