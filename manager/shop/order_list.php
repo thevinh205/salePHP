@@ -62,9 +62,9 @@
                 $sql = "";
                 if($toDate != ''){
                     $toDate = date('Y-m-d',strtotime($toDate . "+1 days"));
-                    $sql="SELECT id, create_date, employee_username, total_price, status FROM order_header od where shop_id= $shopId and create_date>='$fromDate' and create_date<'$toDate' LIMIT $offset,30";
+                    $sql="SELECT od.id, od.create_date, m.name, total_price, od.status FROM order_header od left join member m on od.employee_username = m.username where shop_id= $shopId and od.create_date>='$fromDate' and od.create_date<'$toDate' LIMIT $offset,30";
                 } else {
-                    $sql="SELECT id, create_date, employee_username, total_price, status FROM order_header od where shop_id= $shopId and create_date>='$fromDate' and create_date<NOW() LIMIT $offset,30";
+                    $sql="SELECT od.id, od.create_date, m.name, total_price, od.status FROM order_header od left join member m on od.employee_username = m.username where shop_id= $shopId and od.create_date>='$fromDate' and od.create_date<NOW() LIMIT $offset,30";
                 }
                 
 	        $result=mysqli_query($con,$sql);
@@ -77,7 +77,7 @@
                     echo    "<td class='orderId'>$tv_2[id]</td>";
                     echo    "<td>$tv_2[create_date]</td>";
                     echo    "<td><a href='javascript:void(0)' data-toggle='modal' data-target='#popupOrderProductList' onclick='showListProductOfOrder(this)'>Sản phẩm</a></td>";
-                    echo    "<td class='employee'>$tv_2[employee_username]</td>";
+                    echo    "<td class='employee'>$tv_2[name]</td>";
                     echo    "<td>";
                     echo        "<span class='order-total-text numbers'>$tv_2[total_price]</span>";
                     echo        "<input value='$tv_2[total_price]' class='form-control order-total-input numbers hide' style='text-align: center'/>";
