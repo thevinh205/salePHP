@@ -54,9 +54,9 @@
 			<?php 
                 $sql = "";
                 if($toDate != ''){
-                    $sql="SELECT sum(price_buy) as cost FROM order_party_relationship op LEFT JOIN product p on op.product_id=p.id where shop_id= $shopId and op.create_date>='$fromDate' and op.create_date<'$toDate'";
+                    $sql="SELECT sum(price_buy*count) as cost FROM order_party_relationship op LEFT JOIN product p on op.product_id=p.id where shop_id= $shopId and op.create_date>='$fromDate' and op.create_date<'$toDate'";
                 } else {
-                    $sql="SELECT sum(price_buy) as cost FROM order_party_relationship op LEFT JOIN product p on op.product_id=p.id where shop_id= $shopId and op.create_date>='$fromDate' and op.create_date<NOW()";
+                    $sql="SELECT sum(price_buy*count) as cost FROM order_party_relationship op LEFT JOIN product p on op.product_id=p.id where shop_id= $shopId and op.create_date>='$fromDate' and op.create_date<NOW()";
                 }
 				$result=mysqli_query($con,$sql);
 				$data = mysqli_fetch_assoc($result);
