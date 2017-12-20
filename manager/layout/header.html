@@ -53,12 +53,13 @@
                       <button type="submit" class="btn btn-default">Submit</button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" onclick="logoutPopup()"><?php echo $_SESSION['nameLogin']; ?> <b class="caret"></b></a>
-                            <ul class="menu-logout">
-                                <li class="menu-logout-title"><a href="" class="">Thông tin </span></a></li>
-                                <li class="menu-logout-title"><a href="" class="">Đăng xuất</span></a></li>
-                            </ul>
+                        <li class="dropdown">
+                            <a class="dropbtn" href="#" onclick="logoutPopup()"><?php echo $_SESSION['nameLogin']; ?> <b class="caret"></b></a>
+                            <div class="dropdown-content">
+                                <a href="#">Link 1</a>
+                                <a href="#">Link 2</a>
+                                <a href="#">Link 3</a>
+                            </div>
                         </li>
                     </ul>
                   </div><!-- /.navbar-collapse -->
