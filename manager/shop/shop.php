@@ -70,7 +70,12 @@
                     $sql = "INSERT INTO order_party_relationship (shop_id, order_id, product_id, count, status, create_date) 
                         VALUES ($shopId, $last_id, '".$piecesProduct[0]."',$piecesProduct[1], 'open', NOW())";
                     if (mysqli_query($con, $sql)) {
-                        echo "Create order successful ";
+						$sql = "UPDATE shop_party_relationship SET count=(count-$piecesProduct[1]) WHERE product_id='".$piecesProduct[0]."' and shop_id=$shopId";
+                        if (mysqli_query($con, $sql)) {
+							echo "Create order successful ";
+						} else {
+							echo "Error in update count product: " . $sql . "<br>" . mysqli_error($con);
+						}
                     } else {
                         echo "Error in create order party: " . $sql . "<br>" . mysqli_error($con);
                     }
