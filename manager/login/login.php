@@ -14,6 +14,7 @@
 			session_start();
 			$_SESSION["username"] = $username;
 			$_SESSION["nameLogin"] = $data['name'];
+			$_SESSION["role"] = $data['role'];
 		} else {
 			echo "error";
 		}
@@ -21,7 +22,6 @@
 		session_start();
 		unset($_SESSION["username"]);
 		unset($_SESSION["nameLogin"]);
-		unset($_COOKIE['username']);
-		unset($_COOKIE['password']);
+		unset($_COOKIE['role']);
 	}
 ?>

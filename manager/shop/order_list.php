@@ -1,5 +1,6 @@
 <?php 
     include("../config.php");
+    session_start();
 ?>
 <div>
     <div class="form-search">
@@ -62,9 +63,9 @@
                 $sql = "";
                 if($toDate != ''){
                     $toDate = date('Y-m-d',strtotime($toDate . "+1 days"));
-                    $sql="SELECT od.id, od.create_date, m.name, total_price, od.status FROM order_header od left join member m on od.employee_username = m.username where shop_id= $shopId and od.create_date>='$fromDate' and od.create_date<'$toDate' LIMIT $offset,30";
+                    $sql="SELECT od.id, od.create_date, m.name, total_price, od.status, od.employee_username FROM order_header od left join member m on od.employee_username = m.username where shop_id= $shopId and od.create_date>='$fromDate' and od.create_date<'$toDate' LIMIT $offset,30";
                 } else {
-                    $sql="SELECT od.id, od.create_date, m.name, total_price, od.status FROM order_header od left join member m on od.employee_username = m.username where shop_id= $shopId and od.create_date>='$fromDate' and od.create_date<NOW() LIMIT $offset,30";
+                    $sql="SELECT od.id, od.create_date, m.name, total_price, od.status, od.employee_username FROM order_header od left join member m on od.employee_username = m.username where shop_id= $shopId and od.create_date>='$fromDate' and od.create_date<NOW() LIMIT $offset,30";
                 }
                 
 	        $result=mysqli_query($con,$sql);
@@ -98,20 +99,22 @@
                     echo        "</select>";
                     echo    "</td>";
                     echo    "<td style='width: 110px; text-align: center'>";
-                    echo        "<div class='btn-edit-order hide'>";
-                    echo            "<a href='javascript:void(0)' style='margin-right: 10px' title='Chỉnh sửa' onclick='editOrderAction(this)'>";
-                    echo                "<i class='glyphicon glyphicon-ok-sign'></i>";
-                    echo            "</a>";
-                    echo            "<a href='javascript:void(0)' class='linkDeleteProduct' onclick='cancelEditOrder(this)'>";
-                    echo                "<i class='glyphicon glyphicon-remove-sign' title='Hủy bỏ'></i>";
-                    echo            "</a>";
-                    echo        "</div>";
-                    echo        "<div class='btn-show-edit-order'>";
-                    echo            "<a href='javascript:void(0)' style='margin-right: 10px' title='Chỉnh sửa' onclick='showEditOrder(this)'>";
-                    echo                "<i class='glyphicon glyphicon-edit'></i>";
-                    echo            "</a>";
-                    echo        "</div>";
-                    echo    "</td>";
+                    if($_SESSION["role"] == 'manager' || $tv_2['employee_username'] == $_SESSION["username"]) {
+                        echo        "<div class='btn-edit-order hide'>";
+                        echo            "<a href='javascript:void(0)' style='margin-right: 10px' title='Chỉnh sửa' onclick='editOrderAction(this)'>";
+                        echo                "<i class='glyphicon glyphicon-ok-sign'></i>";
+                        echo            "</a>";
+                        echo            "<a href='javascript:void(0)' class='linkDeleteProduct' onclick='cancelEditOrder(this)'>";
+                        echo                "<i class='glyphicon glyphicon-remove-sign' title='Hủy bỏ'></i>";
+                        echo            "</a>";
+                        echo        "</div>";
+                        echo        "<div class='btn-show-edit-order'>";
+                        echo            "<a href='javascript:void(0)' style='margin-right: 10px' title='Chỉnh sửa' onclick='showEditOrder(this)'>";
+                        echo                "<i class='glyphicon glyphicon-edit'></i>";
+                        echo            "</a>";
+                        echo        "</div>";
+                        echo    "</td>";
+                    }
                     echo "</tr>"; 
                     $index++;
                 }

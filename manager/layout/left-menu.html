@@ -15,17 +15,25 @@
             <a href="../shop/shop_list.php" class="list-group-item">
                 <i class="glyphicon glyphicon-home"></i> Cửa hàng
             </a>
-            <a href="../product/product_list.php" class="list-group-item">
-                <i class="glyphicon glyphicon-phone"></i> Sản phẩm
-            </a>
+            <?php 
+                if($_SESSION["role"] == 'manager') {
+                    echo "<a href='../product/product_list.php' class='list-group-item'>";
+                    echo     "<i class='glyphicon glyphicon-phone'></i> Sản phẩm";
+                    echo "</a>";
+                    
+                    echo "<a href='#' class='list-group-item'>";
+                    echo    "<i class='glyphicon glyphicon-stats'></i> Thống kê";
+                    echo "</a>";
+                    echo "<a href='#' class='list-group-item'>";
+                    echo    "<i class='glyphicon glyphicon-camera'></i> Giám sát";
+                    echo "</a>";
+                    echo "<a href='#' class='list-group-item'>";
+                    echo    "<i class='glyphicon glyphicon-user'></i> Nhân viên";
+                    echo "</a>";
+                }
+            ?>
             <a href="#" class="list-group-item">
-                <i class="glyphicon glyphicon-stats"></i> Thống kê
-            </a>
-            <a href="#" class="list-group-item">
-                <i class="glyphicon glyphicon-camera"></i> Giám sát
-            </a>
-            <a href="#" class="list-group-item">
-                <i class="glyphicon glyphicon-user"></i> Nhân viên
+                <i class="glyphicon glyphicon-pencil"></i> Báo cáo
             </a>
         </div>        
     </div>

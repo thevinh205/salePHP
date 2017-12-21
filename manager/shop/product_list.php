@@ -1,5 +1,6 @@
 <?php 
     include("../config.php");
+    session_start();
 ?>
 <div>
     <div class="form-search">
@@ -40,10 +41,13 @@
     </div>
     <div class="content-list">
         <h2 class="pull-left">Danh sách sản phẩm</h2> 
-        <button type="button" class="btn btn-info pull-right button-add" data-toggle="modal" 
-                data-target="#addProduct" title="Thêm mới sản phẩm">    
-            <i class="glyphicon glyphicon-plus"></i>
-        </button>
+        <?php
+            if($_SESSION["role"] == 'manager') {
+                echo "<button type='button' class='btn btn-info pull-right button-add' data-toggle='modal' data-target='#addProduct' title='Thêm mới sản phẩm'>";
+                echo    "<i class='glyphicon glyphicon-plus'></i>";
+                echo "</button>";
+            }
+        ?>
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -52,7 +56,6 @@
                 <th>Mã sản phẩm</th>
                 <th>Tên</th>
                 <th>Loại</th>
-                <th>Giá nhập</th>
                 <th>Giá bán</th>
                 <th class="text-center">Số lượng</th>
                 <th class="text-center">Hành động</th>
@@ -68,7 +71,7 @@
                     $productType = '';
       		$page = $_POST['page'] - 1;
       		$offset = $page * 30;
-	    	$sql="SELECT p.id, name, price_sell, price_buy, avatar, product_type, category_name, count FROM  shop_party_relationship sp LEFT JOIN product p on p.id=sp.product_id where sp.shop_id='$shopId' and name LIKE '%$productName%' and p.id LIKE '%$productId%' and product_type like '%$productType%' LIMIT $offset,30";
+	    	$sql="SELECT p.id, name, price_sell, avatar, product_type, category_name, count FROM  shop_party_relationship sp LEFT JOIN product p on p.id=sp.product_id where sp.shop_id='$shopId' and name LIKE '%$productName%' and p.id LIKE '%$productId%' and product_type like '%$productType%' LIMIT $offset,30";
 	        $result=mysqli_query($con,$sql);
 	        $index = $page*30 + 1;
 	        while($tv_2=mysqli_fetch_array($result)){
@@ -88,9 +91,6 @@
                     echo        "<input type='hidden' th:value='$tv_2[product_type]' class='productTypeId'></input>";
                     echo    "</td>";
                     echo    "<td>";
-                    echo    	"<span class='priceBuy numbers'>$tv_2[price_buy]</span>"	;
-                    echo    "</td>";
-                    echo    "<td>";
                     echo    	"<span class='priceSell numbers'>$tv_2[price_sell]</span>";	
                     echo    "</td>";
                     echo    "<td class='text-center'>";
@@ -98,23 +98,25 @@
                     echo    "<input value='$tv_2[count]' class='form-control hide count-product-input numbers' style='text-align: center'/>";
                     echo    "</td>";
                     echo    "<td style='width: 110px; text-align: center'>";
-                    echo        "<div class='btn-edit-product hide'>";
-                    echo            "<a href='javascript:void(0)' style='margin-right: 10px' title='Chỉnh sửa' onclick='editCountProductAction(this)'>";
-                    echo                "<i class='glyphicon glyphicon-ok-sign'></i>";
-                    echo            "</a>";
-                    echo            "<a href='javascript:void(0)' class='linkDeleteProduct' onclick='hideEditCountProduct(this)'>";
-                    echo                "<i class='glyphicon glyphicon-remove-sign' title='Hủy bỏ'></i>";
-                    echo            "</a>";
-                    echo        "</div>";
-                    echo        "<div class='btn-dlt-product'>";
-                    echo            "<a href='javascript:void(0)' style='margin-right: 10px' title='Chỉnh sửa' onclick='showEditCountProduct(this)'>";
-                    echo                "<i class='glyphicon glyphicon-edit'></i>";
-                    echo            "</a>";
-                    echo            "<a href='javascript:void(0)' class='linkDeleteProduct'>";
-                    echo                "<i class='glyphicon glyphicon-remove' title='Xóa' data-toggle='modal' data-target='#deleteProduct'></i>";
-                    echo            "</a>";
-                    echo        "</div>";
-                    echo    "</td>";
+                    if($_SESSION["role"] == 'manager') {
+                        echo        "<div class='btn-edit-product hide'>";
+                        echo            "<a href='javascript:void(0)' style='margin-right: 10px' title='Chỉnh sửa' onclick='editCountProductAction(this)'>";
+                        echo                "<i class='glyphicon glyphicon-ok-sign'></i>";
+                        echo            "</a>";
+                        echo            "<a href='javascript:void(0)' class='linkDeleteProduct' onclick='hideEditCountProduct(this)'>";
+                        echo                "<i class='glyphicon glyphicon-remove-sign' title='Hủy bỏ'></i>";
+                        echo            "</a>";
+                        echo        "</div>";
+                        echo        "<div class='btn-dlt-product'>";
+                        echo            "<a href='javascript:void(0)' style='margin-right: 10px' title='Chỉnh sửa' onclick='showEditCountProduct(this)'>";
+                        echo                "<i class='glyphicon glyphicon-edit'></i>";
+                        echo            "</a>";
+                        echo            "<a href='javascript:void(0)' class='linkDeleteProduct'>";
+                        echo                "<i class='glyphicon glyphicon-remove' title='Xóa' data-toggle='modal' data-target='#deleteProduct'></i>";
+                        echo            "</a>";
+                        echo        "</div>";
+                        echo    "</td>";
+                    }
                     echo "</tr>";
                     $index++;
           	}

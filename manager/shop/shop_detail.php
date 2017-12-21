@@ -31,9 +31,13 @@
                     <div>
 			  <ul class="nav nav-tabs">
 			    <li class="active"><a href="javascript:void(0)" onclick="changeTab('productList')"><strong>Sản phẩm</strong></a></li>
-			    <li><a href="javascript:void(0)" onclick="changeTab('employeeList')"><strong>Nhân viên</strong></a></li>
 			    <li><a href="javascript:void(0)" onclick="changeTab('orderList')"><strong>Đơn hàng</strong></a></li>
-			    <li><a href="javascript:void(0)" onclick="changeTab('statistic')"><strong>Thống kê</strong></a></li>
+                            <?php 
+                                if($_SESSION["role"] == 'manager') {
+                                    echo "<li><a href='javascript:void(0)' onclick='changeTab(\"employeeList\")'><strong>Nhân viên</strong></a></li>";
+                                    echo "<li><a href='javascript:void(0)' onclick='changeTab(\"statistic\")'><strong>Thống kê</strong></a></li>";
+                                }
+                            ?>
 			  </ul>
 			
 			  <div class="tab-content">
