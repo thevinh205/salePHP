@@ -3,7 +3,8 @@
 ?>
 <html>
     <body>
-		<script src="../static/js/product.js"></script>
+        <script src="../static/js/jquery.min.js"></script>
+        <script src="../static/js/product.js"></script>
     	 
       	<?php 
 		    include("../layout/header.html");

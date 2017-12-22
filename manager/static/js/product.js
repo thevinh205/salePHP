@@ -86,9 +86,9 @@ function showAddProduct() {
  
  function uploadImage(productId) {
     var countFile = filesUpload.length;
-    var url = "upload.php";
+    var url = "../upload.php";
     var maxFileName = $("#maxFileName").val();
-    if(maxFileName == undefined)
+    if(maxFileName == undefined || maxFileName == '')
     	maxFileName = 0;
     for(var i=parseInt(countImage); i<countFile; i++){
         try{
@@ -112,7 +112,7 @@ function showAddProduct() {
                 async: false,
                 success: function (e) {
                 },
-                error: function () {
+                error: function (e) {
                 },
                 complete: function (res) {
                 }
@@ -206,6 +206,8 @@ function linkDeleteProduct(e){
 	var typeName = $("#productTypeEdit option:selected").text();
     var avatar = $("#avatar").val();
     var maxFileName = $("#maxFileName").val();
+    if(maxFileName == "")
+        maxFileName = 0;
     if(filesUpload.length > 0) {
         if(countImage == 0 || filesDelete.length == countImage) {
             if(filesUpload.length > countImage) {
