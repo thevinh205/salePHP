@@ -46,7 +46,7 @@ function showAddProduct() {
         avatar = 1 + "." + type;
     }
     var url = "product.php";
-    $.ajax({	
+    $.ajax({
             type: 'POST', 
             url: url, 
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -73,7 +73,7 @@ function showAddProduct() {
  }
  
  function resetAddProduct() {
-	var productId = $("input[name*='productIdAdd']").val("");
+    var productId = $("input[name*='productIdAdd']").val("");
     var productName = $("input[name*='productNameAdd']").val("");
     var productType = $("select[name*='productTypeAdd']").val("");
     var priceBuy = $("input[name*='priceBuyAdd']").val("");
@@ -187,9 +187,9 @@ function linkDeleteProduct(e){
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
         success: function(data){ 
             $(".product-modal-edit").html(data);
-            //countImage = $("#imageTotal").val();
-            //filesUpload = $("#listFileNameImg").val();
-            
+            countImage = $("#imageTotal").val();
+            var listFiles = $("#listFileNameImg").val();
+            filesUpload = listFiles.split(";");
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
         }

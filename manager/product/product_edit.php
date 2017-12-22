@@ -5,6 +5,15 @@
 		$sql1="SELECT id, name, price_sell, price_buy, avatar, product_type, description, avatar FROM product WHERE id='".$productId."'";
 	    $result1=mysqli_query($con,$sql1);
 		$row1 = mysqli_fetch_assoc($result1);
+                
+            $path = '../../resources/img/sanpham/' . $_GET['productIdEdit']; 
+            $files = array_diff(scandir($path), array('.', '..'));
+            $listFileName = current($files);
+            foreach ($files as $file) {
+                if($file != current($files))
+                    $listFileName = $listFileName.";".$file;
+            }
+            $maxFileName =  explode(".", end($files));
 	?> 
     <form class="form-horizontal">
         <div class="modal-header">
@@ -86,9 +95,12 @@
             <a href="javascript:void(0)" class="btn btn-danger" data-dismiss="modal">Hủy bỏ</a>
             <a href="javascript:void(0)" class="btn btn-success" onclick="editProductAction()">Chỉnh sửa</a>
         </div>
-         <input type="hidden" th:value="${listFileName.size()}" id="imageTotal"></input>
-         <input type="hidden" th:value="${listFileName}" id="listFileNameImg"></input>
-         <input type="hidden" th:value="${maxFileName}" id="maxFileName"></input>
-         <input type="hidden" value="<?php echo $row1['avatar'];?>" id="avatar"></input>
+         
+         
+         <input type="hidden" value="<?php echo $row1['avatar'];?>" id="avatar"></input
+         <input type="hidden" value="<?php echo count($files);?>" id="imageTotal1"/>
+         <input type="hidden" value="<?php echo $listFileName;?>" id="listFileNameImg"/>
+         <input type="hidden" value="<?php echo $maxFileName[0];?>" id="maxFileName"/>
+         <input type="hidden" value="<?php echo count($files);?>" id="imageTotal"/>
     </form>
 </html>
