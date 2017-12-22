@@ -53,10 +53,7 @@
                         <tbody>
                             <tr>
                                 <td colspan="5" style="text-align:center;">
-                                    <b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">HÀNG MỚI VỀ LẠI + MẪU MỚI (CẬP NHẬT THƯỜNG XUYÊN)<br>
-                                        mới cập nhật lúc 10H25 - 7/11/17
-                                    </b>
-                                    <br>
+                                    <b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">HÀNG MỚI VỀ LẠI + MẪU MỚI (CẬP NHẬT THƯỜNG XUYÊN)</b>
                                 </td>
                             </tr>
                             <?php
