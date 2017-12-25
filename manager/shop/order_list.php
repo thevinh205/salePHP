@@ -72,9 +72,9 @@
                 $sql = "";
                 if($toDate != ''){
                     $toDate = date('Y-m-d',strtotime($toDate . "+1 days"));
-                    $sql="SELECT od.id, od.create_date, m.name, total_price, od.status, od.employee_username FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<'$toDate' LIMIT $offset,30";
+                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<'$toDate' LIMIT $offset,30";
                 } else {
-                    $sql="SELECT od.id, od.create_date, m.name, total_price, od.status, od.employee_username FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<NOW() LIMIT $offset,30";
+                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<NOW() LIMIT $offset,30";
                 }
                 
 	        $result=mysqli_query($con,$sql);
