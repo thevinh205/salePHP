@@ -243,6 +243,7 @@ function editOrderAction(e) {
 
 function searchOrderShop(page) {
     var shopId = $("#shopId").val();
+	var productId = $("input[name*='productId']").val();
     var fromDate = $("input[name*='fromDate']").val();
     var toDate = $("input[name*='toDate']").val();
     var orderId = $("input[name*='orderId']").val();
@@ -256,7 +257,8 @@ function searchOrderShop(page) {
             page: page,
             fromDate : fromDate, 
             toDate: toDate,
-            orderId : orderId
+            orderId : orderId,
+			productId : productId
         },
         success: function(data){ 
             $("div[id*='contentTab']").html(data);
