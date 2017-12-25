@@ -10,9 +10,10 @@
         $description = $_POST['description'];
         $avatar = $_POST['avatar'];
 		$typeName = $_POST['typeName'];
+		$guarantee = $_POST['guarantee'];
         
-        $sql = "INSERT INTO product (id, name, description, avatar, status, category_name, price_buy, price_sell, product_type, create_date) 
-		VALUES ('".$productId."', '".$productName."', '".$description."', '".$avatar."', 'open', '".$typeName."', '".$priceBuy."', '".$priceSell."', '".$productType."', CURDATE())";
+        $sql = "INSERT INTO product (id, name, description, avatar, status, category_name, price_buy, price_sell, product_type, create_date, show_web, guarantee) 
+		VALUES ('".$productId."', '".$productName."', '".$description."', '".$avatar."', 'open', '".$typeName."', '".$priceBuy."', '".$priceSell."', '".$productType."', CURDATE(), 1, '$guarantee')";
 		
 		if (mysqli_query($con, $sql)) {
 		    echo "New record created successfully";
@@ -29,8 +30,10 @@
         $description = $_POST['description'];
         $avatar = $_POST['avatar'];
 		$typeName = $_POST['typeName'];
+		$showWeb = $_POST['showWeb'];
+		$guarantee = $_POST['guarantee'];
         
-        $sql = "UPDATE product SET name='".$productName."', description='".$description."', avatar='".$avatar."', category_name='".$typeName."', price_buy='".$priceBuy."', price_sell='".$priceSell."', product_type='".$productType."'
+        $sql = "UPDATE product SET name='".$productName."', description='".$description."', avatar='".$avatar."', category_name='".$typeName."', price_buy='".$priceBuy."', price_sell='".$priceSell."', show_web=$showWeb, guarantee='$guarantee', product_type='".$productType."'
 		WHERE id='".$productId."'";
 		
 		if (mysqli_query($con, $sql)) {

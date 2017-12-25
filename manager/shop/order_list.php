@@ -7,10 +7,18 @@
         <span class="title-header">Tìm kiếm đơn hàng</span>
         <input type="hidden" name="shopId" th:value="${shop.id}"/>
         <div class="form-group row" style="margin-top: 10px;">
-            <label class="col-sm-2">Mã đơn hàng:</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="orderId" value="<?php echo $_POST['orderId']; ?>"/>
-            </div>
+			<div class="col-sm-6">
+				<label class="col-sm-4">Mã đơn hàng:</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" name="orderId" value="<?php echo $_POST['orderId']; ?>"/>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<label class="col-sm-4">Mã sản phẩm:</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" name="productId" value="<?php echo $_POST['productId']; ?>"/>
+				</div>
+			</div>
         </div>
         <div class="form-group row">
             <div class="col-sm-6">
@@ -54,6 +62,7 @@
           <tbody
             <?php 
                 $shopId = $_POST['shopId'];
+				$productId = $_POST['productId'];
                 $fromDate = $_POST['fromDate'];
                 $toDate = $_POST['toDate'];
                 if($fromDate == '')
@@ -63,9 +72,9 @@
                 $sql = "";
                 if($toDate != ''){
                     $toDate = date('Y-m-d',strtotime($toDate . "+1 days"));
-                    $sql="SELECT od.id, od.create_date, m.name, total_price, od.status, od.employee_username FROM order_header od left join member m on od.employee_username = m.username where shop_id= $shopId and od.create_date>='$fromDate' and od.create_date<'$toDate' LIMIT $offset,30";
+                    $sql="SELECT od.id, od.create_date, m.name, total_price, od.status, od.employee_username FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<'$toDate' LIMIT $offset,30";
                 } else {
-                    $sql="SELECT od.id, od.create_date, m.name, total_price, od.status, od.employee_username FROM order_header od left join member m on od.employee_username = m.username where shop_id= $shopId and od.create_date>='$fromDate' and od.create_date<NOW() LIMIT $offset,30";
+                    $sql="SELECT od.id, od.create_date, m.name, total_price, od.status, od.employee_username FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<NOW() LIMIT $offset,30";
                 }
                 
 	        $result=mysqli_query($con,$sql);

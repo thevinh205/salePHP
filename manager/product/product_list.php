@@ -115,6 +115,12 @@
                             <input type="text" class="form-control numbers" name="priceSellAdd"/>
                         </div>
                     </div>
+					<div class="form-group">
+                        <label class="form-control-label col-sm-4">Bảo hành</label>
+                        <div class="col-sm-8"> 
+                            <input type="text" class="form-control" name="guaranteeAdd"/>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="form-control-label col-sm-4">Mô tả</label>
                         <div class="col-sm-8"> 

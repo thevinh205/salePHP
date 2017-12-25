@@ -12,7 +12,9 @@
                     <div style="text-align: center;">
                     <span style="color: blue;font-size: 25px;">
                         <b>PHÂN PHỐI SỈ & LẺ PHỤ KIỆN VÀ ĐỒ CHƠI GIÁ TỐT NHẤT</b> <br/>
-                        <b>GIÁ SỈ DÙ CHỈ 1</b>
+                        <b>GIAO HÀNG TOÀN QUỐC, GIAO HÀNG DÙ CHỈ 1</b><br/>
+						<b>PHÍ SHIP HỒ CHÍ MINH: 20K</b> <br/>
+						<b>PHÍ SHIP TỈNH THÀNH KHÁC: 25K->40K TÙY KHU VỰC</b>
                     </span></div><br>
                     <div style="text-align: center;">
                     <span style="color: red; font-size: 35px;"><b>PHỤ KIỆN VT<br>A34 QL22, PHƯỜNG TRUNG MỸ TÂY, Q.12, HCM</b></span></div>
@@ -57,7 +59,7 @@
                                 </td>
                             </tr>
                             <?php
-                                 $sql="SELECT p.id, p.name, p.price_sell, p.avatar, sp.count FROM shop_party_relationship sp left join product p on sp.product_id=p.id where sp.type='product';";
+                                 $sql="SELECT p.id, p.name, p.price_sell, p.avatar, sp.count, p.guarantee FROM shop_party_relationship sp left join product p on sp.product_id=p.id where sp.type='product' and p.show_web=1;";
                                   $result=mysqli_query($con,$sql);
                                   
                                    while($tv_2=mysqli_fetch_array($result))
@@ -81,7 +83,7 @@
                                         echo        "</span>";
                                         echo    "</td>";
                                         echo    "<td align='center' style='width: 15%'>";
-                                        echo        "<span><font size='3'><b><font color='#000'>3T</font></b></font></span>";
+                                        echo        "<span><font size='3'><b><font color='#000'>$tv_2[guarantee]</font></b></font></span>";
                                         echo    "</td>";
                                         echo "</tr>";
                                     }

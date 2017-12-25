@@ -39,6 +39,7 @@ function showAddProduct() {
     var priceSell = $("input[name*='priceSellAdd']").val();
     var description = $("textarea[name*='descriptionAdd']").val();
 	var typeName = $("#productTypeAdd option:selected").text();
+	var guarantee = $("input[name*='guaranteeAdd']").val();
     var avatar = "";
     if(filesUpload.length > 0) {
         var fileTypes = filesUpload[0].name.split('.');
@@ -59,7 +60,8 @@ function showAddProduct() {
                 description: description,
                 avatar: avatar,
                 type: 'addProduct',
-				typeName: typeName
+				typeName: typeName,
+				guarantee : guarantee
             },
             success: function(data){ 
                 uploadImage(productId);
@@ -189,7 +191,8 @@ function linkDeleteProduct(e){
             $(".product-modal-edit").html(data);
             countImage = $("#imageTotal").val();
             var listFiles = $("#listFileNameImg").val();
-            filesUpload = listFiles.split(";");
+			if(listFiles != '')
+				filesUpload = listFiles.split(";");
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
         }
@@ -204,6 +207,10 @@ function linkDeleteProduct(e){
     var priceSell = $("input[name*='priceSellEdit']").val();
     var description = $("textarea[name*='descriptionEdit']").val();
 	var typeName = $("#productTypeEdit option:selected").text();
+	var guarantee = $("input[name*='guaranteeEdit']").val();
+	var showWeb = 0;
+	if($("input[name*='showWebEdit']").is(':checked'))
+		showWeb = 1;
     var avatar = $("#avatar").val();
     var maxFileName = $("#maxFileName").val();
     if(maxFileName == "")
@@ -238,6 +245,8 @@ function linkDeleteProduct(e){
             description : description,
             avatar : avatar,
 			typeName : typeName,
+			showWeb : showWeb,
+			guarantee : guarantee,
 			type : 'editProduct'
         },
         success: function(data){

@@ -3,6 +3,7 @@ var listProductId = "";
 $(document).ready(function(){
     $(".btnSearchOrder").click( function(){
         var shopId = $("#shopId").val();
+		var productId = $("input[name*='productId']").val();
         var orderId = $("input[name*='orderId']").val();
         var fromDate = $("input[name*='fromDate']").val();
         var toDate = $("input[name*='toDate']").val();
@@ -15,6 +16,7 @@ $(document).ready(function(){
                 orderId : orderId, 
                 fromDate: fromDate,
                 toDate: toDate,
+				productId: productId,
                 page: 1
             },
             success: function(data){ 
