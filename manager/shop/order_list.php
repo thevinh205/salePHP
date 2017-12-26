@@ -140,9 +140,9 @@
         <div class="pagination">
             <?php
                 if($toDate != ''){
-                    $sql="SELECT count(*) as total FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<'$toDate'";
+                    $sql="SELECT count(DISTINCT od.id) as total FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<'$toDate'";
                 } else {
-                    $sql="SELECT count(*) as total FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<NOW()";
+                    $sql="SELECT count(DISTINCT od.id) as total FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<NOW()";
                 }
                 $result=mysqli_query($con,$sql);
                 $data=mysqli_fetch_assoc($result);
