@@ -38,9 +38,9 @@
                 $sql = "";
                 if($toDate != ''){
                     $toDate = date('Y-m-d',strtotime($toDate . "+1 days"));
-                    $sql="SELECT sum(total_price) as total FROM order_header where shop_id= $shopId and create_date>='$fromDate' and create_date<'$toDate'";
+                    $sql="SELECT sum(total_price) as total FROM order_header where shop_id= $shopId and create_date>='$fromDate' and create_date<'$toDate' and status != 'cancle'";
                 } else {
-                    $sql="SELECT sum(total_price) as total FROM order_header where shop_id= $shopId and create_date>='$fromDate' and create_date<NOW()";
+                    $sql="SELECT sum(total_price) as total FROM order_header where shop_id= $shopId and create_date>='$fromDate' and create_date<NOW() and status != 'cancle'";
                 }
 				$result=mysqli_query($con,$sql);
 				$data = mysqli_fetch_assoc($result);
@@ -54,9 +54,9 @@
 			<?php 
                 $sql = "";
                 if($toDate != ''){
-                    $sql="SELECT sum(price_buy*count) as cost FROM order_party_relationship op LEFT JOIN product p on op.product_id=p.id where shop_id= $shopId and op.create_date>='$fromDate' and op.create_date<'$toDate'";
+                    $sql="SELECT sum(price_buy*count) as cost FROM order_header od LEFT JOIN order_party_relationship op ON od.id=op.order_id LEFT JOIN product p on op.product_id=p.id where od.shop_id= $shopId and op.create_date>='$fromDate' and op.create_date<'$toDate' and od.status != 'cancle'";
                 } else {
-                    $sql="SELECT sum(price_buy*count) as cost FROM order_party_relationship op LEFT JOIN product p on op.product_id=p.id where shop_id= $shopId and op.create_date>='$fromDate' and op.create_date<NOW()";
+                    $sql="SELECT sum(price_buy*count) as cost FROM order_header od LEFT JOIN order_party_relationship op ON od.id=op.order_id LEFT JOIN product p on op.product_id=p.id where od.shop_id= $shopId and op.create_date>='$fromDate' and op.create_date<NOW() and od.status != 'cancle'";
                 }
 				$result=mysqli_query($con,$sql);
 				$data = mysqli_fetch_assoc($result);
