@@ -78,8 +78,8 @@ function statisticAction() {
         data: {
             fromDate : fromDate, 
             toDate: toDate,
-			shopId : shopId
-			},
+            shopId : shopId
+        },
         success: function(data){ 
             $("div[id*='contentTab']").html(data);
 			$(".numbers").each(function(c, obj){

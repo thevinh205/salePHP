@@ -15,7 +15,7 @@
             <div class="col-sm-6">
                 <label class="col-sm-4">Đến ngày:</label>
                 <div class="col-sm-8">
-                    <input type="date" class="form-control toDate" value="${<?php echo $_POST['toDate'];?>"/>
+                    <input type="date" class="form-control toDate" value="<?php echo $_POST['toDate'];?>"/>
                 </div>
             </div>
         </div>
