@@ -56,11 +56,12 @@
         $shopId = $_POST['shopId'];
         $priceTotal = $_POST['priceTotal'];
         $listProductId = $_POST['listProductId'];
+        $customer = $_POST['customer'];
         $pieces = explode(";", $listProductId);
 		$username = $_SESSION["username"];
         
-        $sql = "INSERT INTO order_header (employee_username, status, total_price, shop_id, create_date) 
-        VALUES ('$username', 'resolve', $priceTotal, $shopId, NOW())";
+        $sql = "INSERT INTO order_header (employee_username, status, total_price, shop_id, create_date, customer_name) 
+        VALUES ('$username', 'resolve', $priceTotal, $shopId, NOW(), '$customer')";
 
         if (mysqli_query($con, $sql)) {
             $last_id = mysqli_insert_id($con);

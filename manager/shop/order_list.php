@@ -197,8 +197,22 @@
                     </tbody>
                 </table>
                 <div style="font-weight: bold">
-                    <span>Tổng cộng:</span>
-                    <input class="price-total-add" value="0"/> VNĐ
+                    <div class="form-group row">
+                        <div class="col-sm-8">
+                            <label class="col-sm-4">Tổng cộng (VNĐ):</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="price-total-add form-control" value="0"/>
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-8">
+                            <label class="col-sm-4">Khách hàng:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="customer-add form-control"/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">

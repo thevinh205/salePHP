@@ -138,6 +138,7 @@ function createOrderAction() {
     var shopId = $("#shopId").val();
     var priceTotal = $(".price-total-add").val();
     priceTotal = priceTotal.replace(/\,/g, '');
+    var customer = $(".customer-add").val();
     var url = "shop.php";
     $.ajax({	
             type: 'POST', 
@@ -147,6 +148,7 @@ function createOrderAction() {
                 shopId : shopId, 
                 priceTotal: priceTotal,
                 listProductId: listProductId,
+                customer: customer,
                 type : 'createOrder'
             },
             success: function(data){ 
