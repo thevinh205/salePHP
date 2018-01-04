@@ -88,7 +88,8 @@
             </tr>
           </thead>
           <tbody
-            <?php 
+            <?php
+                $orderId = $_POST['orderId'];
                 $shopId = $_POST['shopId'];
 		$productId = $_POST['productId'];
                 $fromDate = $_POST['fromDate'];
@@ -103,10 +104,13 @@
                 $sql = "";
                 if($toDate != ''){
                     $toDate = date('Y-m-d',strtotime($toDate . "+1 days"));
-                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username, od.customer_name FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<'$toDate' and od.customer_name like '%$customer%' and od.status like '%$status%' LIMIT $offset,30";
+                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username, od.customer_name FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<'$toDate' and od.customer_name like '%$customer%' and od.status like '%$status%'";
                 } else {
-                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username, od.customer_name FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<NOW() and od.customer_name like '%$customer%' and od.status like '%$status%' LIMIT $offset,30";
+                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username, od.customer_name FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<NOW() and od.customer_name like '%$customer%' and od.status like '%$status%'";
                 }
+                if(trim($orderId) != '')
+                    $sql = $sql." and od.id = $orderId";
+                $sql = $sql." LIMIT $offset,30";
                 
 	        $result=mysqli_query($con,$sql);
 	        $index = $offset + 1;
@@ -178,6 +182,8 @@
                 } else {
                     $sql="SELECT count(DISTINCT od.id) as total FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<NOW() and od.customer_name like '%$customer%' and od.status like '%$status%'";
                 }
+                 if(trim($orderId) != '')
+                    $sql = $sql." and od.id = $orderId";
                 $result=mysqli_query($con,$sql);
                 $data=mysqli_fetch_assoc($result);
                 $totalPage = $data['total']/30;
