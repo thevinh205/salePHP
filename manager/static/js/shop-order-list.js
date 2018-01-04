@@ -253,6 +253,9 @@ function editOrderAction(e) {
             row.find(".btn-show-edit-order").removeClass("hide");
             row.find(".status-order").attr("disabled","disabled");
             row.find(".order-total-text").text(total);
+            
+            row.find(".customer-name-text").text(customer);
+            row.find(".order-total-text").text(total);
             showNotificationHeader("Chỉnh sửa đơn hàng thành công");
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
