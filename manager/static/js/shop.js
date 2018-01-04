@@ -9,8 +9,10 @@ function changeTab(tabName){
                 url = "order_list.php";
             if(tabName == 'employeeList')
                 url = "employee_list.php";
-			if(tabName == 'statistic')
+            if(tabName == 'statistic')
                 url = "statistic.php";
+            if(tabName == 'spend')
+                url = "spend.php";
             $.ajax({	
                 type: 'POST', 
                 url: url, 

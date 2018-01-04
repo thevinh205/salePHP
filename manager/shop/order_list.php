@@ -22,20 +22,6 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-6">
-                <label class="col-sm-4">Từ ngày:</label>
-                <div class="col-sm-8">
-                    <input type="date" name="fromDate" class="form-control" value="<?php echo $_POST['fromDate']; ?>"/>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <label class="col-sm-4">Đến ngày:</label>
-                <div class="col-sm-8">
-                    <input type="date" name="toDate" class="form-control" value="<?php echo $_POST['toDate']; ?>"/>
-                </div>
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-6">
                 <label class="col-sm-4">Trạng thái:</label>
                 <div class="col-sm-8">
                     <?php
@@ -59,6 +45,20 @@
                 <label class="col-sm-4">Khách hàng</label>
                 <div class="col-sm-8">
                     <input type="text" name="customer" class="form-control" value="<?php echo $_POST['customer']; ?>"/>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <label class="col-sm-4">Từ ngày:</label>
+                <div class="col-sm-8">
+                    <input type="date" name="fromDate" class="form-control" value="<?php echo $_POST['fromDate']; ?>"/>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <label class="col-sm-4">Đến ngày:</label>
+                <div class="col-sm-8">
+                    <input type="date" name="toDate" class="form-control" value="<?php echo $_POST['toDate']; ?>"/>
                 </div>
             </div>
         </div>

@@ -58,7 +58,7 @@
         $listProductId = $_POST['listProductId'];
         $customer = $_POST['customer'];
         $pieces = explode(";", $listProductId);
-		$username = $_SESSION["username"];
+	$username = $_SESSION["username"];
         
         $sql = "INSERT INTO order_header (employee_username, status, total_price, shop_id, create_date, customer_name) 
         VALUES ('$username', 'resolve', $priceTotal, $shopId, NOW(), '$customer')";
@@ -123,6 +123,30 @@
             }
         } else {
             echo "Error add new employee: " . $sql . "<br>" . mysqli_error($con);
+        }
+    } else if($type == 'createSpend') {
+        session_start();
+        $shopId = $_POST['shopId'];
+        $content = $_POST['content'];
+        $total = $_POST['total'];
+        $username = $_SESSION["username"];
+        $sql = "INSERT INTO spend (employee, content, total, shop_id, create_date) 
+        VALUES ('$username', '$content', $total, $shopId, NOW())";
+        if (mysqli_query($con, $sql)) {
+            echo "Add new spend successful ";
+        } else {
+            echo "Error add new spend: " . $sql . "<br>" . mysqli_error($con);
+        }
+    } else if($type == 'updateSpend') {
+        session_start();
+        $spendId = $_POST['spendId'];
+        $content = $_POST['content'];
+        $total = $_POST['total'];
+        $sql = "UPDATE spend SET content='$content', total=$total WHERE id=$spendId";
+        if (mysqli_query($con, $sql)) {
+            echo "Update spend successful ";
+        } else {
+            echo "Error in update spend: " . $sql . "<br>" . mysqli_error($con);
         }
     }
 ?>
