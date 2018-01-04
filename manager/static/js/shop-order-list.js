@@ -7,6 +7,8 @@ $(document).ready(function(){
         var orderId = $("input[name*='orderId']").val();
         var fromDate = $("input[name*='fromDate']").val();
         var toDate = $("input[name*='toDate']").val();
+        var customer = $("input[name*='customer']").val();
+        var status = $("select[name*='statusSearch']").val();
         var url = "order_list.php";
         $.ajax({	
             type: 'POST', 
@@ -16,7 +18,9 @@ $(document).ready(function(){
                 orderId : orderId, 
                 fromDate: fromDate,
                 toDate: toDate,
-				productId: productId,
+		productId: productId,
+                customer: customer,
+                status: status,
                 page: 1
             },
             success: function(data){ 
@@ -245,10 +249,12 @@ function editOrderAction(e) {
 
 function searchOrderShop(page) {
     var shopId = $("#shopId").val();
-	var productId = $("input[name*='productId']").val();
+    var productId = $("input[name*='productId']").val();
     var fromDate = $("input[name*='fromDate']").val();
     var toDate = $("input[name*='toDate']").val();
     var orderId = $("input[name*='orderId']").val();
+    var customer = $("input[name*='customer']").val();
+    var status = $("select[name*='statusSearch']").val();
     var url = "order_list.php";
     $.ajax({	
         type: 'POST', 
@@ -260,7 +266,9 @@ function searchOrderShop(page) {
             fromDate : fromDate, 
             toDate: toDate,
             orderId : orderId,
-			productId : productId
+            productId : productId,
+            customer : customer,
+            status : status
         },
         success: function(data){ 
             $("div[id*='contentTab']").html(data);

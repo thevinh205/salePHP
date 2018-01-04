@@ -7,18 +7,18 @@
         <span class="title-header">Tìm kiếm đơn hàng</span>
         <input type="hidden" name="shopId" th:value="${shop.id}"/>
         <div class="form-group row" style="margin-top: 10px;">
-			<div class="col-sm-6">
-				<label class="col-sm-4">Mã đơn hàng:</label>
-				<div class="col-sm-8">
-					<input type="text" class="form-control" name="orderId" value="<?php echo $_POST['orderId']; ?>"/>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<label class="col-sm-4">Mã sản phẩm:</label>
-				<div class="col-sm-8">
-					<input type="text" class="form-control" name="productId" value="<?php echo $_POST['productId']; ?>"/>
-				</div>
-			</div>
+            <div class="col-sm-6">
+                <label class="col-sm-4">Mã đơn hàng:</label>
+                <div class="col-sm-8">
+                        <input type="text" class="form-control" name="orderId" value="<?php echo $_POST['orderId']; ?>"/>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <label class="col-sm-4">Mã sản phẩm:</label>
+                <div class="col-sm-8">
+                        <input type="text" class="form-control" name="productId" value="<?php echo $_POST['productId']; ?>"/>
+                </div>
+            </div>
         </div>
         <div class="form-group row">
             <div class="col-sm-6">
@@ -31,6 +31,34 @@
                 <label class="col-sm-4">Đến ngày:</label>
                 <div class="col-sm-8">
                     <input type="date" name="toDate" class="form-control" value="<?php echo $_POST['toDate']; ?>"/>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <label class="col-sm-4">Trạng thái:</label>
+                <div class="col-sm-8">
+                    <?php
+                        echo "<select class='form-control status-order' name='statusSearch'>";
+                        $sql2="SELECT s.key, s.name FROM status s where type='order'";
+                        echo "<option value=''>Tất cả</option>";
+                        $result2=mysqli_query($con,$sql2);
+                        while($tv_3=mysqli_fetch_array($result2)){
+                            if($tv_3['key'] == $_POST['status']){
+                                echo "<option selected='selected' value='$tv_3[key]'>$tv_3[name]</option>";
+                            }
+                            else{
+                                echo "<option value='$tv_3[key]'>$tv_3[name]</option>";
+                            }
+                        }
+                        echo "</select>";
+                    ?>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <label class="col-sm-4">Khách hàng</label>
+                <div class="col-sm-8">
+                    <input type="text" name="customer" class="form-control" value="<?php echo $_POST['customer']; ?>"/>
                 </div>
             </div>
         </div>
@@ -52,7 +80,7 @@
                 <th style="width: 50px; text-align: center">Stt</th>
                 <th>Mã đơn hàng</th>
                 <th>Ngày tạo</th>
-                <th>Sản phẩm</th>
+                <th>Khách hàng</th>
                 <th>Nhân viên</th>
                 <th>Tổng hóa đơn</th>
                 <th>Trạng thái</th>
@@ -62,19 +90,22 @@
           <tbody
             <?php 
                 $shopId = $_POST['shopId'];
-				$productId = $_POST['productId'];
+		$productId = $_POST['productId'];
                 $fromDate = $_POST['fromDate'];
                 $toDate = $_POST['toDate'];
                 if($fromDate == '')
                     $fromDate = 0;
                 $page = $_POST['page'] - 1;
+                $customer = $_POST['customer'];
+                $status = $_POST['status'];
+                
       		$offset = $page * 30;
                 $sql = "";
                 if($toDate != ''){
                     $toDate = date('Y-m-d',strtotime($toDate . "+1 days"));
-                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<'$toDate' LIMIT $offset,30";
+                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username, od.customer_name FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<'$toDate' and od.customer_name like '%$customer%' and od.status like '%$status%' LIMIT $offset,30";
                 } else {
-                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<NOW() LIMIT $offset,30";
+                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username, od.customer_name FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<NOW() and od.customer_name like '%$customer%' and od.status like '%$status%' LIMIT $offset,30";
                 }
                 
 	        $result=mysqli_query($con,$sql);
@@ -86,7 +117,7 @@
                     echo    "<td class='text-center'>$index</td>";
                     echo    "<td class='orderId'>$tv_2[id]</td>";
                     echo    "<td>$tv_2[create_date]</td>";
-                    echo    "<td><a href='javascript:void(0)' data-toggle='modal' data-target='#popupOrderProductList' onclick='showListProductOfOrder(this)'>Sản phẩm</a></td>";
+                    echo    "<td>$tv_2[customer_name]</td>";
                     echo    "<td class='employee'>$tv_2[name]</td>";
                     echo    "<td>";
                     echo        "<span class='order-total-text numbers'>$tv_2[total_price]</span>";
@@ -121,9 +152,12 @@
                         echo            "<a href='javascript:void(0)' style='margin-right: 10px' title='Chỉnh sửa' onclick='showEditOrder(this)'>";
                         echo                "<i class='glyphicon glyphicon-edit'></i>";
                         echo            "</a>";
+                        echo            "<a href='javascript:void(0)' data-toggle='modal' data-target='#popupOrderProductList' onclick='showListProductOfOrder(this)' title='Danh sách sản phẩm'>";
+                        echo                "<i class='glyphicon glyphicon-th-list'></i>";
+                        echo            "</a>";
                         echo        "</div>";
-                        echo    "</td>";
                     }
+                    echo    "</td>";
                     echo "</tr>"; 
                     $index++;
                 }
@@ -140,9 +174,9 @@
         <div class="pagination">
             <?php
                 if($toDate != ''){
-                    $sql="SELECT count(DISTINCT od.id) as total FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<'$toDate'";
+                    $sql="SELECT count(DISTINCT od.id) as total FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<'$toDate' and od.customer_name like '%$customer%' and od.status like '%$status%'";
                 } else {
-                    $sql="SELECT count(DISTINCT od.id) as total FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<NOW()";
+                    $sql="SELECT count(DISTINCT od.id) as total FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<NOW() and od.customer_name like '%$customer%' and od.status like '%$status%'";
                 }
                 $result=mysqli_query($con,$sql);
                 $data=mysqli_fetch_assoc($result);

@@ -24,7 +24,9 @@ function changeTab(tabName){
                     orderId: '',
                     totalPriceOrder:0,
                     fromDate:'',
-                    toDate: ''
+                    toDate: '',
+                    customer: '',
+                    status: ''
                 },
                 success: function(data){ 
                     $("div[id*='contentTab']").html(data);
