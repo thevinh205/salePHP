@@ -121,7 +121,10 @@
                     echo    "<td class='text-center'>$index</td>";
                     echo    "<td class='orderId'>$tv_2[id]</td>";
                     echo    "<td>$tv_2[create_date]</td>";
-                    echo    "<td>$tv_2[customer_name]</td>";
+                    echo    "<td>";
+                    echo        "<span class='customer-name-text'>$tv_2[customer_name]</span>";
+                    echo        "<input value='$tv_2[customer_name]' class='form-control customer-name-input hide' style='text-align: center'/>";
+                    echo    "</td>";
                     echo    "<td class='employee'>$tv_2[name]</td>";
                     echo    "<td>";
                     echo        "<span class='order-total-text numbers'>$tv_2[total_price]</span>";

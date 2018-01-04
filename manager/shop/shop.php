@@ -89,8 +89,8 @@
         $orderId = $_POST['orderId'];
         $total_price = $_POST['total'];
         $status = $_POST['status'];
-        echo $total_price;
-        $sql = "UPDATE order_header SET total_price=$total_price, status='".$status."'
+        $customer = $_POST['customer'];
+        $sql = "UPDATE order_header SET total_price=$total_price, status='".$status."', customer_name='$customer'
 		WHERE id=$orderId";
 		
         if (mysqli_query($con, $sql)) {

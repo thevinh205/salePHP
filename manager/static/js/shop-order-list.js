@@ -192,9 +192,14 @@ function showEditOrder(e) {
     var row = $(e).closest("tr");
     row.find(".order-total-text").addClass("hide");
     row.find(".order-total-input").removeClass("hide");
+    
+    row.find(".customer-name-text").addClass("hide");
+    row.find(".customer-name-input").removeClass("hide");
+    
     row.find(".btn-edit-order").removeClass("hide");
     row.find(".btn-show-edit-order").addClass("hide");
     row.find(".status-order").removeAttr("disabled");
+    
     row.find(".order-total-input").keyup(function(event) {
             if(event.which >= 37 && event.which <= 40) return;
             $(this).val(function(index, value) {
@@ -211,6 +216,10 @@ function cancelEditOrder(e) {
     var orderStatus = row.find(".order-status-text").val();
     row.find(".order-total-text").removeClass("hide");
     row.find(".order-total-input").addClass("hide");
+    
+    row.find(".customer-name-text").removeClass("hide");
+    row.find(".customer-name-input").addClass("hide");
+    
     row.find(".btn-edit-order").addClass("hide");
     row.find(".btn-show-edit-order").removeClass("hide");
     row.find(".status-order").attr("disabled","disabled");
@@ -221,6 +230,7 @@ function editOrderAction(e) {
     var row = $(e).closest("tr");
     var orderId = $(row).find(".orderId").text();
     var total = row.find(".order-total-input").val();
+    var customer = row.find(".customer-name-input").val();
     var status = row.find(".status-order").val();
     var url = "shop.php";
     $.ajax({	
@@ -231,11 +241,14 @@ function editOrderAction(e) {
             orderId : orderId,
             total : total.replace(/\,/g, ''),
             status : status,
+            customer: customer,
             type : 'updateOrder'
         },
         success: function(data){ 
             row.find(".order-total-text").removeClass("hide");
             row.find(".order-total-input").addClass("hide");
+            row.find(".customer-name-text").removeClass("hide");
+            row.find(".customer-name-input").addClass("hide");
             row.find(".btn-edit-order").addClass("hide");
             row.find(".btn-show-edit-order").removeClass("hide");
             row.find(".status-order").attr("disabled","disabled");
