@@ -18,7 +18,7 @@ td, th {
 
 .right {
         background: #fff;
-        width: 93%;
+        width: calc(100% - 75px);
         transition: width 1s;
         float: right;
     }    
