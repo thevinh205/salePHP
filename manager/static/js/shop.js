@@ -47,17 +47,21 @@ function changeTab(tabName){
 
 $(document).ready(function(){
     var shopId = $("#shopId").val();
-    var url = "product_list.php";
+    var url = "order_list.php";
     $.ajax({	
         type: 'POST', 
         url: url, 
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
         data: { 
             shopId: shopId, 
-            page: 1,
-            productId :'', 
-            productName: '',
-            productType: 'all'
+                    page: 1,
+                    productId :'', 
+                    orderId: '',
+                    totalPriceOrder:0,
+                    fromDate:'',
+                    toDate: '',
+                    customer: '',
+                    status: ''
         },
         success: function(data){ 
             $("div[id*='contentTab']").html(data);

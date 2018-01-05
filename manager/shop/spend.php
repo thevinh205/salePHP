@@ -64,8 +64,9 @@
                 
 	        $result=mysqli_query($con,$sql);
 	        $index = $offset + 1;
-                $totalPriceOrder = 0;
+                $totalSpend = 0;
                 while($tv_2=mysqli_fetch_array($result)){
+                    $totalSpend += $tv_2['total'];
                     echo "<tr>";
                     echo    "<td class='text-center'>$index</td>";
                     echo    "<td>";
@@ -103,7 +104,12 @@
             
           </tbody>
         </table>
-		
+	
+        <div style="font-weight: bold">
+            <span>Tổng cộng:</span>
+            <span class="price-total-order numbers"><?php echo $totalSpend; ?></span> VNĐ
+        </div>
+        
         <div class="pagination">
             <?php
                 $sql = "SELECT count(*) as total FROM spend sp LEFT JOIN member m on sp.employee=m.username WHERE sp.shop_id=$shopId and sp.create_date>$fromDate";
