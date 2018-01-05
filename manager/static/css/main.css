@@ -39,12 +39,11 @@
 }
 
 .container {
-    width: 90%;
+    width: 98%;
 }
 
 .body {
     border-top: 1px solid #ddd;
-    width: calc(100% - 320px);
     float: right;
     margin-right: 15px;
 }

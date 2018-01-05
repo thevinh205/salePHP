@@ -16,7 +16,7 @@
 				    include("../layout/left-menu.html");
 				?>  
 	            
-	            <div class="body">
+	            <div class="body right">
 	                <div class="header">
 	                    <span>Danh sách đen</span>
 	                </div>

@@ -22,7 +22,7 @@
                 include("../layout/left-menu.html");
             ?>
             <input type="hidden" value="<?php echo $_GET['shopId']; ?>" id="shopId"/>
-            <div class="body">
+            <div class="body right">
                 <div class="header">
                     <span>Chi tiết <span th:text="${shop.name}"></span></span>
                 </div>

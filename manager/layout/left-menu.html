@@ -1,43 +1,52 @@
-<div>
-    <div class="col-sm-4 sidebar" style="width: 300px">
-        <div class="mini-submenu">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </div>
-        <div class="list-group">
-            <span href="#" class="list-group-item active">
-                Danh mục
-                <span class="pull-right" id="slide-submenu">
-                    <i class="fa fa-times"></i>
-                </span>
-            </span>
-            <a href="../shop/shop_list.php" class="list-group-item">
-                <i class="glyphicon glyphicon-home"></i> Cửa hàng
-            </a>
-            <?php 
-                if($_SESSION["role"] == 'manager') {
-                    echo "<a href='../product/product_list.php' class='list-group-item'>";
-                    echo     "<i class='glyphicon glyphicon-phone'></i> Sản phẩm";
-                    echo "</a>";
-                    
-                    echo "<a href='#' class='list-group-item'>";
-                    echo    "<i class='glyphicon glyphicon-stats'></i> Thống kê";
-                    echo "</a>";
-                    echo "<a href='#' class='list-group-item'>";
-                    echo    "<i class='glyphicon glyphicon-camera'></i> Giám sát";
-                    echo "</a>";
-                    echo "<a href='#' class='list-group-item'>";
-                    echo    "<i class='glyphicon glyphicon-user'></i> Nhân viên";
-                    echo "</a>";
-                }
-            ?>
-			<a href="../black-list" class="list-group-item">
-                <i class="glyphicon glyphicon-minus-sign"></i> Danh sách đen
-            </a>
-            <a href="#" class="list-group-item">
-                <i class="glyphicon glyphicon-pencil"></i> Báo cáo
-            </a>
-        </div>        
+<link rel="stylesheet"  href="../static/css/left-menu.css" />
+<div class="left">
+    <div class="item">
+        <span class="glyphicon glyphicon-th-large"></span>
     </div>
+    <div class="item">
+        <a href="../shop/shop_list.php">
+           <i class="glyphicon glyphicon-home"></i>
+           Cửa hàng
+        </a>
+    </div>
+    
+    <?php 
+        if($_SESSION["role"] == 'manager') {
+            echo "<div class='item'>";
+            echo "<a href='../product/product_list.php'>";
+            echo     "<i class='glyphicon glyphicon-phone'></i> Sản phẩm";
+            echo "</a>";
+            echo "</div>";
+            
+            echo "<div class='item'>";
+            echo "<a href='#'>";
+            echo    "<i class='glyphicon glyphicon-stats'></i> Thống kê";
+            echo "</a>";
+            echo "</div>";
+            
+            echo "<div class='item'>";
+            echo "<a href='#'>";
+            echo    "<i class='glyphicon glyphicon-camera'></i> Giám sát";
+            echo "</a>";
+            echo "</div>";
+            
+            echo "<div class='item'>";
+            echo "<a href='#'>";
+            echo    "<i class='glyphicon glyphicon-user'></i> Nhân viên";
+            echo "</a>";
+            echo "</div>";
+        }
+    ?>
+            
+    <div class="item">
+        <a href="../black-list">
+            <i class="glyphicon glyphicon-minus-sign"></i> Danh sách đen
+        </a>
+    </div>
+    <div class="item">
+        <a href="#">
+            <i class="glyphicon glyphicon-pencil"></i> Báo cáo
+        </a>
+    </div> 
 </div>
+
