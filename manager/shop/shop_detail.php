@@ -24,7 +24,13 @@
             <input type="hidden" value="<?php echo $_GET['shopId']; ?>" id="shopId"/>
             <div class="body right">
                 <div class="header">
-                    <span>Chi tiết <span th:text="${shop.name}"></span></span>
+                    <?php
+                        $sqlShop = "SELECT name FROM shop where id=$_GET[shopId]";
+                        $resultShop=mysqli_query($con,$sqlShop);
+                        $dataShop = mysqli_fetch_assoc($resultShop);
+                        $shopName = $dataShop['name'];
+                        echo "<span>Chi tiết $shopName</span>";
+                    ?>
                 </div>
                 
                 <div class="content">
