@@ -29,7 +29,7 @@
     <div class="content-list">
         <h2 class="pull-left">Danh sách chi tiêu</h2> 
         <button type="button" class="btn btn-info pull-right button-add" data-toggle="modal" 
-                data-target="#spendPopup" title="Tạo đơn hàng">    
+                data-target="#spendPopup" title="Tạo chi tiêu">    
             <i class="glyphicon glyphicon-plus"></i>
         </button>
         <table class="table table-bordered">

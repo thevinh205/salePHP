@@ -18,11 +18,8 @@ td, th {
 
 .right {
         background: #fff;
-        width: 95%;
+        width: 93%;
         transition: width 1s;
-        border-style:solid;
-        border-color:#ccc;
-        border-width:1px;
         float: right;
     }    
 

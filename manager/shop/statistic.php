@@ -29,8 +29,8 @@
         <h2>Thống kê</h2> 
         <div style="font-weight: bold; font-size: 18px">
             <span>Doanh thu:</span>
-			<?php 
-				$shopId = $_POST['shopId'];
+            <?php 
+                $shopId = $_POST['shopId'];
                 $fromDate = $_POST['fromDate'];
                 $toDate = $_POST['toDate'];
                 if($fromDate == '')
@@ -42,27 +42,46 @@
                 } else {
                     $sql="SELECT sum(total_price) as total FROM order_header where shop_id= $shopId and create_date>='$fromDate' and create_date<NOW() and status != 'cancle'";
                 }
-				$result=mysqli_query($con,$sql);
-				$data = mysqli_fetch_assoc($result);
-				$total = $data['total'];
-				echo "<span class='price-total numbers'>$total</span> VNĐ";
-			?>
+                $result=mysqli_query($con,$sql);
+                $data = mysqli_fetch_assoc($result);
+                $total = $data['total'];
+                echo "<span class='price-total numbers'>$total</span> VNĐ";
+            ?>
             
         </div>
         <div style="font-weight: bold; font-size: 18px">
             <span>Lợi nhuận:</span>
-			<?php 
+            <?php 
                 $sql = "";
                 if($toDate != ''){
                     $sql="SELECT sum(price_buy*count) as cost FROM order_header od LEFT JOIN order_party_relationship op ON od.id=op.order_id LEFT JOIN product p on op.product_id=p.id where od.shop_id= $shopId and op.create_date>='$fromDate' and op.create_date<'$toDate' and od.status != 'cancle'";
                 } else {
                     $sql="SELECT sum(price_buy*count) as cost FROM order_header od LEFT JOIN order_party_relationship op ON od.id=op.order_id LEFT JOIN product p on op.product_id=p.id where od.shop_id= $shopId and op.create_date>='$fromDate' and op.create_date<NOW() and od.status != 'cancle'";
                 }
-				$result=mysqli_query($con,$sql);
-				$data = mysqli_fetch_assoc($result);
-				$profit = $total - $data['cost'];
-				echo "<span class='price-total numbers'>$profit</span> VNĐ";
-			?>
+                $result=mysqli_query($con,$sql);
+                $data = mysqli_fetch_assoc($result);
+                $profit = $total - $data['cost'];
+                echo "<span class='price-total numbers'>$profit</span> VNĐ";
+            ?>
         </div>
+        
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+                <th>Vốn ban đầu</th>
+                <th>Doanh thu</th>
+                <th>Chi phí</th>
+                <th>Số tiền hiện tại</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+          </tbody>
+        </table>
     </div>
 </div>
