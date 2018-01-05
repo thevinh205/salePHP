@@ -38,7 +38,7 @@ td, th {
     }
     
 .right .glyphicon {
-        color:#807c51;
+        
     }
 span.glyphicon.glyphicon-refresh{
     font-size:17px;
@@ -49,6 +49,7 @@ span.glyphicon.glyphicon-refresh{
         height:50px;
         overflow:hidden;
         color:#fff;
+        font-size: 18px;
     }
 .title {
         background-color:#eee;
