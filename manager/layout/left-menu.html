@@ -3,50 +3,49 @@
     <div class="item">
         <span class="glyphicon glyphicon-th-large"></span>
     </div>
-    <div class="item">
-        <a href="../shop/shop_list.php">
-           <i class="glyphicon glyphicon-home"></i>
-           Cửa hàng
-        </a>
-    </div>
+    <a href="../shop/shop_list.php">
+        <div class="item">
+            <i class="glyphicon glyphicon-home"></i> Cửa hàng
+        </div>
+    </a>
     
     <?php 
         if($_SESSION["role"] == 'manager') {
-            echo "<div class='item'>";
             echo "<a href='../product/product_list.php'>";
-            echo     "<i class='glyphicon glyphicon-phone'></i> Sản phẩm";
+            echo    "<div class='item'>";
+            echo        "<i class='glyphicon glyphicon-phone'></i> Sản phẩm";
+            echo    "</div>";
             echo "</a>";
-            echo "</div>";
             
-            echo "<div class='item'>";
             echo "<a href='#'>";
-            echo    "<i class='glyphicon glyphicon-stats'></i> Thống kê";
+            echo    "<div class='item'>";
+            echo        "<i class='glyphicon glyphicon-stats'></i> Thống kê";
+            echo    "</div>";
             echo "</a>";
-            echo "</div>";
             
-            echo "<div class='item'>";
             echo "<a href='#'>";
-            echo    "<i class='glyphicon glyphicon-camera'></i> Giám sát";
+            echo    "<div class='item'>";
+            echo        "<i class='glyphicon glyphicon-camera'></i> Giám sát";
+            echo    "</div>";
             echo "</a>";
-            echo "</div>";
             
-            echo "<div class='item'>";
             echo "<a href='#'>";
-            echo    "<i class='glyphicon glyphicon-user'></i> Nhân viên";
+            echo    "<div class='item'>";
+            echo        "<i class='glyphicon glyphicon-user'></i> Nhân viên";
+            echo    "</div>";
             echo "</a>";
-            echo "</div>";
         }
     ?>
-            
-    <div class="item">
-        <a href="../black-list">
-            <i class="glyphicon glyphicon-minus-sign"></i> Danh sách đen
-        </a>
-    </div>
-    <div class="item">
-        <a href="#">
+    <a href="../black-list">        
+        <div class="item">
+            <i class="glyphicon glyphicon-minus-sign"></i> Danh sách đen   
+        </div>
+    </a>
+    
+    <a href="#">
+        <div class="item">
             <i class="glyphicon glyphicon-pencil"></i> Báo cáo
-        </a>
-    </div> 
+        </div> 
+    </a>
 </div>
 
