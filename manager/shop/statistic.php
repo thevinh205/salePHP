@@ -74,7 +74,6 @@
             $spend = $data['cost'];
             if($spend == '')
                 $spend = 0;
-            $totalProfit = $profit - $spend;
             $totalCast = $danhan - $spend;
         ?>
         
@@ -95,7 +94,7 @@
                   <td style='font-weight: bold; font-size: 18px; text-align: center'><?php echo "<span class='price-total numbers'>$danhan</span> VNĐ"; ?></td>
                   <td style='font-weight: bold; font-size: 18px; text-align: center'><?php echo "<span class='price-total numbers'>$danggiao</span> VNĐ"; ?></td>
                   <td style='font-weight: bold; font-size: 18px; text-align: center'><?php echo "<span class='price-total numbers'>$spend</span> VNĐ"; ?></td>
-                  <td style='font-weight: bold; font-size: 18px; text-align: center'><?php echo "<span class='price-total numbers'>$totalProfit</span> VNĐ"; ?></td>
+                  <td style='font-weight: bold; font-size: 18px; text-align: center'><?php echo "<span class='price-total numbers'>$profit</span> VNĐ"; ?></td>
                   <td style='font-weight: bold; font-size: 18px; text-align: center'><?php echo "<span class='price-total numbers'>$totalCast</span> VNĐ"; ?></td>
               </tr>
           </tbody>
