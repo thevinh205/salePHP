@@ -143,6 +143,7 @@ function createOrderAction() {
     var priceTotal = $(".price-total-add").val();
     priceTotal = priceTotal.replace(/\,/g, '');
     var customer = $(".customer-add").val();
+    var phoneNumber = $(".phone-number-add").val();
     var url = "shop.php";
     $.ajax({	
             type: 'POST', 
@@ -153,6 +154,7 @@ function createOrderAction() {
                 priceTotal: priceTotal,
                 listProductId: listProductId,
                 customer: customer,
+                phoneNumber: phoneNumber,
                 type : 'createOrder'
             },
             success: function(data){ 
@@ -196,6 +198,9 @@ function showEditOrder(e) {
     row.find(".customer-name-text").addClass("hide");
     row.find(".customer-name-input").removeClass("hide");
     
+    row.find(".phone-number-text").addClass("hide");
+    row.find(".phone-number-input").removeClass("hide");
+    
     row.find(".btn-edit-order").removeClass("hide");
     row.find(".btn-show-edit-order").addClass("hide");
     row.find(".status-order").removeAttr("disabled");
@@ -220,6 +225,9 @@ function cancelEditOrder(e) {
     row.find(".customer-name-text").removeClass("hide");
     row.find(".customer-name-input").addClass("hide");
     
+    row.find(".phone-number-text").removeClass("hide");
+    row.find(".phone-number-input").addClass("hide");
+    
     row.find(".btn-edit-order").addClass("hide");
     row.find(".btn-show-edit-order").removeClass("hide");
     row.find(".status-order").attr("disabled","disabled");
@@ -231,6 +239,7 @@ function editOrderAction(e) {
     var orderId = $(row).find(".orderId").text();
     var total = row.find(".order-total-input").val();
     var customer = row.find(".customer-name-input").val();
+    var phoneNumber = row.find(".phone-number-input").val();
     var status = row.find(".status-order").val();
     var url = "shop.php";
     $.ajax({	
@@ -242,6 +251,7 @@ function editOrderAction(e) {
             total : total.replace(/\,/g, ''),
             status : status,
             customer: customer,
+            phoneNumber : phoneNumber,
             type : 'updateOrder'
         },
         success: function(data){ 
@@ -249,12 +259,15 @@ function editOrderAction(e) {
             row.find(".order-total-input").addClass("hide");
             row.find(".customer-name-text").removeClass("hide");
             row.find(".customer-name-input").addClass("hide");
+            row.find(".phone-number-text").removeClass("hide");
+            row.find(".phone-number-input").addClass("hide");
             row.find(".btn-edit-order").addClass("hide");
             row.find(".btn-show-edit-order").removeClass("hide");
             row.find(".status-order").attr("disabled","disabled");
             row.find(".order-total-text").text(total);
             
             row.find(".customer-name-text").text(customer);
+            row.find(".phone-number-text").text(phoneNumber);
             row.find(".order-total-text").text(total);
             showNotificationHeader("Chỉnh sửa đơn hàng thành công");
         },

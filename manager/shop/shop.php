@@ -52,16 +52,17 @@
             }
         }  
     } else if($type == 'createOrder') {
-		session_start();
+	session_start();
         $shopId = $_POST['shopId'];
         $priceTotal = $_POST['priceTotal'];
         $listProductId = $_POST['listProductId'];
         $customer = $_POST['customer'];
+        $phoneNumber = $_POST['phoneNumber'];
         $pieces = explode(";", $listProductId);
 	$username = $_SESSION["username"];
         
-        $sql = "INSERT INTO order_header (employee_username, status, total_price, shop_id, create_date, customer_name) 
-        VALUES ('$username', 'resolve', $priceTotal, $shopId, NOW(), '$customer')";
+        $sql = "INSERT INTO order_header (employee_username, status, total_price, shop_id, create_date, customer_name, phone_number) 
+        VALUES ('$username', 'resolve', $priceTotal, $shopId, NOW(), '$customer', '$phoneNumber')";
 
         if (mysqli_query($con, $sql)) {
             $last_id = mysqli_insert_id($con);
@@ -90,7 +91,8 @@
         $total_price = $_POST['total'];
         $status = $_POST['status'];
         $customer = $_POST['customer'];
-        $sql = "UPDATE order_header SET total_price=$total_price, status='".$status."', customer_name='$customer'
+        $phoneNumber = $_POST['phoneNumber'];
+        $sql = "UPDATE order_header SET total_price=$total_price, status='".$status."', customer_name='$customer', phone_number='$phoneNumber'
 		WHERE id=$orderId";
 		
         if (mysqli_query($con, $sql)) {

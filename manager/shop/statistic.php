@@ -63,7 +63,7 @@
             $profit = $danhan - $data['cost'];
             
         //chi phí
-            $sql = "SELECT sum(total) as cost FROM spend sp where sp.shop_id=$shopId and sp.create_date>=$fromDate ";
+            $sql = "SELECT sum(total) as cost FROM spend sp where sp.shop_id=$shopId and sp.create_date>='$fromDate' ";
             if($toDate != ''){
                 $sql = $sql." and sp.create_date<'$toDate'";
             } else {

@@ -81,6 +81,7 @@
                 <th>Mã đơn hàng</th>
                 <th>Ngày tạo</th>
                 <th>Khách hàng</th>
+                <th>SĐT</th>
                 <th>Nhân viên</th>
                 <th>Tổng hóa đơn</th>
                 <th>Trạng thái</th>
@@ -104,9 +105,9 @@
                 $sql = "";
                 if($toDate != ''){
                     $toDate = date('Y-m-d',strtotime($toDate . "+1 days"));
-                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username, od.customer_name FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<'$toDate' and od.customer_name like '%$customer%' and od.status like '%$status%'";
+                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username, od.customer_name, od.phone_number FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<'$toDate' and od.customer_name like '%$customer%' and od.status like '%$status%'";
                 } else {
-                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username, od.customer_name FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<NOW() and od.customer_name like '%$customer%' and od.status like '%$status%'";
+                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username, od.customer_name, od.phone_number FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<NOW() and od.customer_name like '%$customer%' and od.status like '%$status%'";
                 }
                 if(trim($orderId) != '')
                     $sql = $sql." and od.id = $orderId";
@@ -123,12 +124,16 @@
                     echo    "<td>$tv_2[create_date]</td>";
                     echo    "<td>";
                     echo        "<span class='customer-name-text'>$tv_2[customer_name]</span>";
-                    echo        "<input value='$tv_2[customer_name]' class='form-control customer-name-input hide' style='text-align: center'/>";
+                    echo        "<input value='$tv_2[customer_name]' class='form-control customer-name-input hide'/>";
+                    echo    "</td>";
+                    echo    "<td>";
+                    echo        "<span class='phone-number-text'>$tv_2[phone_number]</span>";
+                    echo        "<input value='$tv_2[phone_number]' class='form-control phone-number-input hide'/>";
                     echo    "</td>";
                     echo    "<td class='employee'>$tv_2[name]</td>";
                     echo    "<td>";
                     echo        "<span class='order-total-text numbers'>$tv_2[total_price]</span>";
-                    echo        "<input value='$tv_2[total_price]' class='form-control order-total-input numbers hide' style='text-align: center'/>";
+                    echo        "<input value='$tv_2[total_price]' class='form-control order-total-input numbers hide'/>";
                     echo    "</td>";
                     echo    "<td>";
                     echo        "<input type='hidden' value='$tv_2[status]' class='order-status-text'/>";
@@ -253,6 +258,14 @@
                             <label class="col-sm-4">Khách hàng:</label>
                             <div class="col-sm-8">
                                 <input type="text" class="customer-add form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-8">
+                            <label class="col-sm-4">Số điện thoại:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="phone-number-add form-control"/>
                             </div>
                         </div>
                     </div>
