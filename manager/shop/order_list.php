@@ -171,8 +171,11 @@
                         echo            "<a href='javascript:void(0)' style='margin-right: 10px' title='Chỉnh sửa' onclick='showEditOrder(this)'>";
                         echo                "<i class='glyphicon glyphicon-edit'></i>";
                         echo            "</a>";
-                        echo            "<a href='javascript:void(0)' data-toggle='modal' data-target='#popupOrderProductList' onclick='showListProductOfOrder(this)' title='Danh sách sản phẩm'>";
+                        echo            "<a href='javascript:void(0)' data-toggle='modal' data-target='#popupOrderProductList' onclick='showListProductOfOrder(this)' title='Danh sách sản phẩm' style='margin-right: 10px'>";
                         echo                "<i class='glyphicon glyphicon-th-list'></i>";
+                        echo            "</a>";
+                        echo            "<a href='javascript:void(0)' data-toggle='modal' data-target='#popupInvoice' onclick='showInvoice(this)' title='In hóa đơn'>";
+                        echo                "<i class='glyphicon glyphicon-print'></i>";
                         echo            "</a>";
                         echo        "</div>";
                     }
@@ -350,4 +353,121 @@
   </div>
 </div>
     
+<!-- show print invoices -->
+<div class="modal fade" id="popupInvoice" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content" style="max-height: 700px; overflow-y: scroll;">
+        <div class="form-horizontal">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">In hóa đơn</h4>
+            </div>
+            <div class="modal-body" id="outprint" style="width: 100%">
+                <style>
+                    .invoice-title h2, .invoice-title h3 {
+                        display: inline-block;
+                    }
+
+                    .table > tbody > tr > .no-line {
+                        border-top: none;
+                    }
+
+                    .table > thead > tr > .no-line {
+                        border-bottom: none;
+                    }
+
+                    .table > tbody > tr > .thick-line {
+                        border-top: 2px solid;
+                    }
+                </style>
+                <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="row">
+                            <div class="col-xs-6" style="float: left; width: 350px">
+                            <address>
+                            <strong>Cửa hàng phụ kiện VT:</strong><br>
+                                    Sđt: 0166.381.0003<br>
+                                    Email: thevinh205@gmail.com<br>
+                                    Website: trangphukien.com<br>
+                                    Địa chỉ: A34 QL22, P.Trung Mỹ Tây, Q.12, HCM
+                            </address>
+                        </div>
+                        <div class="col-xs-6" style="float: right; width: 350px">
+                            <strong style="float: right">Mã đơn: 12345</strong><br>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                    <div class="row" style="float: left">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><strong>Danh sách sản phẩm</strong></h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <td style="width: 300px;"><strong>Sản phẩm</strong></td>
+                                                <td style="width: 200px; text-align: center" class="text-center"><strong>Giá</strong></td>
+                                                <td style="width: 150px; text-align: center" class="text-center"><strong>Số lượng</strong></td>
+                                                <td style="width: 200px; text-align: right" class="text-right"><strong>Tổng</strong></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                                            <tr>
+                                                <td>BS-200</td>
+                                                <td style="text-align: center">$10.99</td>
+                                                <td style="text-align: center">1</td>
+                                                <td style="text-align: right">$10.99</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BS-400</td>
+                                                <td style="text-align: center">$20.00</td>
+                                                <td style="text-align: center">3</td>
+                                                <td style="text-align: right">$60.00</td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                    <td class="thick-line"></td>
+                                                    <td class="thick-line"></td>
+                                                    <td class="thick-line" style="text-align: center"><strong>Tiền hàng</strong></td>
+                                                    <td class="thick-line" style="text-align: right">$670.99</td>
+                                            </tr>
+                                            <tr>
+                                                    <td class="no-line"></td>
+                                                    <td class="no-line"></td>
+                                                    <td class="no-line" style="text-align: center"><strong>Tiền ship</strong></td>
+                                                    <td class="no-line" style="text-align: right">$15</td>
+                                            </tr>
+                                            <tr>
+                                                    <td class="no-line"></td>
+                                                    <td class="no-line"></td>
+                                                    <td class="no-line" style="text-align: center"><strong>Tổng cộng</strong></td>
+                                                    <td class="no-line" style="text-align: right">$685.99</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:void(0)" class="btn btn-danger" data-dismiss="modal">Đóng</a>
+                <a href="javascript:void(0)" class="btn btn-success" onclick="printInvoiceAction()">In hóa đơn</a>
+            </div>
+        </div>
+    </div>
+
+  </div>
+</div>
 <script src="../static/js/shop-order-list.js"></script>
