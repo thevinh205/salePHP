@@ -88,7 +88,7 @@
                 <th class="text-center">Hành động</th>
             </tr>
           </thead>
-          <tbody
+          <tbody>
             <?php
                 $orderId = $_POST['orderId'];
                 $shopId = $_POST['shopId'];
@@ -117,8 +117,15 @@
 	        $index = $offset + 1;
                 $totalPriceOrder = 0;
                 while($tv_2=mysqli_fetch_array($result)){
-                    $totalPriceOrder += $tv_2['total_price'];
-                    echo "<tr>";
+                    if($tv_2['status'] != 'cancle')
+                        $totalPriceOrder += $tv_2['total_price'];
+                    if($tv_2['status'] == 'handling') {
+                        echo "<tr class='row-handling'>";
+                    } else if($tv_2['status'] == 'cancle') {
+                        echo "<tr class='row-cancle'>";
+                    } else {
+                        echo "<tr class='row-resolve'>";
+                    }
                     echo    "<td class='text-center'>$index</td>";
                     echo    "<td class='orderId'>$tv_2[id]</td>";
                     echo    "<td>$tv_2[create_date]</td>";

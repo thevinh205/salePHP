@@ -200,3 +200,31 @@ input[type="file"] {
 .dropdown:hover .dropbtn {
     background-color: #f9f9f9;
 }
+
+.row-handling {
+    background: green;
+    color: white;
+}
+
+.row-handling a {
+    color: white !important;
+}
+
+.row-cancle {
+    background: #c15555;
+    color: white;
+}
+
+.row-cancle a {
+    color: white !important;
+}
+
+.row-resolve {
+    background: white;
+    color: black; 
+}
+
+.row-resolve a {
+    color: #337ab7 !important;
+}
+
