@@ -23,6 +23,7 @@ function changeTab(tabName){
                     productId :'', 
                     productName: '',
                     productType: 'all',
+                    productStatus: '',
                     orderId: '',
                     totalPriceOrder:0,
                     fromDate:'',

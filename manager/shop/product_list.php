@@ -7,30 +7,66 @@
         <span class="title-header">Tìm kiếm sản phẩm</span>
         <form>
             <input type="hidden" name="shopId" th:value="${shop.id}"/>
-            <div class="form-group" style="margin-top: 10px;">
-                <label class="form-control-label">Mã sản phẩm</label>
-                <input type="text" class="form-control" name="productId" value="<?php echo $_POST['productId'] ?>"/>
+            <div class="form-group row" style="margin-top: 10px;">
+                <div class="col-sm-6">
+                    <label class="col-sm-4">Mã sản phẩm:</label>
+                    <div class="col-sm-8">
+                         <input type="text" class="form-control" name="productId" value="<?php echo $_POST['productId'] ?>"/>
+                    </div>
+                </div>
+                
+                <div class="col-sm-6">
+                    <label class="col-sm-4">Tên sản phẩm:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="productName" value="<?php echo $_POST['productName'] ?>"/>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label class="form-control-label">Tên sản phẩm</label>
-                <input type="text" class="form-control" name="productName" value="<?php echo $_POST['productName'] ?>"/>
-            </div>
-            <div class="form-group">
-                <label class="form-control-label">Loại</label>
-                <select class="form-control" name="productType">
-                    <?php
-                        $sql2="SELECT type_id, type_name FROM product_type";
-                        $result2=mysqli_query($con,$sql2);
-                        while($tv_3=mysqli_fetch_array($result2)){
-                            if($tv_3[type_id] == $_POST['productType']){
-                                echo "<option selected='selected' value='$tv_3[type_id]'>$tv_3[type_name]</option>";
-                           }
-                           else{
-                                echo "<option value='$tv_3[type_id]'>$tv_3[type_name]</option>";
-                           }
-                        }
-                    ?>
-                </select>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label class="col-sm-4">Loại:</label>
+                    <div class="col-sm-8">
+                        <select class="form-control" name="productType">
+                            <?php
+                                $sql2="SELECT type_id, type_name FROM product_type";
+                                $result2=mysqli_query($con,$sql2);
+                                while($tv_3=mysqli_fetch_array($result2)){
+                                   if($tv_3[type_id] == $_POST['productType']){
+                                        echo "<option selected='selected' value='$tv_3[type_id]'>$tv_3[type_name]</option>";
+                                   }
+                                   else{
+                                        echo "<option value='$tv_3[type_id]'>$tv_3[type_name]</option>";
+                                   }
+                                }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="col-sm-6">
+                    <label class="col-sm-4">Trạng thái:</label>
+                    <div class="col-sm-8">
+                        <select class="form-control" name="productStatus">
+                            <?php
+                                if($_POST['productStatus'] == '')
+                                    echo "<option selected='selected' value=''>Tất cả</option>";
+                                else echo "<option value=''>Tất cả</option>";
+                                
+                                if($_POST['productStatus'] == '0')
+                                    echo "<option selected='selected' value='0'>Hết hàng</option>";
+                                else echo "<option value='0'>Hết hàng</option>";
+                                
+                                if($_POST['productStatus'] == '1')
+                                    echo "<option selected='selected' value='1'>Còn ít</option>";
+                                else echo "<option value='1'>Còn ít</option>";
+                                
+                                if($_POST['productStatus'] == '2')
+                                    echo "<option selected='selected' value='2'>Còn nhiều</option>";
+                                else echo "<option value='2'>Còn nhiều</option>";
+                            ?>
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <a href="javascript:void(0)" class="btn btn-info btnSearchProduct">
@@ -67,11 +103,17 @@
       		$productName = $_POST['productName'];
                 $shopId = $_POST['shopId'];
                 $productType = $_POST['productType'];
+                $productStatus = $_POST['productStatus'];
                 if($productType == 'all')
                     $productType = '';
       		$page = $_POST['page'] - 1;
       		$offset = $page * 30;
-	    	$sql="SELECT p.id, name, price_sell, avatar, product_type, category_name, count FROM  shop_party_relationship sp LEFT JOIN product p on p.id=sp.product_id where sp.shop_id='$shopId' and name LIKE '%$productName%' and p.id LIKE '%$productId%' and product_type like '%$productType%' LIMIT $offset,30";
+	    	$sql="SELECT p.id, name, price_sell, avatar, product_type, category_name, count FROM  shop_party_relationship sp LEFT JOIN product p on p.id=sp.product_id where sp.shop_id='$shopId' and name LIKE '%$productName%' and p.id LIKE '%$productId%' and product_type like '%$productType%' ";
+                if($productStatus == '0' || $productStatus == '1')
+                    $sql = $sql." and sp.count = $productStatus";
+                else if($productStatus == '2')
+                    $sql = $sql." and sp.count >= $productStatus";
+                $sql = $sql." LIMIT $offset,30";
 	        $result=mysqli_query($con,$sql);
 	        $index = $page*30 + 1;
 	        while($tv_2=mysqli_fetch_array($result)){
@@ -126,6 +168,10 @@
         <div class="pagination">
             <?php
                 $sql="SELECT count(*) as total FROM  shop_party_relationship sp LEFT JOIN product p on p.id=sp.product_id where sp.shop_id='$shopId' and name LIKE '%$productName%' and p.id LIKE '%$productId%' and product_type like '%$productType%'";
+                if($productStatus == '0' || $productStatus == '1')
+                    $sql = $sql." and sp.count = $productStatus";
+                else if($productStatus == '2')
+                    $sql = $sql." and sp.count >= $productStatus";
                 $result=mysqli_query($con,$sql);
                 $data=mysqli_fetch_assoc($result);
                 $totalPage = $data['total']/30;

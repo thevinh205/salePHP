@@ -135,6 +135,7 @@ function searchProductShop(page) {
     var productId = $("input[name*='productId']").val();
     var productName = $("input[name*='productName']").val();
     var productType = $("select[name*='productType']").val();
+    var productStatus = $("select[name*='productStatus']").val();
     var url = "product_list.php";
     $.ajax({	
         type: 'POST', 
@@ -145,7 +146,8 @@ function searchProductShop(page) {
             page: page,
             productId : productId, 
             productName: productName,
-            productType: productType
+            productType: productType,
+            productStatus : productStatus
         },
         success: function(data){ 
             $("div[id*='contentTab']").html(data);

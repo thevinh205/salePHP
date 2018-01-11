@@ -4,6 +4,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+    <link rel="icon" type="image/gif" href="../static/img/icon/long-den.jpg" />
     <title>Chi tiết cửa hàng</title>
 	<script src="../static/js/jquery.min.js"></script>
     <script src="../static/js/shop.js"></script>
