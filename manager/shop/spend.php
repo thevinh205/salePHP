@@ -128,7 +128,7 @@
                     if(($i-1) == $page)
                         echo "<a href='javascript:void(0)' class='page active'>$i</a>";
                     else
-                        echo "<a href='javascript:void(0)' class='page gradient' onclick='searchOrderShop($i)'>$i</a>";
+                        echo "<a href='javascript:void(0)' class='page gradient' onclick='searchSpend($i)'>$i</a>";
                 }
             ?>
         </div>
