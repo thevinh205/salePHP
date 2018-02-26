@@ -207,12 +207,19 @@
                 $totalPage = $data['total']/30;
                 if($data['total']%30 > 0)
                         $totalPage +=1;
-                for($i=1; $i<=$totalPage; $i++) {
-                    if(($i-1) == $page)
+                $totalPage = (int)$totalPage;
+                echo "<a href='javascript:void(0)' class='page gradient' onclick='searchOrderShop(1)'>&laquo;</a>";
+                if($page > 2)
+                    echo "<a href='javascript:void(0)' class='page gradient'>...</a>";
+                for($i=$page-1; $i<=$page+3; $i++) {
+                    if((($i-1) == $page) && $i > 0 && $i <= $totalPage)
                         echo "<a href='javascript:void(0)' class='page active'>$i</a>";
-                    else
+                    else if($i > 0 && $i <= $totalPage)
                         echo "<a href='javascript:void(0)' class='page gradient' onclick='searchOrderShop($i)'>$i</a>";
                 }
+                if($page < $totalPage-3)
+                    echo "<a href='javascript:void(0)' class='page gradient'>...</a>";
+                echo "<a href='javascript:void(0)' class='page gradient' onclick='searchOrderShop($totalPage)'>&raquo;</a>";
             ?>
         </div>
         
