@@ -105,9 +105,9 @@
                 $sql = "";
                 if($toDate != ''){
                     $toDate = date('Y-m-d',strtotime($toDate . "+1 days"));
-                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username, od.customer_name, od.phone_number FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<'$toDate' and od.customer_name like '%$customer%' and od.status like '%$status%'";
+                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username, od.customer_name, od.phone_number, od.address FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<'$toDate' and od.customer_name like '%$customer%' and od.status like '%$status%'";
                 } else {
-                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username, od.customer_name, od.phone_number FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<NOW() and od.customer_name like '%$customer%' and od.status like '%$status%'";
+                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username, od.customer_name, od.phone_number, od.address FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<NOW() and od.customer_name like '%$customer%' and od.status like '%$status%'";
                 }
                 if(trim($orderId) != '')
                     $sql = $sql." and od.id = $orderId";
@@ -123,12 +123,14 @@
                         echo "<tr class='row-handling'>";
                     } else if($tv_2['status'] == 'cancle') {
                         echo "<tr class='row-cancle'>";
+                    }else if($tv_2['status'] == 'new') {
+                        echo "<tr class='row-new'>";
                     } else {
                         echo "<tr class='row-resolve'>";
                     }
                     echo    "<td class='text-center'>$index</td>";
-                    echo    "<td class='orderId'>$tv_2[id]</td>";
-                    echo    "<td>$tv_2[create_date]</td>";
+                    echo    "<td class='orderId'><a data-toggle='modal' data-target='#popupOrderDetail' title='Chi tiết đơn hàng' style='cursor:pointer' onclick='showOrderDetail(this)'>$tv_2[id]</a></td>";
+                    echo    "<td class='create-date'>$tv_2[create_date]</td>";
                     echo    "<td>";
                     echo        "<span class='customer-name-text'>$tv_2[customer_name]</span>";
                     echo        "<input value='$tv_2[customer_name]' class='form-control customer-name-input hide'/>";
@@ -136,6 +138,7 @@
                     echo    "<td>";
                     echo        "<span class='phone-number-text'>$tv_2[phone_number]</span>";
                     echo        "<input value='$tv_2[phone_number]' class='form-control phone-number-input hide'/>";
+                    echo        "<span class='address-text hide'>$tv_2[address]</span>";
                     echo    "</td>";
                     echo    "<td class='employee'>$tv_2[name]</td>";
                     echo    "<td>";
@@ -286,10 +289,90 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <div class="col-sm-8">
+                            <label class="col-sm-4">Địa chỉ:</label>
+                            <div class="col-sm-8">
+                                <textarea  class="address-add form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <a href="javascript:void(0)" class="btn btn-success create-order" onclick="createOrderAction()">Tạo</a>
+            </div>
+        </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Order detail -->
+<div class="modal fade" id="popupOrderDetail" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content" style="max-height: 700px; overflow-y: scroll;">
+        <div class="form-horizontal">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Chi tiết đơn hàng</h4>
+            </div>
+            <div class="modal-body">
+                <div style="font-weight: bold">
+                    <div class="form-group row">
+                        <div class="col-sm-8">
+                            <label class="col-sm-4">Mã đơn:</label>
+                            <div class="col-sm-8">
+                                <span class="order-id-detail"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-8">
+                            <label class="col-sm-4">Ngày tạo:</label>
+                            <div class="col-sm-8">
+                                <span class="create-date-detail"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-8">
+                            <label class="col-sm-4">Khách hàng:</label>
+                            <div class="col-sm-8">
+                                <span class="customer-name-detail"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-8">
+                            <label class="col-sm-4">Số điện thoại:</label>
+                            <div class="col-sm-8">
+                                <span class="phone-number-detail"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-8">
+                            <label class="col-sm-4">Địa chỉ:</label>
+                            <div class="col-sm-8">
+                                <span class="address-detail"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-8">
+                            <label class="col-sm-4">Hóa đơn:</label>
+                            <div class="col-sm-8">
+                                <span class="total-detail"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:void(0)" class="btn btn-danger" data-dismiss="modal">Đóng</a>
             </div>
         </div>
     </div>

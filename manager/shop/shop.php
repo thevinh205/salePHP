@@ -58,11 +58,12 @@
         $listProductId = $_POST['listProductId'];
         $customer = $_POST['customer'];
         $phoneNumber = $_POST['phoneNumber'];
+        $address = $_POST['address'];
         $pieces = explode(";", $listProductId);
 	$username = $_SESSION["username"];
         
-        $sql = "INSERT INTO order_header (employee_username, status, total_price, shop_id, create_date, customer_name, phone_number) 
-        VALUES ('$username', 'resolve', $priceTotal, $shopId, NOW(), '$customer', '$phoneNumber')";
+        $sql = "INSERT INTO order_header (employee_username, status, total_price, shop_id, create_date, customer_name, phone_number, address) 
+        VALUES ('$username', 'resolve', $priceTotal, $shopId, NOW(), '$customer', '$phoneNumber', '$address')";
 
         if (mysqli_query($con, $sql)) {
             $last_id = mysqli_insert_id($con);

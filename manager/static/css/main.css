@@ -219,6 +219,15 @@ input[type="file"] {
     color: white !important;
 }
 
+.row-new {
+    background: #a29744;
+    color: white;
+}
+
+.row-new a {
+    color: white !important;
+}
+
 .row-resolve {
     background: white;
     color: black; 

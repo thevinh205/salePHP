@@ -144,6 +144,7 @@ function createOrderAction() {
     priceTotal = priceTotal.replace(/\,/g, '');
     var customer = $(".customer-add").val();
     var phoneNumber = $(".phone-number-add").val();
+    var address = $(".address-add").val();
     var url = "shop.php";
     $.ajax({	
             type: 'POST', 
@@ -155,6 +156,7 @@ function createOrderAction() {
                 listProductId: listProductId,
                 customer: customer,
                 phoneNumber: phoneNumber,
+                address: address,
                 type : 'createOrder'
             },
             success: function(data){ 
@@ -164,6 +166,23 @@ function createOrderAction() {
             error: function(XMLHttpRequest, textStatus, errorThrown){
             }
         }); 
+}
+
+function showOrderDetail(e) {
+    var row = $(e).closest("tr");
+    var orderId = $(row).find(".orderId").text();
+    var createDate = $(row).find(".create-date").text();
+    var customerName = $(row).find(".customer-name-text").text();
+    var phoneNumber = $(row).find(".phone-number-text").text();
+    var address = $(row).find(".address-text").text();
+    var orderTotal = $(row).find(".order-total-text").text();
+    
+    $(".order-id-detail").text(orderId);
+    $(".create-date-detail").text(createDate);
+    $(".customer-name-detail").text(customerName);
+    $(".phone-number-detail").text(phoneNumber);
+    $(".address-detail").text(address);
+    $(".total-detail").text(orderTotal);
 }
 
 function showListProductOfOrder(e) {
