@@ -203,6 +203,20 @@ function showListProductOfOrder(e) {
                 $(".numbers-product").each(function(c, obj){
                     $(obj).text(addCommas(parseFloat($(obj).text())));
                 });
+                
+                var orderId = $(row).find(".orderId").text();
+                var createDate = $(row).find(".create-date").text();
+                var customerName = $(row).find(".customer-name-text").text();
+                var phoneNumber = $(row).find(".phone-number-text").text();
+                var address = $(row).find(".address-text").text();
+                var orderTotal = $(row).find(".order-total-text").text();
+
+                $(".order-id-detail").text(orderId);
+                $(".create-date-detail").text(createDate);
+                $(".customer-name-detail").text(customerName);
+                $(".phone-number-detail").text(phoneNumber);
+                $(".address-detail").text(address);
+                $(".total-detail").text(orderTotal);
             },
             error: function(XMLHttpRequest, textStatus, errorThrown){
             }
