@@ -91,13 +91,26 @@
         $orderId = $_POST['orderId'];
         $total_price = $_POST['total'];
         $status = $_POST['status'];
+        $statusOld = $_POST['statusOld'];
         $customer = $_POST['customer'];
         $phoneNumber = $_POST['phoneNumber'];
+        $shopId = $_POST['shopId'];
         $sql = "UPDATE order_header SET total_price=$total_price, status='".$status."', customer_name='$customer', phone_number='$phoneNumber'
 		WHERE id=$orderId";
-		
+        
         if (mysqli_query($con, $sql)) {
-            echo "Edit order successfully";
+            if($status == 'cancle' && $status != $statusOld) {
+                $sql="SELECT od.product_id, od.count FROM order_party_relationship od where od.order_id=$orderId";
+                $result=mysqli_query($con,$sql);
+                while($tv_2=mysqli_fetch_array($result)){
+                    $sql = "UPDATE shop_party_relationship SET count=(count+$tv_2[count]) WHERE product_id='".$tv_2['product_id']."' and shop_id=$shopId";
+                    if (mysqli_query($con, $sql)) {
+                            echo "Edit order successful ";
+                    } else {
+                            echo "Error in update count product: " . $sql . "<br>" . mysqli_error($con);
+                    }
+                }
+            }
         } else {
             echo "Error edit order: " . $sql . "<br>" . mysqli_error($con);
         }

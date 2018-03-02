@@ -274,6 +274,8 @@ function editOrderAction(e) {
     var customer = row.find(".customer-name-input").val();
     var phoneNumber = row.find(".phone-number-input").val();
     var status = row.find(".status-order").val();
+    var statusOld = $(row).find(".order-status-text").val();
+    var shopId = $("#shopId").val();
     var url = "shop.php";
     $.ajax({	
         type: 'POST', 
@@ -283,8 +285,10 @@ function editOrderAction(e) {
             orderId : orderId,
             total : total.replace(/\,/g, ''),
             status : status,
+            statusOld : statusOld,
             customer: customer,
             phoneNumber : phoneNumber,
+            shopId : shopId,
             type : 'updateOrder'
         },
         success: function(data){ 
