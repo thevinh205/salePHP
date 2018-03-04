@@ -140,7 +140,7 @@
                     echo        "<input value='$tv_2[phone_number]' class='form-control phone-number-input hide'/>";
                     echo        "<span class='address-text hide'>$tv_2[address]</span>";
 					echo        "<span class='note-text hide'>$tv_2[note]</span>";
-					echo        "<span class='shipment-fee-text hide'>$tv_2[shipment_fee]</span>";
+					echo        "<span class='shipment-fee-text numbers hide'>$tv_2[shipment_fee]</span>";
                     echo    "</td>";
                     echo    "<td class='employee'>$tv_2[name]</td>";
                     echo    "<td>";
