@@ -105,9 +105,9 @@
                 $sql = "";
                 if($toDate != ''){
                     $toDate = date('Y-m-d',strtotime($toDate . "+1 days"));
-                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username, od.customer_name, od.phone_number, od.address FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<'$toDate' and od.customer_name like '%$customer%' and od.status like '%$status%' order by create_date ASC";
+                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username, od.customer_name, od.phone_number, od.address, od.note, od.shipment_fee FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<'$toDate' and od.customer_name like '%$customer%' and od.status like '%$status%' order by create_date ASC";
                 } else {
-                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username, od.customer_name, od.phone_number, od.address FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<NOW() and od.customer_name like '%$customer%' and od.status like '%$status%' order by create_date ASC";
+                    $sql="SELECT DISTINCT od.id, od.create_date, m.name, total_price, od.status, od.employee_username, od.customer_name, od.phone_number, od.address, od.note, od.shipment_fee FROM order_header od left join member m on od.employee_username = m.username left join order_party_relationship op on od.id=op.order_id where od.shop_id= $shopId and op.product_id like '%$productId%' and od.create_date>='$fromDate' and od.create_date<NOW() and od.customer_name like '%$customer%' and od.status like '%$status%' order by create_date ASC";
                 }
                 if(trim($orderId) != '')
                     $sql = $sql." and od.id = $orderId";
@@ -139,6 +139,8 @@
                     echo        "<span class='phone-number-text'>$tv_2[phone_number]</span>";
                     echo        "<input value='$tv_2[phone_number]' class='form-control phone-number-input hide'/>";
                     echo        "<span class='address-text hide'>$tv_2[address]</span>";
+					echo        "<span class='note-text hide'>$tv_2[note]</span>";
+					echo        "<span class='shipment-fee-text hide'>$tv_2[shipment_fee]</span>";
                     echo    "</td>";
                     echo    "<td class='employee'>$tv_2[name]</td>";
                     echo    "<td>";
@@ -266,23 +268,54 @@
                 </table>
                 <div style="font-weight: bold">
                     <div class="form-group row">
-                        <div class="col-sm-8">
-                            <label class="col-sm-4">Tổng cộng (VNĐ):</label>
+                        <div class="col-sm-6">
+                            <label class="col-sm-4">Tiền hàng:</label>
                             <div class="col-sm-8">
                                 <input type="text" class="price-total-add form-control" value="0"/>
                             </div>
+                        </div> 
+
+						<div class="col-sm-6">
+                            <label class="col-sm-4">Phí ship:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="shipment_fee-add form-control" value="0"/>
+                            </div>
+                        </div>  						
+                    </div>
+					
+					
+					<div class="form-group row">
+                        <div class="col-sm-6">
+                            <label class="col-sm-4">Trạng thái:</label>
+                            <div class="col-sm-8">
+                                <?php
+									echo "<select class='form-control status-add' name='statusAdd'>";
+									$sql2="SELECT s.key, s.name FROM status s where type='order'";
+									echo "<option value=''>Tất cả</option>";
+									$result2=mysqli_query($con,$sql2);
+									while($tv_3=mysqli_fetch_array($result2)){
+										if($tv_3['key'] == 'resolve'){
+											echo "<option selected='selected' value='$tv_3[key]'>$tv_3[name]</option>";
+										}
+										else{
+											echo "<option value='$tv_3[key]'>$tv_3[name]</option>";
+										}
+									}
+									echo "</select>";
+								?>
+                            </div>
                         </div>  
                     </div>
+					
                     <div class="form-group row">
-                        <div class="col-sm-8">
+                        <div class="col-sm-6">
                             <label class="col-sm-4">Khách hàng:</label>
                             <div class="col-sm-8">
                                 <input type="text" class="customer-add form-control"/>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-8">
+						
+						<div class="col-sm-6">
                             <label class="col-sm-4">Số điện thoại:</label>
                             <div class="col-sm-8">
                                 <input type="text" class="phone-number-add form-control"/>
@@ -290,10 +323,17 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-sm-8">
+                        <div class="col-sm-6">
                             <label class="col-sm-4">Địa chỉ:</label>
                             <div class="col-sm-8">
                                 <textarea  class="address-add form-control"></textarea>
+                            </div>
+                        </div>
+						
+						<div class="col-sm-6">
+                            <label class="col-sm-4">Ghi chú:</label>
+                            <div class="col-sm-8">
+                                <textarea  class="note-add form-control"></textarea>
                             </div>
                         </div>
                     </div>
@@ -363,21 +403,6 @@
                 </div>
                 
                 <div class="form-group row">
-                        <div class="col-sm-8">
-                            <label class="col-sm-4">Mã đơn:</label>
-                            <div class="col-sm-8">
-                                <span class="order-id-detail"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-8">
-                            <label class="col-sm-4">Ngày tạo:</label>
-                            <div class="col-sm-8">
-                                <span class="create-date-detail"></span>
-                            </div>
-                        </div>
-                    </div>
                     <div class="form-group row">
                         <div class="col-sm-8">
                             <label class="col-sm-4">Khách hàng:</label>
@@ -409,6 +434,25 @@
                                 <span class="total-detail"></span>
                             </div>
                         </div>
+                    </div>
+					<div class="form-group row">
+						<div class="col-sm-8">
+							<label class="col-sm-4">Phí ship:</label>
+							<div class="col-sm-8">
+								<span class="shipment-detail"></span>
+							</div>
+						</div>
+                    </div>
+					<div class="form-group row">
+                        <div class="col-sm-8">
+                            <label class="col-sm-4">Ghi chú:</label>
+                            <div class="col-sm-8">
+                                <span class="note-detail"></span>
+                            </div>
+                        </div>
+                    </div>
+					
+					</div>
                     </div>
             </div>
             <div class="modal-footer">

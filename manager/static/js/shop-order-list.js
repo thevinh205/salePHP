@@ -2,7 +2,41 @@ var listProductId = "";
 
 $(document).ready(function(){
     $(".btnSearchOrder").click( function(){
+        searchOrder();
+    });
+    
+    $(".search-product-add").click( function(){
+        var productId = $("input[name*='productIdAdd']").val();
+        var productName = $("input[name*='productNameAdd']").val();
         var shopId = $("#shopId").val();
+        
+        var url = "product_order_add.php";
+        $.ajax({	
+            type: 'POST', 
+            url: url, 
+            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+            data: {
+                shopId:shopId,
+                productId : productId, 
+                productName: productName},
+            success: function(data){ 
+                $("div[class*='list-product-add']").html(data);
+                $(".numbers").each(function(c, obj){
+                    $(obj).text(addCommas(parseFloat($(obj).text())));
+                });
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+            }
+        }); 
+    });
+    
+    $(".btn-show-list-product").click( function(){
+        $("#addProduct").modal('toggle');
+    });
+});
+
+function searchOrder() {
+	var shopId = $("#shopId").val();
 		var productId = $("input[name*='productId']").val();
         var orderId = $("input[name*='orderId']").val();
         var fromDate = $("input[name*='fromDate']").val();
@@ -41,37 +75,7 @@ $(document).ready(function(){
             error: function(XMLHttpRequest, textStatus, errorThrown){
             }
         }); 
-    });
-    
-    $(".search-product-add").click( function(){
-        var productId = $("input[name*='productIdAdd']").val();
-        var productName = $("input[name*='productNameAdd']").val();
-        var shopId = $("#shopId").val();
-        
-        var url = "product_order_add.php";
-        $.ajax({	
-            type: 'POST', 
-            url: url, 
-            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-            data: {
-                shopId:shopId,
-                productId : productId, 
-                productName: productName},
-            success: function(data){ 
-                $("div[class*='list-product-add']").html(data);
-                $(".numbers").each(function(c, obj){
-                    $(obj).text(addCommas(parseFloat($(obj).text())));
-                });
-            },
-            error: function(XMLHttpRequest, textStatus, errorThrown){
-            }
-        }); 
-    });
-    
-    $(".btn-show-list-product").click( function(){
-        $("#addProduct").modal('toggle');
-    });
-});
+}
 
 function addProductToShop(e) {
     var rowSelect = $(e).closest("tr");
@@ -141,10 +145,14 @@ function deleteProductOrder(e) {
 function createOrderAction() {
     var shopId = $("#shopId").val();
     var priceTotal = $(".price-total-add").val();
+	var shipmentFee = $(".shipment_fee-add").val();
     priceTotal = priceTotal.replace(/\,/g, '');
     var customer = $(".customer-add").val();
     var phoneNumber = $(".phone-number-add").val();
     var address = $(".address-add").val();
+	 var statusOrder = $("select[name*='statusAdd']").val();
+	
+	var note = $(".note-add").val();
     var url = "shop.php";
     $.ajax({	
             type: 'POST', 
@@ -157,6 +165,9 @@ function createOrderAction() {
                 customer: customer,
                 phoneNumber: phoneNumber,
                 address: address,
+				shipmentFee: shipmentFee,
+				statusOrder: statusOrder,
+				note: note,
                 type : 'createOrder'
             },
             success: function(data){ 
@@ -170,12 +181,13 @@ function createOrderAction() {
 
 function showOrderDetail(e) {
     var row = $(e).closest("tr");
-    var orderId = $(row).find(".orderId").text();
-    var createDate = $(row).find(".create-date").text();
     var customerName = $(row).find(".customer-name-text").text();
     var phoneNumber = $(row).find(".phone-number-text").text();
     var address = $(row).find(".address-text").text();
     var orderTotal = $(row).find(".order-total-text").text();
+	var shipmentFee = $(row).find(".shipment-fee-text").text();
+	var note = $(row).find(".note-text").text();
+
     
     $(".order-id-detail").text(orderId);
     $(".create-date-detail").text(createDate);
@@ -183,6 +195,9 @@ function showOrderDetail(e) {
     $(".phone-number-detail").text(phoneNumber);
     $(".address-detail").text(address);
     $(".total-detail").text(orderTotal);
+	$(".note-detail").text(note);
+	$(".shipment-detail").text(shipmentFee);
+	
 }
 
 function showListProductOfOrder(e) {
@@ -203,20 +218,20 @@ function showListProductOfOrder(e) {
                 $(".numbers-product").each(function(c, obj){
                     $(obj).text(addCommas(parseFloat($(obj).text())));
                 });
-                
-                var orderId = $(row).find(".orderId").text();
-                var createDate = $(row).find(".create-date").text();
-                var customerName = $(row).find(".customer-name-text").text();
-                var phoneNumber = $(row).find(".phone-number-text").text();
-                var address = $(row).find(".address-text").text();
-                var orderTotal = $(row).find(".order-total-text").text();
+				
+				var customerName = $(row).find(".customer-name-text").text();
+				var phoneNumber = $(row).find(".phone-number-text").text();
+				var address = $(row).find(".address-text").text();
+				var orderTotal = $(row).find(".order-total-text").text();
+				var shipmentFee = $(row).find(".shipment-fee-text").text();
+				var note = $(row).find(".note-text").text();
 
-                $(".order-id-detail").text(orderId);
-                $(".create-date-detail").text(createDate);
                 $(".customer-name-detail").text(customerName);
                 $(".phone-number-detail").text(phoneNumber);
                 $(".address-detail").text(address);
                 $(".total-detail").text(orderTotal);
+				$(".note-detail").text(note);
+				$(".shipment-detail").text(shipmentFee);
             },
             error: function(XMLHttpRequest, textStatus, errorThrown){
             }
