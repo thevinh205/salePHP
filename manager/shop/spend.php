@@ -112,10 +112,10 @@
         
         <div class="pagination">
             <?php
-                $sql = "SELECT count(*) as total FROM spend sp LEFT JOIN member m on sp.employee=m.username WHERE sp.shop_id=$shopId and sp.create_date>$fromDate";
+                $sql = "SELECT count(*) as total FROM spend sp LEFT JOIN member m on sp.employee=m.username WHERE sp.shop_id=$shopId and sp.create_date>'$fromDate'";
                 if($toDate != ''){
                     $toDate = date('Y-m-d',strtotime($toDate . "+1 days"));
-                    $sql = $sql." and sp.create_date<$toDate";
+                    $sql = $sql." and sp.create_date<'$toDate'";
                 } else {
                     $sql = $sql." and sp.create_date<NOW()"; 
                 }

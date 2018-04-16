@@ -11,7 +11,7 @@
                 <div class="widget-title">
                     <div style="text-align: center;">
                     <span style="color: blue;font-size: 25px;">
-                        <b>PHÂN PHỐI SỈ & LẺ PHỤ KIỆN VÀ ĐỒ CHƠI GIÁ TỐT NHẤT</b> <br/>
+                        <b>PHÂN PHỐI PHỤ KIỆN VÀ ĐỒ CHƠI GIÁ TỐT NHẤT</b> <br/>
                         <b>GIAO HÀNG TOÀN QUỐC, GIAO HÀNG DÙ CHỈ 1</b><br/>
 						<b>PHÍ SHIP HỒ CHÍ MINH: 20K</b> <br/>
 						<b>PHÍ SHIP TỈNH THÀNH KHÁC: 25K->40K TÙY KHU VỰC</b>
@@ -23,7 +23,7 @@
                     <div style="text-align: center;">
                     <span style="color: blue; font-size: x-large;">GIÁ LUÔN LUÔN THẤP NHẤT - CẠNH TRANH NHẤT - BẢO HÀNH ĐỔI MỚI</span></div>
                     <div style="text-align: center;">
-                    <span style="color: blue; font-size: x-large;">MUA 1 SẢN PHẨM CŨNG TÍNH GIÁ SỈ - MUA SỐ LƯỢNG NHIỀU CALL ĐỂ CÓ GIÁ TỐT HƠN</span></div>
+                    <span style="color: blue; font-size: x-large;">MUA SỐ LƯỢNG NHIỀU GIÁ CÀNG RẺ</span></div>
                     <div style="text-align: center;">
                     <br></div>
 
