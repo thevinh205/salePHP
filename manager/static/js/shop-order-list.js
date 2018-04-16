@@ -321,6 +321,18 @@ function editOrderAction(e) {
             row.find(".customer-name-text").text(customer);
             row.find(".phone-number-text").text(phoneNumber);
             row.find(".order-total-text").text(total);
+            
+            $(row).removeClass('row-handling');
+            $(row).removeClass('row-cancle');
+            $(row).removeClass('row-new');
+            if(status == 'handling') {
+                $(row).addClass('row-handling')
+            } else if(status == 'cancle') {
+                $(row).addClass('row-cancle')
+            } else if(status == 'new') {
+                $(row).addClass('row-new')
+            }
+            
             showNotificationHeader("Chỉnh sửa đơn hàng thành công");
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
