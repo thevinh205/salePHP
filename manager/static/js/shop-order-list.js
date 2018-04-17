@@ -171,8 +171,12 @@ function createOrderAction() {
                 type : 'createOrder'
             },
             success: function(data){ 
-                $('#popupCreateOrder').modal('toggle');
-                showNotificationHeader("Tạo đơn hàng thành công");
+                if(data == 'NOT_SESSION') {
+                    window.location.replace("../login");
+                } else {
+                    $('#popupCreateOrder').modal('toggle');
+                    showNotificationHeader("Tạo đơn hàng thành công");
+                }
             },
             error: function(XMLHttpRequest, textStatus, errorThrown){
             }
@@ -252,6 +256,9 @@ function showEditOrder(e) {
     row.find(".btn-edit-order").removeClass("hide");
     row.find(".btn-show-edit-order").addClass("hide");
     row.find(".status-order").removeAttr("disabled");
+    
+    var total = row.find(".order-total-input").val();
+    row.find(".order-total-input").val(addCommas(parseFloat(total)));
     
     row.find(".order-total-input").keyup(function(event) {
             if(event.which >= 37 && event.which <= 40) return;

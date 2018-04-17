@@ -63,6 +63,10 @@
 		$statusOrder = $_POST['statusOrder'];
 		$shipmentFee = $_POST['shipmentFee'];
         $pieces = explode(";", $listProductId);
+        if (!isset($_SESSION['username'])){
+            echo("NOT_SESSION");
+            return;
+        }
 	$username = $_SESSION["username"];
         
         $sql = "INSERT INTO order_header (employee_username, total_price, shop_id, create_date, customer_name, phone_number, address, status, note, shipment_fee) 
@@ -157,7 +161,6 @@
             echo "Error add new spend: " . $sql . "<br>" . mysqli_error($con);
         }
     } else if($type == 'updateSpend') {
-        session_start();
         $spendId = $_POST['spendId'];
         $content = $_POST['content'];
         $total = $_POST['total'];
