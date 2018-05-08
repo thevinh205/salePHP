@@ -29,6 +29,7 @@ function changeTab(tabName){
                     fromDate:'',
                     toDate: '',
                     customer: '',
+                    phoneNumber: '',
                     status: ''
                 },
                 success: function(data){ 
@@ -62,6 +63,7 @@ $(document).ready(function(){
                     fromDate:'',
                     toDate: '',
                     customer: '',
+                    phoneNumber: '',
                     status: ''
         },
         success: function(data){ 

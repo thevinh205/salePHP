@@ -37,11 +37,12 @@ $(document).ready(function(){
 
 function searchOrder() {
 	var shopId = $("#shopId").val();
-		var productId = $("input[name*='productId']").val();
+	var productId = $("input[name*='productId']").val();
         var orderId = $("input[name*='orderId']").val();
         var fromDate = $("input[name*='fromDate']").val();
         var toDate = $("input[name*='toDate']").val();
         var customer = $("input[name*='customer']").val();
+        var phoneNumber = $("input[name*='phoneNumber']").val();
         var status = $("select[name*='statusSearch']").val();
         var url = "order_list.php";
         $.ajax({	
@@ -54,6 +55,7 @@ function searchOrder() {
                 toDate: toDate,
 		productId: productId,
                 customer: customer,
+                phoneNumber: phoneNumber,
                 status: status,
                 page: 1
             },

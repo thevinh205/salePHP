@@ -2,7 +2,11 @@
     include("config.php");
 ?>
 <html>
-    <head><link rel="icon" type="image/gif" href="resources/img/icon/long-den.jpg" /></head>
+    <head>
+        <link rel="icon" type="image/gif" href="resources/img/icon/long-den.jpg" />
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/common.js"></script>
+    </head>
     <body>
 <!--        <div class="outerwapper" style="background: url(http://s.baomoi.xdn.vn/web/styles/img/hoa-dao.png?v0.10) no-repeat;     background-position: calc(50% - 574px) 0; height: 1000px">-->
             <div class="outerwapper">
