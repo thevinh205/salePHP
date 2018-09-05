@@ -9,21 +9,7 @@
         <link rel="stylesheet" type="text/css" href="resources/css/index.css">
     </head>
     <body>
-        <header>
-            <div class="wrap">
-                <div class="profile">
-                    <a class="cart" href="/gio-hang"> 
-                        <i class="icon-cart"></i> 
-                        <span>Giỏ hàng<b class="num sh" style="visibility: visible;">2</b></span> 
-                        <span class="total">Tiền hàng: 6.440.000₫</span> 
-                    </a>
-                    <div class="odhistory" id="odhistory">
-                        <a class="his" href="/lich-su-mua-hang">Lịch sử mua hàng</a> 
-                        <a class="save-product" href="/lich-su-mua-hang?v=wishlist"> Sản phẩm đã lưu <i>1</i> </a>
-                    </div>
-                </div>
-            </div>
-        </header>
+        
         
         <div class="search-menu orange">
             <div class="container">
@@ -40,6 +26,18 @@
                 </div>-->
                 <div class="clr"></div>    
             </div>   
+            
+            <header>
+                <div class="wrap">
+                    <div class="profile">
+                        <a class="cart" href="/gio-hang"> 
+                            <i class="icon-cart"></i> 
+                            <span>Giỏ hàng<b class="num sh" style="visibility: visible;">2</b></span> 
+                            <span class="total">Tiền hàng: 6.440.000₫</span> 
+                        </a>
+                    </div>
+                </div>
+            </header>
         </div>
         
         <div class="big-campain">
@@ -114,11 +112,37 @@
                             </div>
                         </div>
                     </div>
-
+                    
                 </div>
             </div>
         </section>
         
+        
+        <section class="bg-orange">
+            <div class="flashsale" id="flashsales-1">
+                <h2>LOA CHẤT LƯỢNG CAO</h2>
+                <div class="scrollflash scroll owl-carousel owl-theme owl-loaded owl-drag" data-position="1" data-isch="false" data-take="16">
+                    
+                    <div class="owl-item active" style="width: 240px;">
+                        <div class="fpro" data-id="111223">
+                            <a href="/may-tinh-bang/huawei-mediapad-t3-10-2017" class="flimg"> 
+                                <img class="lazy loaded" data-src="https://cdn.tgdd.vn/Products/Images/522/111223/huawei-mediapad-t3-10-2017-anhava-300x300.jpg" height="200" width="200" alt="Huawei MediaPad T3 10 (2017)" src="https://cdn.tgdd.vn/Products/Images/522/111223/huawei-mediapad-t3-10-2017-anhava-300x300.jpg" data-was-processed="true"/> 
+                            </a>
+                            <div class="info">
+                                <a href="/may-tinh-bang/huawei-mediapad-t3-10-2017" title="Huawei MediaPad T3 10 (2017)" class="name">Huawei MediaPad T3 10 (2017)</a>
+                                <div class="prices">
+                                    <span class="new">3.690.000₫</span> 
+                                    <span class="line">4.490.000₫</span> 
+                                    <span class="discount">- 18%</span>
+                                    <button class="buy" onclick="return buynow(111223,false,'Huawei MediaPad T3 10 (2017)','Máy tính bảng','Huawei',3690000.00,false,this,false)">Chọn mua</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
         <?php 
             include("footer.php");
         ?>

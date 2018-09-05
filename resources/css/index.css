@@ -1,3 +1,7 @@
+body {
+    background-color: #eaeaea;
+}
+
 a, button {
     cursor: pointer;
     text-decoration: none;
@@ -9,14 +13,12 @@ a, a:-webkit-any-link {
 }
 
 header {
-    background: #fff;
     position: relative;
     z-index: 998;
-    padding-top: 1px;
+    padding: 1px 100px;
 }
 
 header .wrap {
-    width: 1200px;
     margin: auto;
     overflow: hidden;
 }
@@ -63,7 +65,7 @@ header .profile a.cart i {
 
 header .profile a.cart span {
     font-size: 16px;
-    color: #fe7a12;
+    color: #fff;
     display: block;
     margin-left: 0;
     margin-top: 0;
@@ -99,9 +101,9 @@ header .profile a.cart b {
 
 header .profile a.cart span.total {
     display: block;
-    font-size: 11px;
+    font-size: 14px;
     padding: 0;
-    color: #969696;
+    color: #fff;
     margin-top: -3px;
 }
 
@@ -230,7 +232,6 @@ a, a:-webkit-any-link {
     display: block;
     position: relative;
     background-color: #eaeaea;
-    padding-bottom: 230px;
 }
 
 .big-milks {
@@ -361,12 +362,7 @@ a, a:-webkit-any-link {
 }
 
 .bg-orange {
-    margin-top: -235px;
-}
-
-.bg-orange {
     background-color: #eaeaea;
-    padding-bottom: 15px;
 }
 
 .flashsale {
