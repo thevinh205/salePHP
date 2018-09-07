@@ -2,120 +2,240 @@
     include("config.php");
 ?>
 <html>
-    <head><link rel="icon" type="image/gif" href="resources/img/icon/long-den.jpg" /></head>
+    <head>
+        <link rel="icon" type="image/gif" href="resources/img/icon/long-den.jpg" />
+        <script src="resources/js/jquery.min.js"></script>
+        <script src="resources/js/common.js"></script>
+        <link rel="stylesheet" type="text/css" href="resources/css/index.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/detail.css">
+    </head>
     <body>
-<!--        <div class="outerwapper" style="background: url(http://s.baomoi.xdn.vn/web/styles/img/hoa-dao.png?v0.10) no-repeat;     background-position: calc(50% - 574px) 0; height: 1000px">-->
-            <div class="outerwapper">
-            <?php include 'template/header.php';?>
-            <div class="content">
-                <div class="widget-title">
-                    <div style="text-align: center;">
-                    <span style="color: blue;font-size: 25px;">
-                        <b>PHÂN PHỐI SỈ & LẺ PHỤ KIỆN VÀ ĐỒ CHƠI GIÁ TỐT NHẤT</b> <br/>
-                        <b>GIÁ SỈ DÙ CHỈ 1</b>
-                    </span></div><br>
-                    <div style="text-align: center;">
-                    <span style="color: red; font-size: 35px;"><b>PHỤ KIỆN VT<br>A34 QL22, PHƯỜNG TRUNG MỸ TÂY, Q.12, HCM</b></span></div>
-                    <div style="text-align: center;">
-                    <br></div>
-                    <div style="text-align: center;">
-                    <span style="color: blue; font-size: x-large;">GIÁ LUÔN LUÔN THẤP NHẤT - CẠNH TRANH NHẤT - BẢO HÀNH ĐỔI MỚI</span></div>
-                    <div style="text-align: center;">
-                    <span style="color: blue; font-size: x-large;">MUA 1 SẢN PHẨM CŨNG TÍNH GIÁ SỈ - MUA SỐ LƯỢNG NHIỀU CALL ĐỂ CÓ GIÁ TỐT HƠN</span></div>
-                    <div style="text-align: center;">
-                    <br></div>
+        <div class="search-menu orange">
+            <div class="container">
+                <form class="mainsearch" style="width: 350px">
+                    <div class="pr">
+                        <input type="text" name="key" placeholder="Bạn mua gì?" maxlength="50"> 
+                        <button type="submit" class="btnsearch"><i class="icon-search"></i></button> 
+                        <span id="searchclear" class="searchclear"><i class="icon-searchclr"></i></span>
+                    </div>
+                </form>
 
-                    <div style="text-align: center;">
-                    <span style="font-size: x-large;background-color: yellow;color:red"><b>THÔNG TIN HÀNG HÓA VÀ GIÁ GIẢM CẬP NHẬT HÀNG NGÀY TRÊN WEBSITE NÀY<br>Đặt hàng qua điện thoại: 0166.381.0003 (Mr. Vinh) hoặc Zalo 0166.381.0003</b></span></div>
-
-                    <br>
-                    <div style="text-align: center;">
-                    <span style="font-size: large;color:blue"><b>Đặt hàng qua mail: thevinh205@gmail.com</b></span></div><br>
-                    <div style="text-align: center;">
-                    <div style="text-align: center;">
-                    <span style="font-size: x-large;color: RED"><b>THỜI GIAN LÀM VIỆC:<br>8h đến 21h hằng ngày</b></span></div>
-                    <div style="text-align: center;">
-                    </div><br>
-
-                    <br><div style="text-align: center;">
-                    <span style="font-size: large;"><b>-------*-------</b></span></div><br>
-
-                    <br>
-                    <div style="text-align: center;"><span style="font-size: large;"><b><span style="color: #A21C1C;"><b>Thông báo:</b> Khách ở nội thành HCM mua hàng vẫn được giao hàng thu tiền tận nơi bằng cách nhắn tin đặt hàng qua số điện thoại 0166.381.0003 hoặc gửi mail đặt hàng vào thevinh205@gmail.com. Khách ở Tỉnh đặt hàng với hóa đơn trên 500k và phải chuyển khoản trước đủ hết tiền hàng (cộng phí gửi nếu có) thì cửa hàng mới gửi hàng được. Kính mong quý khách hàng ở xa thông cảm!</span></b></span></div><br>
+                <div class="mnu-ct">
+                    <div class="item">
+                        <a href="/dien-thoai-di-dong">Tai nghe</a>
+                    </div>    
+                    <div class="item">
+                        <a href="/dien-thoai-di-dong">Loa vi tính</a>
+                    </div>  
+                    <div class="item">
+                        <a href="/dien-thoai-di-dong">Loa blutooth</a>
+                    </div>  
+                    <div class="item">
+                        <a href="/dien-thoai-di-dong">Mic hát karaoke</a>
+                    </div>   
+                    <div class="item">
+                        <a href="/dien-thoai-di-dong">Massage</a>
+                    </div> 
                 </div>
-                    
-                <div class="product-list">
-                    <h2 class="title">HÀNG MỚI VỀ LẠI + MẪU MỚI</h2>
+            </div>   
+            
+            <header>
+                <div class="wrap">
+                    <div class="profile">
+                        <a class="cart" href="/gio-hang"> 
+                            <i class="icon-cart"></i> 
+                            <span>Giỏ hàng<b class="num sh" style="visibility: visible;">2</b></span> 
+                            <span class="total">Tiền hàng: 6.440.000₫</span> 
+                        </a>
+                    </div>
                 </div>
-                    
-                <center>
-                    <table border="1" bordercolor="#BABABA" class="cms_table_grid" width="100%" align="center" style="border-color: #5bc0eb;background: #fffdcc;">
-                        <tbody>
-                            <tr>
-                                <td colspan="5" style="text-align:center;">
-                                    <b style="text-align:center;background-color: yellow;color:red;font-size: 25px;">HÀNG MỚI VỀ LẠI + MẪU MỚI (CẬP NHẬT THƯỜNG XUYÊN)<br>
-                                        mới cập nhật lúc 10H25 - 7/11/17
-                                    </b>
-                                    <br>
-                                </td>
-                            </tr>
-                            <?php
-                                 $sql="SELECT p.id, p.name, p.price_sell, p.avatar, sp.count FROM shop_party_relationship sp left join product p on sp.product_id=p.id where sp.type='product';";
-                                  $result=mysqli_query($con,$sql);
-                                  
-                                   while($tv_2=mysqli_fetch_array($result))
-                                    {
-                                        echo "<tr valign='top'>";
-                                        echo    "<td style='text-align: center; width: 30%'>";
-                                        echo        "<a href='javascript:void(0)' imageanchor='1'>";
-                                        echo            "<img border='0' src='resources/img/sanpham/".$tv_2['id']."/".$tv_2['avatar']."' alt='".$tv_2['name']."' title='".$tv_2['name']."' style='max-width: 300px; max-height: 300px'></a>";
-                                        echo    "</td>";
-                                        echo    "<td align='center' style='width: 15%'>";
-                                        echo        "<span><font size='4'><b><font color='purple'>".substr($tv_2['price_sell'], 0, -3)."k</font></b> </font></span>";
-                                        if($tv_2['count'] == 0) {
-                                            echo "<br/>";
-                                            echo "<span><font size='4'><b><font color='red'>(Tạm hết)</font></b></font></span>";
-                                        }
-                                        echo    "</td>";
-                                        echo    "<td style='width: 40%'>";
-                                        echo        "<span>";
-                                        echo            "<font size='4'><b><span title='".$tv_2['name']."'>".$tv_2['name']."</span></b> </font>";
-//                                        echo            "<b><font color='green' size='3' style='background-color: yellow'> MỚI VỀ HÀNG 30/11</font></b>";
-                                        echo        "</span>";
-                                        echo    "</td>";
-                                        echo    "<td align='center' style='width: 15%'>";
-                                        echo        "<span><font size='3'><b><font color='#000'>3T</font></b></font></span>";
-                                        echo    "</td>";
-                                        echo "</tr>";
-                                    }
-                            ?>
-<!--                            <tr valign="top">
-                                <td style="text-align: center; width: 30%">
-                                    <a href="javascript:void(0)" imageanchor="1">
-                                        <img border="0" src="resources/img/sanpham/cap-nhieu-dau.jpg" alt="Cáp rút 4 đầu" title="Cáp rút 4 đầu" style="max-width: 450px"></a>
-                                </td>
-                                <td align="center" style="width: 15%">
-                                    <span><font size="4"><b><font color="purple">29k</font></b></font></span>
-                                </td>
-                                <td style="width: 40%">
-                                    <span>
-                                        <font size="4"><b><a href="http://www.phukienvt.com" title="Cáp rút 4 đầu" target="_blank">Cáp <font color="red"> rút 4 đầu</font></a></b> </font>
-                                        <b><font color="green" size="3" style="background-color: yellow"> MỚI VỀ HÀNG 30/11</font></b>
-                                    </span>
-                                </td>
-                                <td align="center" style="width: 15%">
-                                    <span><font size="3"><b><font color="#000">TEST</font></b></font></span>
-                                </td>
-                            </tr>-->
-                        </tbody>
-                    </table>
-                </center>
-                <?php include 'template/footer.php';?> 
+            </header>
+        </div>
+        
+        <div style="width: 100%; text-align: center; background-color: #fff; margin-top: 6px">
+            <nav class="flex bread">
+                <a href="/" class="navi item brdc">Trang chủ</a> 
+                <a href="/khu-cong-nghe-dien-may" class="navi item brdc">Điện thoại, điện máy</a> 
+                <a href="/dien-thoai-di-dong" class="navi item brdc">Điện thoại</a> 
+            </nav>
+        </div>
+        
+        <div class="mainctn">
+            <div class="productinfo">
+                <div class="gallery" data-id="112970" data-cate="42">
+                    <div class="wrapslide">
+                        <img onclick="OpenPhotoSwipe(0)" class="avatar" src="https://cdn.tgdd.vn/Products/Images/42/112970/samsung-galaxy-j7-plus-hh-600x600-300x300.jpg" alt="" width="560" height="310">
+                    </div>
+                    <div class="colorandpic tele">
+                        <ul>
+                            <li class="gal">
+                                <a href="javascript:" onclick="OpenPhotoSwipe(0)">
+                                    <div>
+                                        <img src="https://cdn.tgdd.vn/Products/Images/42/112970/samsung-galaxy-j7-plus-vang-dong-1-2-180x120.jpg">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="gal">
+                                <a href="javascript:" onclick="OpenPhotoSwipe(1)">
+                                    <div>
+                                        <img src="https://cdn.tgdd.vn/Products/Images/42/112970/samsung-galaxy-j7-plus-vang-dong-2-2-180x120.jpg">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="gal">
+                                <a href="javascript:" onclick="OpenPhotoSwipe(2)">
+                                    <div>
+                                        <img src="https://cdn.tgdd.vn/Products/Images/42/112970/samsung-galaxy-j7-plus-vang-dong-3-2-180x120.jpg">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="gal">
+                                <a href="javascript:" onclick="OpenPhotoSwipe(0)">
+                                    <div>
+                                        <img src="https://cdn.tgdd.vn/Products/Images/42/112970/samsung-galaxy-j7-plus-vang-dong-2-2-180x120.jpg"> 
+                                        <span class="imgcount">Xem<br>12 hình</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="info">
+                    <h1 class="productname">Samsung Galaxy J7 Plus</h1>
+                    <div class="boxprice">
+                        <div class="prices">
+                            <span class="new">6.135.000₫</span> 
+                            <span class="line">7.290.000₫</span> 
+                            <span class="discount">16%</span> 
+                            <span class="status"> Còn hàng </span>
+                        </div>
+                    </div>
+                    <div class="policy">
+                        <div>
+                            <i class="iconict-bh"></i>
+                            <p><span>Bảo hành chính hãng 12 tháng</span></p>
+                        </div>
+                        <div>
+                            <i class="iconict-dt"></i>
+                            <p><span>Đổi trả sản phẩm lỗi miễn phí tại nhà trong 7 ngày <a href="/chinh-sach-doi-tra">(Xem chi tiết)</a></span></p>
+                        </div>
+                        <div>
+                            <i class="iconict-gh"></i>
+                            <p><span> Giao hàng toàn quốc </span> Nếu giao trễ, tặng phiếu mua hàng giá trị 100.000đ</p>
+                        </div>
+                    </div>
+                    <div class="options">
+                        <div class="color opt hide">
+                            <span>Chọn mua màu</span>
+                            <div id="color-shockprice" data-shockprice="false">
+                                <input type="hidden" name="hdProductCode" value="0131491000852"> 
+                                <a href="javascript:" data-code="0131491000852" class="active" data-name="Vàng đồng" title="Vàng đồng" data-position="midtop">
+                                    <figure>
+                                        <i class="icon-sticky"></i> 
+                                        <img src="https://cdn.tgdd.vn/Products/Images/42/112970/samsung-galaxy-j7-plus-gold-200-180x120.png" alt="Vàng đồng" width="50" height="50" data-color="16">
+                                        <div class="sibovl"></div>
+                                    </figure>
+                                </a>
+                            </div> 
+                        </div>
+                        <div class="quantity center opt">
+                            <span>Chọn số lượng</span> 
+                            <label> 
+                                <span class="down">-</span> 
+                                <input type="text" min="1" max="50" maxlength="2" name="txtQuantity" value="1"/> 
+                                <span class="up">+</span> 
+                            </label>
+                        </div>
+                        <span class="error hide">(*)Vui lòng chọn màu</span>
+                    </div>
+                    <div class="buttons">
+                        <a href="javascript:void(0)" data-pid="112970" data-manuid="2" class="btnorange buynowbtn buynow" title="Mua Samsung Galaxy J7 Plus">Chọn Mua</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-left">
+                <div class="boxcontent">
+                    <div class="detail">
+                        <h3 class="brand">Thương hiệu: 
+                            <img src="//cdn.tgdd.vn/Brand/8/Samsung42-s_7.png" data-src="//cdn.tgdd.vn/Brand/8/Samsung42-s_7.png" class="lazy companylogo initial loaded" width="100" height="40" alt="Samsung Galaxy J7 Plus" data-was-processed="true"> 
+                            <a href="/thuong-hieu-samsung-1" rel="nofollow">Tìm hiểu thêm</a>
+                        </h3>
+                        
+                        <article class="description">
+                            <div class="kit">Bộ sản phẩm chuẩn gồm: <b>Hộp, Sạc, Tai nghe, Sách hướng dẫn, Cáp, Cây lấy sim</b></div>
+                            <div class="short">
+                                <h2 class="spec">Thông số kỹ thuật</h2>
+                                <ul class="specs">
+                                    <li>
+                                        <span class="specname">Màn hình:</span>
+                                        <span class="specval">Super AMOLED, 5.5", Full HD</span>
+                                    </li>
+                                    <li>
+                                        <span class="specname">Hệ điều hành:</span>
+                                        <span class="specval">Android 7.0</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="full">
+                                <h2><a href="https://www.vuivui.com/dien-thoai-di-dong/samsung-galaxy-j7-plus" target="_blank" title="Tham khảo điện thoại Samsung Galaxy J7+ tại Vuivui.com" type="Tham khảo điện thoại Samsung Galaxy J7+ tại Vuivui.com">Samsung Galaxy J7+</a> có <a href="https://www.vuivui.com/dien-thoai-di-dong/?pp=57279&amp;sort=PriceDesc" target="_blank" title="Điện thoại có thiết kế kim loại nguyên khối tại Vuivui.com" type="Điện thoại có thiết kế kim loại nguyên khối tại Vuivui.com">thiết kế kim loại nguyên khối</a> sang trọng với màn hình Super AMOLED độ phân giải Full HD. Máy được trang bị camera kép với tính năng chụp xóa phông ảo diệu mang đến cho bạn những trải nghiệm tuyệt vời.</h2>
+                            </div>
+                        </article>
+                    </div>                     
+                </div>
+            </div>
+            
+            <div class="slide-right">
+                <div class="box-item relative" style="width: 100%">
+                    <h4 class="prorelative">Sản phẩm liên quan</h4>
+                    <ul class="bxrelative flex" style="width: 100%">
+                        <li class="prohv">
+                            <a href="/dien-thoai-di-dong/nokia-61-plus">
+                                <figure class="pic">
+                                    <img width="200" height="200" alt="Nokia 6.1 Plus" class="view" src="https://cdn.tgdd.vn/Products/Images/42/167150/nokia-61-plus-2-200x200.jpg"/>
+                                </figure>
+                            </a>
+                            <div class="prodsame">
+                                <a href="/dien-thoai-di-dong/nokia-61-plus">
+                                    <div class="riki-name active">Nokia 6.1 Plus</div>
+                                </a>
+                                <div class="prices">
+                                    <span class="price">6.325.000₫</span> 
+                                    <span class="line">6.590.000₫</span> 
+                                    <label class="discount">4%</label>
+                                </div>
+                                <div class="itembuy prodebuy" onclick="window.location.href='/dien-thoai-di-dong/nokia-61-plus'" title="Nokia 6.1 Plus">XEM CHI TIẾT
+                                </div> 
+                            </div>
+                        </li>
+                        
+                        <li class="prohv">
+                            <a href="/dien-thoai-di-dong/xiaomi-mi-a2">
+                                <figure class="pic">
+                                    <img width="200" height="200" alt="Xiaomi Mi A2" class="view" src="https://cdn.tgdd.vn/Products/Images/42/182151/xiaomi-mi-a2-2-200x200.jpg">
+                                </figure>
+                            </a>
+                            <div class="prodsame">
+                                <a href="/dien-thoai-di-dong/xiaomi-mi-a2">
+                                    <div class="riki-name active">Xiaomi Mi A2</div>
+                                </a>
+                                <div class="prices">
+                                    <span class="price">6.420.000₫</span> 
+                                    <span class="line">6.690.000₫</span> 
+                                    <label class="discount">4%</label>
+                                </div>
+                                <div class="itembuy prodebuy" onclick="window.location.href='/dien-thoai-di-dong/xiaomi-mi-a2'" title="Xiaomi Mi A2">XEM CHI TIẾT</div>     
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
         
-        <script type="text/javascript">
-            function add_chatinline(){var hccid=82244800;var nt=document.createElement("script");nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;var ct=document.getElementsByTagName("script")[0];ct.parentNode.insertBefore(nt,ct);}add_chatinline(); 
-        </script>
+        <?php 
+            include("footer.php");
+        ?>
     </body>
 </html>

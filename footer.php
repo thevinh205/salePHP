@@ -13,8 +13,4 @@
             </li>
         </ul>
     </div>
-    <div class="deliverynote">
-        <b>Vuivui.com</b> chỉ mở bán tại 
-        <b>TP. HỒ CHÍ MINH</b> và sẽ mở rộng vào thời gian tới.
-    </div>
 </footer>
