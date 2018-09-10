@@ -130,7 +130,6 @@
                             </label> <!---->
                         </div> 
                         <div class="totalfinal">
-                            <a href="javascript:;" class="couponlink">Nhập mã giảm giá</a> 
                             <div>
                                 <span>Tổng tiền: </span> 
                                 <label id="cartsumtotalfinal">4.893.500₫</label>
@@ -148,10 +147,11 @@
                     <form id="frmConfirmCart" method="post" autocomplete="off">
                         <div>
                             <div class="box-newaddress">
+                                <h3 class="rtv">NHẬP THÔNG TIN NHẬN HÀNG</h3>
                                 <div class="row flex row-first" style="width: 100%">
                                     <div class="wrapaddress box-data w100" style="width: 100%">
                                         <div class="city">
-                                            <label data-value="3">TP.Hồ Chí Minh</label> 
+                                            <label data-value="3">Tỉnh/Thành</label> 
                                             <input type="hidden" name="ProfileItems_0_ProvinceId" id="ProfileItems_0_ProvinceId" value="3"/>
                                         </div>
                                         <div class="dist nocheck">
@@ -164,6 +164,74 @@
                                     
                                     <div class="box-check">
                                         <span class="checkmark square"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="row flex" style="width: 100%">
+                                    <div class="wrapinput box-data w100">
+                                        <input data-type="address" maxlength="255" name="ProfileItems_0_Address" id="ProfileItems_0_Address" placeholder="Nhập địa chỉ của bạn" type="text" class="text"/>
+                                        <div class="error">Vui lòng nhập Địa chỉ</div>
+                                    </div> 
+                                    <div class="box-check done">
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="row flex" style="width: 100%">
+                                    <div class="wrapcheckbox box-data w100">
+                                        <span class="gender">
+                                            <input type="radio" name="ProfileItems_0_Gender" id="ProfileItems_0_Gender1" value="1"> 
+                                            <label for="ProfileItems_0_Gender1"> Anh &nbsp; </label>
+                                        </span> 
+                                        <span class="gender">
+                                            <input type="radio" name="ProfileItems_0_Gender" id="ProfileItems_0_Gender0" value="0"> 
+                                            <label for="ProfileItems_0_Gender0"> Chị</label>
+                                        </span>
+                                    </div> 
+                                    <div class="box-check">
+                                        <span class="checkmark">
+                                        </span>
+                                    </div>
+                                </div>
+                                
+                                <div class="row flex" style="width: 100%">
+                                    <div class="wrapinput box-data w100">
+                                        <input data-type="name" maxlength="50" name="ProfileItems_0_CustomerName" id="ProfileItems_0_CustomerName" placeholder="Họ và tên (bắt buộc)" autocomplete="off" type="text" class="text warning"/> 
+                                        <div class="error">Vui lòng nhập Họ và tên</div> 
+                                    </div> 
+                                    <div class="box-check">
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="row flex" style="width: 100%">
+                                    <div class="wrapinput box-data w100">
+                                        <input data-type="phone" maxlength="11" name="ProfileItems_0_CustomerPhone" id="ProfileItems_0_CustomerPhone" placeholder="Nhập số điện thoại (bắt buộc)" autocomplete="off" type="tel" class="text"/>
+                                        <div class="error">Vui lòng nhập Số điện thoại</div>
+                                    </div> 
+                                    <div class="box-check done">
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="row flex" style="width: 100%">
+                                    <div class="wrapinput box-data w100">
+                                        <input data-type="email" maxlength="50" name="ProfileItems_0_CustomerEmail" id="ProfileItems_0_CustomerEmail" placeholder="Email nhận hàng (không bắt buộc)" autocomplete="off" type="email" class="text"/> <!---->
+                                    </div> 
+                                    <div class="box-check">  
+                                    </div>
+                                </div>
+                                
+                                <div class="row flex" style="width: 100%">
+                                    <div class="wrapinput box-data w100">
+                                        <textarea name="CustomerNote" placeholder="Ghi chú thêm (nếu có)" rows="5" cols="20" maxlength="200" class="textarea"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-row="9" class="row box-payment" style="margin-top: 15px">
+                                <div class="box-data">
+                                    <div class="wrapbtn">
+                                        <a class=" btn-og btnpayhome"> ĐẶT MUA</a> 
                                     </div>
                                 </div>
                             </div>
