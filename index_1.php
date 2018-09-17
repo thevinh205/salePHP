@@ -90,59 +90,44 @@
                 </div>
             </div>
         </div>
+        <?php
+            $sql1="SELECT pt.type_id, pt.type_name FROM sale.product_type pt where pt.type_id in ('loa', 'loa_bluetooth', 'micro_kara', 'camera', 'massage', 'duphong', 'tainghe') order by pt.index;";
+            $result1=mysqli_query($con,$sql1);
+
+             while($tv_1=mysqli_fetch_array($result1)) {
+                echo "<section class='bg-orange'>";
+                echo    "<div class='flashsale' id='flashsales-1'>";
+                echo        "<h2 style='text-transform: uppercase;'>".$tv_1['type_name']."</h2>";
+                echo        "<div class='scrollflash scroll owl-carousel owl-theme owl-loaded owl-drag' data-position='1' data-isch='false' data-take='16'>";
+                            $sql="SELECT p.id, p.name, p.price_sell, p.avatar, sp.count, p.guarantee FROM shop_party_relationship sp left join product p on sp.product_id=p.id where sp.type='product' and p.show_web=1 and p.product_type='".$tv_1['type_id']."';";
+                            $result=mysqli_query($con,$sql);
+
+                             while($tv_2=mysqli_fetch_array($result)) {
+                                echo "<div class='owl-item active' style='width: 240px; height: 300px;'>";
+                                echo    "<div class='fpro' data-id='111223'>";
+                                echo        "<a href='/may-tinh-bang/huawei-mediapad-t3-10-2017' class='flimg'>";
+                                echo            "<img class='lazy loaded' alt='".$tv_2['name']."' src='resources/img/sanpham/".$tv_2['id']."/".$tv_2['avatar']."' data-was-processed='true'/>";
+                                echo        "</a>";
+                                echo        "<div class='info'>";
+                                echo            "<a href='/may-tinh-bang/huawei-mediapad-t3-10-2017' title='".$tv_2['name']."' class='name'>".$tv_2['name']."</a>";
+                                echo            "<div class='prices'>";
+                                echo                "<span class='new numbers'>".$tv_2['price_sell']."</span>₫";
+//                                echo                "<span class='line'>4.490.000₫</span>";
+//                                echo                "<span class='discount'>- 18%</span>";
+                                echo                "<button class='buy' onclick='return buynow(111223,false,'Huawei MediaPad T3 10 (2017)','Máy tính bảng','Huawei',3690000.00,false,this,false)'>Chọn mua</button>";
+                                echo            "</div>";
+                                echo        "</div>";
+                                echo    "</div>";
+                                echo "</div>";
+                            }
+
+                echo        "</div>";
+                echo    "</div>";
+                echo "</section>";
+                         
+             }
+        ?>
         
-        <section class="bg-orange">
-            <div class="flashsale" id="flashsales-1">
-                <h2>GIÁ SỐC MỖI GIỜ</h2>
-                <div class="scrollflash scroll owl-carousel owl-theme owl-loaded owl-drag" data-position="1" data-isch="false" data-take="16">
-                    
-                    <div class="owl-item active" style="width: 240px;">
-                        <div class="fpro" data-id="111223">
-                            <a href="/may-tinh-bang/huawei-mediapad-t3-10-2017" class="flimg"> 
-                                <img class="lazy loaded" data-src="https://cdn.tgdd.vn/Products/Images/522/111223/huawei-mediapad-t3-10-2017-anhava-300x300.jpg" height="200" width="200" alt="Huawei MediaPad T3 10 (2017)" src="https://cdn.tgdd.vn/Products/Images/522/111223/huawei-mediapad-t3-10-2017-anhava-300x300.jpg" data-was-processed="true"/> 
-                            </a>
-                            <div class="info">
-                                <a href="/may-tinh-bang/huawei-mediapad-t3-10-2017" title="Huawei MediaPad T3 10 (2017)" class="name">Huawei MediaPad T3 10 (2017)</a>
-                                <div class="prices">
-                                    <span class="new">3.690.000₫</span> 
-                                    <span class="line">4.490.000₫</span> 
-                                    <span class="discount">- 18%</span>
-                                    <button class="buy" onclick="return buynow(111223,false,'Huawei MediaPad T3 10 (2017)','Máy tính bảng','Huawei',3690000.00,false,this,false)">Chọn mua</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-        
-        
-        <section class="bg-orange">
-            <div class="flashsale" id="flashsales-1">
-                <h2>LOA CHẤT LƯỢNG CAO</h2>
-                <div class="scrollflash scroll owl-carousel owl-theme owl-loaded owl-drag" data-position="1" data-isch="false" data-take="16">
-                    
-                    <div class="owl-item active" style="width: 240px;">
-                        <div class="fpro" data-id="111223">
-                            <a href="/may-tinh-bang/huawei-mediapad-t3-10-2017" class="flimg"> 
-                                <img class="lazy loaded" data-src="https://cdn.tgdd.vn/Products/Images/522/111223/huawei-mediapad-t3-10-2017-anhava-300x300.jpg" height="200" width="200" alt="Huawei MediaPad T3 10 (2017)" src="https://cdn.tgdd.vn/Products/Images/522/111223/huawei-mediapad-t3-10-2017-anhava-300x300.jpg" data-was-processed="true"/> 
-                            </a>
-                            <div class="info">
-                                <a href="/may-tinh-bang/huawei-mediapad-t3-10-2017" title="Huawei MediaPad T3 10 (2017)" class="name">Huawei MediaPad T3 10 (2017)</a>
-                                <div class="prices">
-                                    <span class="new">3.690.000₫</span> 
-                                    <span class="line">4.490.000₫</span> 
-                                    <span class="discount">- 18%</span>
-                                    <button class="buy" onclick="return buynow(111223,false,'Huawei MediaPad T3 10 (2017)','Máy tính bảng','Huawei',3690000.00,false,this,false)">Chọn mua</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
         <?php 
             include("footer.php");
         ?>

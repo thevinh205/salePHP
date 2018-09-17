@@ -446,6 +446,7 @@ a, a:-webkit-any-link {
     box-sizing: border-box;
     position: relative;
     padding-bottom: 10px;
+    height: 280px
 }
 
 .fpro .flimg {
@@ -463,6 +464,8 @@ a, a:-webkit-any-link {
     max-height: 100%;
     background: #fff;
     max-width: 200px !important;
+    width: 200px;
+    height: 210px;
 }
 
 .lazy.loaded, .owl-lazy.loaded {
@@ -473,6 +476,9 @@ a, a:-webkit-any-link {
 .fpro .info {
     text-align: center;
     display: block !important;
+    position: absolute;
+    bottom: 0px;
+    width: 247px;
 }
 
 .owl-carousel .owl-item a {
@@ -491,6 +497,7 @@ a, a:-webkit-any-link {
     box-sizing: border-box;
     text-decoration: none;
     opacity: 1;
+    text-transform: uppercase;
 }
 
 .fpro .prices {
