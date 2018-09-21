@@ -11,7 +11,7 @@
     </head>
     <body>
         <div class="search-menu orange">
-            <div class="container">
+            <div class="container1">
                 <form class="mainsearch" style="width: 350px">
                     <div class="pr">
                         <input type="text" name="key" placeholder="Bạn mua gì?" maxlength="50"> 
@@ -62,53 +62,74 @@
         
         <div class="mainctn">
             <div class="productinfo">
+                <?php
+                    echo "<input type='hidden' value='".$_GET['product_id']."' id='product_id'/>";
+                    $sql = "SELECT p.name, sp.count, p.avatar, p.price_sell, p.price_prom, p.prom, p.description FROM sale.shop_party_relationship sp left join sale.product p on sp.product_id = p.id where p.id='$_GET[product_id]'";
+                    $result=mysqli_query($con,$sql);
+                    $data = mysqli_fetch_assoc($result);
+                    $productName = $data['name'];
+                ?>
+                
                 <div class="gallery" data-id="112970" data-cate="42">
                     <div class="wrapslide">
-                        <img onclick="OpenPhotoSwipe(0)" class="avatar" src="https://cdn.tgdd.vn/Products/Images/42/112970/samsung-galaxy-j7-plus-hh-600x600-300x300.jpg" alt="" width="560" height="310">
+                        <?php
+                            echo "<img onclick='OpenPhotoSwipe(0)' class='avatar' src='resources/img/sanpham/".$_GET['product_id']."/".$data['avatar']."' alt='' width='560' height='310'>";
+                        ?>
                     </div>
                     <div class="colorandpic tele">
                         <ul>
-                            <li class="gal">
-                                <a href="javascript:" onclick="OpenPhotoSwipe(0)">
-                                    <div>
-                                        <img src="https://cdn.tgdd.vn/Products/Images/42/112970/samsung-galaxy-j7-plus-vang-dong-1-2-180x120.jpg">
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="gal">
-                                <a href="javascript:" onclick="OpenPhotoSwipe(1)">
-                                    <div>
-                                        <img src="https://cdn.tgdd.vn/Products/Images/42/112970/samsung-galaxy-j7-plus-vang-dong-2-2-180x120.jpg">
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="gal">
-                                <a href="javascript:" onclick="OpenPhotoSwipe(2)">
-                                    <div>
-                                        <img src="https://cdn.tgdd.vn/Products/Images/42/112970/samsung-galaxy-j7-plus-vang-dong-3-2-180x120.jpg">
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="gal">
+                            
+                            <?php 
+                                $path    = "resources/img/sanpham/".$_GET['product_id'];
+                                $files = scandir($path);
+                                
+                                foreach ($files as $file) {
+                                    if($file != "." && $file != "..") {
+                                        echo "<li class='gal'>";
+                                        echo    "<a href='javascript:' onclick='OpenPhotoSwipe(0)'>";
+                                        echo        "<div>";
+                                        echo            "<img src='resources/img/sanpham/".$_GET['product_id']."/".$file."'>";
+                                        echo        "</div>";
+                                        echo    "</a>";
+                                        echo "</li>";   
+                                    }
+                                }
+                            ?>
+                            
+<!--                            <li class="gal">
                                 <a href="javascript:" onclick="OpenPhotoSwipe(0)">
                                     <div>
                                         <img src="https://cdn.tgdd.vn/Products/Images/42/112970/samsung-galaxy-j7-plus-vang-dong-2-2-180x120.jpg"> 
                                         <span class="imgcount">Xem<br>12 hình</span>
                                     </div>
                                 </a>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
                 </div>
                 
                 <div class="info">
-                    <h1 class="productname">Samsung Galaxy J7 Plus</h1>
+                    <?php
+                        echo "<h1 class='productname'>".$data['name']."</h1>";
+                    ?>
                     <div class="boxprice">
                         <div class="prices">
-                            <span class="new">6.135.000₫</span> 
-                            <span class="line">7.290.000₫</span> 
-                            <span class="discount">16%</span> 
-                            <span class="status"> Còn hàng </span>
+                            <?php 
+                                if($data['prom']) {
+                                    $rateProm = round(($data['price_sell'] - $data['price_prom'])/$data['price_sell'] * 100);
+                                    echo "<span class='new'><span class='numbers'>".$data['price_prom']."</span>₫</span>"; 
+                                    echo "<span><span class='numbers line'>".$data['price_sell']."</span>₫</span>"; 
+                                    echo "<span class='discount'>".$rateProm."%</span>";
+                                } else {
+                                    echo "<span class='new'><span class='numbers'>".$data['price_sell']."</span>₫</span>"; 
+                                } 
+                                    
+                                if($data['count'] > 0)
+                                    echo "<span class='status'> Còn hàng </span>";
+                                else 
+                                    echo "<span class='status'> Hết hàng</span>";
+                            ?>
+                            
                         </div>
                     </div>
                     <div class="policy">
@@ -150,7 +171,9 @@
                         <span class="error hide">(*)Vui lòng chọn màu</span>
                     </div>
                     <div class="buttons">
-                        <a href="javascript:void(0)" data-pid="112970" data-manuid="2" class="btnorange buynowbtn buynow" title="Mua Samsung Galaxy J7 Plus">Chọn Mua</a>
+                        <?php
+                            echo "<a href='javascript:void(0)' class='btnorange buynowbtn buynow' title='Mua ".$data['name']."' onclick='addProductAndToCart()'>Chọn Mua</a>";
+                        ?>
                     </div>
                 </div>
             </div>
@@ -158,14 +181,13 @@
             <div class="slide-left">
                 <div class="boxcontent">
                     <div class="detail">
-                        <h3 class="brand">Thương hiệu: 
-                            <img src="//cdn.tgdd.vn/Brand/8/Samsung42-s_7.png" data-src="//cdn.tgdd.vn/Brand/8/Samsung42-s_7.png" class="lazy companylogo initial loaded" width="100" height="40" alt="Samsung Galaxy J7 Plus" data-was-processed="true"> 
-                            <a href="/thuong-hieu-samsung-1" rel="nofollow">Tìm hiểu thêm</a>
-                        </h3>
+                        <?php 
+                            echo "<h3 class='brand'>Sản phẩm: <span style='font-weight: bold; font-size: 20px;'>".$data['name']."</span></h3>"; 
+                        ?>
+                        
                         
                         <article class="description">
-                            <div class="kit">Bộ sản phẩm chuẩn gồm: <b>Hộp, Sạc, Tai nghe, Sách hướng dẫn, Cáp, Cây lấy sim</b></div>
-                            <div class="short">
+<!--                            <div class="short">
                                 <h2 class="spec">Thông số kỹ thuật</h2>
                                 <ul class="specs">
                                     <li>
@@ -177,10 +199,14 @@
                                         <span class="specval">Android 7.0</span>
                                     </li>
                                 </ul>
-                            </div>
+                            </div>-->
                             
                             <div class="full">
-                                <h2><a href="https://www.vuivui.com/dien-thoai-di-dong/samsung-galaxy-j7-plus" target="_blank" title="Tham khảo điện thoại Samsung Galaxy J7+ tại Vuivui.com" type="Tham khảo điện thoại Samsung Galaxy J7+ tại Vuivui.com">Samsung Galaxy J7+</a> có <a href="https://www.vuivui.com/dien-thoai-di-dong/?pp=57279&amp;sort=PriceDesc" target="_blank" title="Điện thoại có thiết kế kim loại nguyên khối tại Vuivui.com" type="Điện thoại có thiết kế kim loại nguyên khối tại Vuivui.com">thiết kế kim loại nguyên khối</a> sang trọng với màn hình Super AMOLED độ phân giải Full HD. Máy được trang bị camera kép với tính năng chụp xóa phông ảo diệu mang đến cho bạn những trải nghiệm tuyệt vời.</h2>
+                                <?php
+                                
+                                $description = preg_replace("/\r\n|\r|\n/",'<br/>',$data['description']);
+                                    echo "<h2>".$description."</h2>";
+                                ?>
                             </div>
                         </article>
                     </div>                     

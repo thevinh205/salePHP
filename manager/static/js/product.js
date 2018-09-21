@@ -206,11 +206,12 @@ function linkDeleteProduct(e){
     var priceBuy = $("input[name*='priceBuyEdit']").val();
     var priceSell = $("input[name*='priceSellEdit']").val();
     var description = $("textarea[name*='descriptionEdit']").val();
-	var typeName = $("#productTypeEdit option:selected").text();
-	var guarantee = $("input[name*='guaranteeEdit']").val();
-	var showWeb = 0;
-	if($("input[name*='showWebEdit']").is(':checked'))
-		showWeb = 1;
+    //description = description.replace(/\n/g, '<br />');
+    var typeName = $("#productTypeEdit option:selected").text();
+    var guarantee = $("input[name*='guaranteeEdit']").val();
+    var showWeb = 0;
+    if($("input[name*='showWebEdit']").is(':checked'))
+            showWeb = 1;
     var avatar = $("#avatar").val();
     var maxFileName = $("#maxFileName").val();
     if(maxFileName == "")

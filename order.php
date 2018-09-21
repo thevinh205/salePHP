@@ -11,7 +11,7 @@
     </head>
     <body>
         <div class="search-menu orange">
-            <div class="container">
+            <div class="container1">
                 <form class="mainsearch" style="width: 350px">
                     <div class="pr">
                         <input type="text" name="key" placeholder="Bạn mua gì?" maxlength="50"> 
@@ -52,7 +52,7 @@
             </header>
         </div>
         
-        <div style="width: 100%; text-align: center; background-color: #fff; margin-top: 6px">
+        <div style="width: 100%; text-align: center; background-color: #fff; margin-top: 80px;">
             <nav class="flex bread">
                 <a href="/" class="navi item brdc">Trang chủ</a> 
                 <a href="/khu-cong-nghe-dien-may" class="navi item brdc">Điện thoại, điện máy</a> 
@@ -65,81 +65,86 @@
                 <div id="block1" class="block">
                     <div class="lst-product">
                         <div>
-                            <div>
-                                <div data-code="0131491000917" class="item">
-                                    <img alt="OPPO F5 Youth" src="https://cdn.tgdd.vn/Products/Images/42/141763/oppo-f5-youth-den-1-2-180x120.jpg" width="80" height="80"/> 
-                                    <div class="colinfo">
-                                        <a href="/dien-thoai-di-dong/oppo-f5-youth" class="name">OPPO F5 Youth Đen </a> 
-                                        <div class="quantity">
-                                            <label>Số lượng:</label> 
-                                            <div class="quantitynum">
-                                                <i class="noselect">-</i> 
-                                                <input type="number" min="0" max="50" step="1" class="qty noselect"/> 
-                                                <i class="noselect">+</i>
-                                            </div>
-                                        </div> <!----> 
-                                        <div class="info-text"></div> 
-                                        <div class="info-text error">
-                                        </div> 
-                                    </div> 
-                                    <div class="colmoney">
-                                        <strong>4.885.000₫</strong> 
-                                        <span><b>5.990.000₫</b></span> 
-                                        <a class="delete">Xóa</a>
-                                    </div>
-                                </div> 
-                                <div class="clr">  </div> 
-                            </div>
-                            <div>
-                                <div data-code="8851123224802" class="item">
-                                    <img alt="Nước tăng lực M-150 hương Mật ong Sâm lon 250ml" src="https://cdn.tgdd.vn/Products/Images/3226/79182/nuoc-tang-luc-m150-mat-ong-sam-250ml-190x190.jpg" width="80" height="80"/> 
-                                    <div class="colinfo">
-                                        <a href="/nuoc-tang-luc/nuoc-tang-luc-m150-mat-ong-sam-250ml" class="name">Nước tăng lực M-150 hương Mật ong Sâm lon 250ml</a> 
-                                        <div class="quantity">
-                                            <label>Số lượng:</label> 
-                                            <div class="quantitynum">
-                                                <i class="noselect">-</i> 
-                                                <input type="number" min="0" max="50" step="1" class="qty noselect"/> 
-                                                <i class="noselect">+</i>
-                                            </div>
-                                        </div> <!----> 
-                                        <div class="info-text"></div> 
-                                        <div class="info-text error"></div>
-                                    </div> 
-                                    <div class="colmoney">
-                                        <strong>8.500₫</strong> 
-                                        <span><b>9.500₫</b></span> 
-                                        <a class="delete">Xóa</a>
-                                    </div>
-                                </div> 
-                                <div class="clr"></div>
-                            </div>
+                            <?php
+                                session_start();
+                                $shipper = 20000;
+                                $sql="SELECT id, name, avatar, price_sell, price_prom, prom FROM product WHERE id IN ("; 
+                                foreach($_SESSION['cart'] as $id => $value) { 
+                                    $sql.="'".$id."',"; 
+                                } 
+                                $sql=substr($sql, 0, -1).") ORDER BY name ASC"; 
+                                $result=mysqli_query($con,$sql);
+                                $totalPrice = 0;
+                                while($tv_2=mysqli_fetch_array($result)) {
+                                    echo "<div class='item-order'>";
+                                    echo    "<div class='item'>";
+                                    echo        "<img alt='OPPO F5 Youth' src='resources/img/sanpham/".$tv_2['id']."/".$tv_2['avatar']."' width='80' height='80'/>";
+                                    echo        "<div class='colinfo'>";
+                                    echo            "<a href='/dien-thoai-di-dong/oppo-f5-youth' class='name'>OPPO F5 Youth Đen </a>";
+                                    echo            "<div class='quantity'>";
+                                    echo                "<label>Số lượng:</label>";
+                                    echo                "<div class='quantitynum'>";
+                                    echo                    "<i class='noselect desc-count'>-</i>";
+                                    echo                    "<input type='number' class='qty noselect count-product' value='".$_SESSION['cart'][$tv_2['id']]."'/>";
+                                    echo                    "<i class='noselect inc-count'>+</i>";
+                                    echo                "</div>";
+                                    echo            "</div> <!---->"; 
+                                    echo            "<div class='info-text'></div>"; 
+                                    echo            "<div class='info-text error'>";
+                                    echo            "</div>"; 
+                                    echo        "</div>"; 
+                                    echo        "<div class='colmoney'>";
+                                    if($tv_2['prom']) {
+                                        echo            "<b class='numbers product-price' style='text-decoration: none; font-size: 16px;'>".$tv_2['price_prom'] * $_SESSION['cart'][$tv_2['id']]."</b>₫"; 
+                                        echo            "<span><b class='numbers'>".$tv_2['price_sell'] * $_SESSION['cart'][$tv_2['id']]."</b>₫</span>";
+                                        $totalPrice += ($tv_2['price_prom'] * $_SESSION['cart'][$tv_2['id']]);
+                                        echo "<input type='hidden' class='price-one-product' value='".$tv_2['price_prom']."'/>";
+                                    } else {
+                                        echo            "<b class='numbers product-price' style='text-decoration: none; font-size: 16px;'>".$tv_2['price_sell'] * $_SESSION['cart'][$tv_2['id']]."</b>₫"; 
+                                        $totalPrice += ($tv_2['price_sell'] * $_SESSION['cart'][$tv_2['id']]);
+                                        echo "<input type='hidden' class='price-one-product' value='".$tv_2['price_sell']."'/>";
+                                    }
+                                    echo            "<a class='delete'>Xóa</a>";
+                                    echo        "</div>";
+                                    echo    "</div>"; 
+                                    echo    "<div class='clr'>  </div>"; 
+                                    echo "</div>";
+                                }
+                    
+                            ?>
                         </div>
                     </div>
                     
                     <div class="summary">
                         <div class="cost">
                             <span>Tiền hàng: </span> 
-                            <label id="carttotal">4.893.500₫</label>
+                            <?php 
+                                echo "<label><b id='carttotal' class='numbers' style='font-weight: normal;'>".$totalPrice."</b>₫</label>";
+                            ?>
                         </div> <!----> 
                         <div class="shipfee">
                             <span>Phí giao hàng:</span> 
-                            <label class="rightshiping">
-                                <span id="shippingdiscount">10.000₫</span> 
-                                <span id="cartshipfee">MIỄN PHÍ</span>
-                            </label> <!---->
+                            <?php 
+                                echo "<label class='rightshiping'>";
+                                echo    "<span id='cartshipfee' class='numbers'>".$shipper."</span>₫";
+                                echo "</label>";
+                            ?>
                         </div> 
                         <div class="totalfinal">
                             <div>
-                                <span>Tổng tiền: </span> 
-                                <label id="cartsumtotalfinal">4.893.500₫</label>
+                                <span>Tổng tiền: </span>
+                                <?php
+                                    $total = $totalPrice + $shipper;
+                                    echo "<label><b id='cartsumtotalfinal' class='numbers' style='font-weight: normal;'>".$total."</b>₫</label>";
+                                ?>
+                                
                             </div> 
                             <div class="clr"></div>     
                         </div> <!----> <!---->
                     </div>
                     
                     <div class="boxsugguest">
-                        <a href="/" class="btn-buymore">Mua thêm</a>
+                        <a href="index_1.php" class="btn-buymore">Mua thêm</a>
                     </div>
                 </div>
                 
@@ -157,7 +162,15 @@
                                         <div class="dist nocheck">
                                             <select id="ProfileItems_0_DistrictId" class="select2-hidden-accessible" aria-hidden="true">
                                                 <option value="" disabled selected>Chọn tỉnh thành</option>
-                                                <option value="hcm">Tỉnh thành</option>
+                                                <?php
+                                                    $sql1="SELECT matp, name from devvn_tinhthanhpho";
+                                                    $result1=mysqli_query($con,$sql1);
+                                                    while($tv_1=mysqli_fetch_array($result1)) {
+                                                        if($tv_1['matp'] == 79)
+                                                            echo "<option value='".$tv_1['matp']."' selected='selected'>".$tv_1['name']."</option>";
+                                                        else echo "<option value='".$tv_1['matp']."'>".$tv_1['name']."</option>";
+                                                    }
+                                                ?>
                                             </select>
                                         </div>
                                     </div>

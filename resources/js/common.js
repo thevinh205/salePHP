@@ -8,6 +8,31 @@ $(document).ready(function(){
     $(".numbers").each(function(c, obj){
         $(obj).text(addCommas(parseFloat($(obj).text())));
     });
+    
+    $(".count-product").focus(function() {
+    }).blur(function() {
+        var count = $(this).val();
+        var productPrice = $(this).closest('.item-order').find(".product-price").text();
+        productPrice = productPrice.replace(/\./g, '');
+        var priceOneProduct =$(this).closest('.item-order').find(".price-one-product").val();
+        
+        var totalProduct = $(this).closest('#block1').find("#carttotal").text();
+        var total = $(this).closest('#block1').find("#cartsumtotalfinal").text();
+        totalProduct = totalProduct.replace(/\./g, '');
+        total = total.replace(/\./g, '');
+        
+        var productPriceNew = count * priceOneProduct;
+        totalProduct = totalProduct - productPrice + productPriceNew;
+        total = total - productPrice + productPriceNew;
+        
+        productPriceNew = addCommas(productPriceNew);
+        totalProduct = addCommas(totalProduct);
+        total = addCommas(total);
+        $(this).closest('.item-order').find(".product-price").text(productPriceNew);
+        $(this).closest('#block1').find("#carttotal").text(totalProduct);
+        $(this).closest('#block1').find("#cartsumtotalfinal").text(total);
+
+    });
 });
 
 function addCommas(nStr){
@@ -21,3 +46,28 @@ function addCommas(nStr){
    }
    return x1 + x2;
 }
+
+function addProductAndToCart() {
+    var productId = $("input[id*='product_id']").val();
+    var count = $("input[name*='txtQuantity']").val();
+    
+    var url = "cart.php";
+    $.ajax({
+        type: 'POST', 
+        url: url, 
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+        data: {
+            productId: productId, 
+            count: count,
+            type: 'addProduct'
+        },
+        success: function(data){ 
+            window.location.href = "order.php";
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown){
+        }
+    }); 
+}
+
+
+

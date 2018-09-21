@@ -125,7 +125,6 @@ nav .navi.brdc:after {
 
 .wrapslide .avatar {
     width: auto;
-    height: auto;
     max-width: 100%;
     cursor: pointer;
 }
@@ -191,7 +190,7 @@ ol, ul {
 .colorandpic li img {
     display: inline-block;
     width: 50px;
-    height: auto;
+    height: 58px;
     margin: auto;
     border-radius: 4px;
     object-fit: contain;

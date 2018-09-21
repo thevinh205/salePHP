@@ -16,6 +16,7 @@ header {
     position: relative;
     z-index: 998;
     padding: 1px 100px;
+    height: 0px;
 }
 
 header .wrap {
@@ -145,14 +146,18 @@ a, a:-webkit-any-link {
 
 .orange, .search-menu.orange {
     background: #fe7500;
-    height: 40px;
+    height: 65px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0px;
 }
 
 .search-menu {
     padding: 7px 0;
 }
 
-.search-menu .container {
+.search-menu .container1 {
     padding-top: 0;
     margin-bottom: 0;
     width: 1200px;
@@ -543,7 +548,7 @@ a, a:-webkit-any-link {
     margin: 0 auto;
     cursor: pointer;
     overflow: hidden;
-    width: 100px;
+    width: 172px;
     box-sizing: border-box;
     text-align: center;
     background: none;
@@ -613,4 +618,14 @@ footer .deliverynote {
     padding: 10px 0;
     font-size: 1.2em;
     width: 100%;
+}
+
+.slider_container {
+    visibility: hidden; 
+    position: relative; 
+    margin: 65px auto; 
+    width: 1200px; 
+    height: 442px; 
+    overflow: hidden;
+    margin-bottom: 10px;
 }
