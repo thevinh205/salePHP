@@ -33,6 +33,20 @@ $(document).ready(function(){
         $(this).closest('#block1').find("#cartsumtotalfinal").text(total);
 
     });
+    
+    $(".desc-count").click( function(){
+        var count = $(this).closest('div').find('.count-product').val();
+        count -= 1;
+        $(this).closest('div').find('.count-product').val(count);
+        updateCount(this, count);
+    });
+    
+    $(".inc-count").click( function(){
+        var count = $(this).closest('div').find('.count-product').val();
+        count += 1;
+        $(this).closest('div').find('.count-product').val(count);
+        updateCount(this, count);
+    });
 });
 
 function addCommas(nStr){
@@ -67,6 +81,28 @@ function addProductAndToCart() {
         error: function(XMLHttpRequest, textStatus, errorThrown){
         }
     }); 
+}
+
+function updateCount(e, count) {
+    var productPrice = $(e).closest('.item-order').find(".product-price").text();
+    productPrice = productPrice.replace(/\./g, '');
+    var priceOneProduct =$(e).closest('.item-order').find(".price-one-product").val();
+
+    var totalProduct = $(e).closest('#block1').find("#carttotal").text();
+    var total = $(e).closest('#block1').find("#cartsumtotalfinal").text();
+    totalProduct = totalProduct.replace(/\./g, '');
+    total = total.replace(/\./g, '');
+
+    var productPriceNew = count * priceOneProduct;
+    totalProduct = totalProduct - productPrice + productPriceNew;
+    total = total - productPrice + productPriceNew;
+
+    productPriceNew = addCommas(productPriceNew);
+    totalProduct = addCommas(totalProduct);
+    total = addCommas(total);
+    $(e).closest('.item-order').find(".product-price").text(productPriceNew);
+    $(e).closest('#block1').find("#carttotal").text(totalProduct);
+    $(e).closest('#block1').find("#cartsumtotalfinal").text(total);
 }
 
 
