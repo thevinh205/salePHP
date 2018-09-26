@@ -6,11 +6,17 @@
         $count= $_POST['count'];
         session_start();
         if(isset($_SESSION['cart'][$productId])) {
-         $qty = $_SESSION['cart'][$productId] + 1;
+            $qty = $_SESSION['cart'][$productId] + $count;
         }
         else {
-         $qty = 1;
+         $qty = $count;
         }
         $_SESSION['cart'][$productId]=$qty;
+    } else if($type == 'removeProduct') {      
+        $productId = $_POST['productId'];
+        session_start();
+        if(isset($_SESSION['cart'][$productId])) {
+          unset($_SESSION['cart'][$productId]);
+        }
     }
 ?>

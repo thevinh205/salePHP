@@ -14,6 +14,7 @@
         <!-- jssor slider scripts-->
         <script type="text/javascript" src="resources/js/jssor.slider.min.js"></script>
         <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     </head>
     <body>
         
@@ -37,10 +38,20 @@
             <header>
                 <div class="wrap">
                     <div class="profile">
-                        <a class="cart" href="/gio-hang"> 
+                        <a class="cart" href="order.php"> 
                             <i class="icon-cart"></i> 
-                            <span>Giỏ hàng<b class="num sh" style="visibility: visible;">2</b></span> 
-                            <span class="total">Tiền hàng: 6.440.000₫</span> 
+                            <span>Giỏ hàng
+                                <?php
+                                    session_start();
+                                    $countInCart = 0;
+                                    foreach($_SESSION['cart'] as $id => $value) { 
+                                        if($id != '')
+                                            $countInCart += $value;
+                                    } 
+                                    echo "<b class='num sh shopping-cart' style='visibility: visible;'>".$countInCart."</b>";
+                                ?>
+                            </span> 
+<!--                            <span class="total">Tiền hàng: 6.440.000₫</span> -->
                         </a>
                     </div>
                 </div>
@@ -209,6 +220,7 @@
                              while($tv_2=mysqli_fetch_array($result)) {
                                 echo "<div class='owl-item active' style='width: 240px; height: 300px;'>";
                                 echo    "<div class='fpro' data-id='111223'>";
+                                echo        "<input type='hidden' class='product-id' value='".$tv_2['id']."'/>"; 
                                 echo        "<a href='detail.php?product_id=".$tv_2['id']."' class='flimg'>";
                                 echo            "<img class='lazy loaded' alt='".$tv_2['name']."' src='resources/img/sanpham/".$tv_2['id']."/".$tv_2['avatar']."' data-was-processed='true'/>";
                                 echo        "</a>";
@@ -218,7 +230,7 @@
                                 echo                "<span class='new numbers'>".$tv_2['price_sell']."</span>₫";
 //                                echo                "<span class='line'>4.490.000₫</span>";
 //                                echo                "<span class='discount'>- 18%</span>";
-                                echo                "<button class='buy' onclick='return buynow(111223,false,'Huawei MediaPad T3 10 (2017)','Máy tính bảng','Huawei',3690000.00,false,this,false)'>Thêm vào giỏ hàng</button>";
+                                echo                "<button class='buy add-to-cart' onclick='return buynow(111223,false,'Huawei MediaPad T3 10 (2017)','Máy tính bảng','Huawei',3690000.00,false,this,false)'>Thêm vào giỏ hàng</button>";
                                 echo            "</div>";
                                 echo        "</div>";
                                 echo    "</div>";

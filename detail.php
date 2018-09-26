@@ -42,17 +42,25 @@
             <header>
                 <div class="wrap">
                     <div class="profile">
-                        <a class="cart" href="/gio-hang"> 
+                        <a class="cart" href="order.php"> 
                             <i class="icon-cart"></i> 
-                            <span>Giỏ hàng<b class="num sh" style="visibility: visible;">2</b></span> 
-                            <span class="total">Tiền hàng: 6.440.000₫</span> 
+                            <?php
+                                    session_start();
+                                    $countInCart = 0;
+                                    foreach($_SESSION['cart'] as $id => $value) { 
+                                        if($id != '')
+                                            $countInCart += $value;
+                                    } 
+                                    echo "<b class='num sh' style='visibility: visible;'>".$countInCart."</b>";
+                                ?>
+<!--                            <span class="total">Tiền hàng: 6.440.000₫</span> -->
                         </a>
                     </div>
                 </div>
             </header>
         </div>
         
-        <div style="width: 100%; text-align: center; background-color: #fff; margin-top: 6px">
+        <div style="width: 100%; text-align: center; background-color: #fff; margin-top: 80px">
             <nav class="flex bread">
                 <a href="/" class="navi item brdc">Trang chủ</a> 
                 <a href="/khu-cong-nghe-dien-may" class="navi item brdc">Điện thoại, điện máy</a> 

@@ -155,9 +155,9 @@ nav .navi.brdc:after {
 .lst-product .item .name {
     display: block;
     line-height: 1.3em;
-    font-size: 13px;
+    font-size: 15px;
     color: #4a4a4a;
-    font-weight: 300;
+    font-weight: bold;
     margin-bottom: 5px;
     word-break: break-word;
     text-align: left;

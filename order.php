@@ -23,7 +23,7 @@
                 <div class="mnu-ct">
                     <div class="item">
                         <a href="/dien-thoai-di-dong">Tai nghe</a>
-                    </div>    
+            </div>   
                     <div class="item">
                         <a href="/dien-thoai-di-dong">Loa vi tính</a>
                     </div>  
@@ -42,10 +42,18 @@
             <header>
                 <div class="wrap">
                     <div class="profile">
-                        <a class="cart" href="/gio-hang"> 
+                        <a class="cart" href="javascript:void(0)"> 
                             <i class="icon-cart"></i> 
-                            <span>Giỏ hàng<b class="num sh" style="visibility: visible;">2</b></span> 
-                            <span class="total">Tiền hàng: 6.440.000₫</span> 
+                            <?php
+                                    session_start();
+                                    $countInCart = 0;
+                                    foreach($_SESSION['cart'] as $id => $value) { 
+                                        if($id != '')
+                                            $countInCart += $value;
+                                    } 
+                                    echo "<b class='num sh' style='visibility: visible;'>".$countInCart."</b>";
+                                ?>
+<!--                            <span class="total">Tiền hàng: 6.440.000₫</span> -->
                         </a>
                     </div>
                 </div>
@@ -66,7 +74,6 @@
                     <div class="lst-product">
                         <div>
                             <?php
-                                session_start();
                                 $shipper = 20000;
                                 $sql="SELECT id, name, avatar, price_sell, price_prom, prom FROM product WHERE id IN ("; 
                                 foreach($_SESSION['cart'] as $id => $value) { 
@@ -80,7 +87,7 @@
                                     echo    "<div class='item'>";
                                     echo        "<img alt='OPPO F5 Youth' src='resources/img/sanpham/".$tv_2['id']."/".$tv_2['avatar']."' width='80' height='80'/>";
                                     echo        "<div class='colinfo'>";
-                                    echo            "<a href='/dien-thoai-di-dong/oppo-f5-youth' class='name'>OPPO F5 Youth Đen </a>";
+                                    echo            "<a href='detail.php?product_id=".$tv_2['id']."' class='name'>".$tv_2['name']."</a>";
                                     echo            "<div class='quantity'>";
                                     echo                "<label>Số lượng:</label>";
                                     echo                "<div class='quantitynum'>";
@@ -104,7 +111,8 @@
                                         $totalPrice += ($tv_2['price_sell'] * $_SESSION['cart'][$tv_2['id']]);
                                         echo "<input type='hidden' class='price-one-product' value='".$tv_2['price_sell']."'/>";
                                     }
-                                    echo            "<a class='delete'>Xóa</a>";
+                                    echo "<input type='hidden' class='product-id' value='".$tv_2['id']."'/>";
+                                    echo            "<a class='delete od-delete-product'>Xóa</a>";
                                     echo        "</div>";
                                     echo    "</div>"; 
                                     echo    "<div class='clr'>  </div>"; 
