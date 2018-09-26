@@ -2,7 +2,7 @@
     <div class="footer_content">
         <ul>
             <li>
-                <a href="/gioi-thieu">Giới thiệu về VuiVui.com</a> 
+                <a href="/gioi-thieu">Giới thiệu về công ty</a> 
                 <a href="/chinh-sach-giao-hang">Chính sách giao hàng</a> 
                 <a href="/huong-dan-mua-hang">Hướng dẫn mua hàng</a>
             </li>

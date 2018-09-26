@@ -63,7 +63,7 @@
         
         <div style="width: 100%; text-align: center; background-color: #fff; margin-top: 80px;">
             <nav class="flex bread">
-                <a href="index_1.php" class="navi item brdc">Trang chủ</a> 
+                <a href="./" class="navi item brdc">Trang chủ</a> 
                 <a href="order.php" class="navi item brdc">Giỏ hàng</a> 
             </nav>
         </div>

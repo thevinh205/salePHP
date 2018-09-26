@@ -64,7 +64,7 @@
         
         <div style="width: 100%; text-align: center; background-color: #fff; margin-top: 80px">
             <nav class="flex bread">
-                <a href="index_1.php" class="navi item brdc">Trang chủ</a> 
+                <a href="./" class="navi item brdc">Trang chủ</a> 
                 <a href="javascript:void(0)" class="navi item brdc">Điện thoại</a> 
             </nav>
         </div>
@@ -73,7 +73,7 @@
             <div class="productinfo">
                 <?php
                     echo "<input type='hidden' value='".$_GET['product_id']."' id='product_id'/>";
-                    $sql = "SELECT p.name, sp.count, p.avatar, p.price_sell, p.price_prom, p.prom, p.description FROM sale.shop_party_relationship sp left join sale.product p on sp.product_id = p.id where p.id='$_GET[product_id]'";
+                    $sql = "SELECT p.name, sp.count, p.avatar, p.price_sell, p.price_prom, p.prom, p.description FROM shop_party_relationship sp left join product p on sp.product_id = p.id where p.id='$_GET[product_id]'";
                     $result=mysqli_query($con,$sql);
                     $data = mysqli_fetch_assoc($result);
                     $productName = $data['name'];

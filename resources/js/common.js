@@ -1,5 +1,5 @@
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    top.location.href = "index.php";
+    top.location.href = "index_1.php";
 }
 
 $(document).ready(function(){
@@ -279,6 +279,4 @@ function updateCount(e, count) {
     $(e).closest('#block1').find("#carttotal").text(totalProduct);
     $(e).closest('#block1').find("#cartsumtotalfinal").text(total);
 }
-
-
 
