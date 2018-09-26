@@ -486,7 +486,7 @@ nav .navi.brdc:after {
 
 .box-check .checkmark {
     position: absolute;
-    top: 12px;
+    top: 30px;
     left: 0;
     right: 0;
     margin: auto;
@@ -523,7 +523,6 @@ nav .navi.brdc:after {
     background: #fff;
     width: 100%;
     -webkit-appearance: none;
-    color: #ff7501;
     box-sizing: border-box;
     outline: none;
 }
@@ -590,7 +589,7 @@ nav .navi.brdc:after {
 
 .block .row .error {
     color: #fe7500;
-    font-size: 12px;
+    font-size: 15px;
     display: block;
     padding: 2px;
 }
@@ -669,4 +668,8 @@ nav .navi.brdc:after {
     cursor: pointer;
     padding: 10px 20px;
     outline: none;
+}
+
+.error-order {
+    border: 1px solid red !important;
 }

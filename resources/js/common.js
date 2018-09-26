@@ -1,3 +1,7 @@
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    top.location.href = "index.php";
+}
+
 $(document).ready(function(){
     $('.add-to-cart').on('click', function () {
         var cart = $('.shopping-cart');
@@ -154,12 +158,69 @@ $(document).ready(function(){
 
                 $("#carttotal").text(totalProduct);
                 $("#cartsumtotalfinal").text(total);
+                
+                var countInCart = $(".shopping-cart").text();
+                countInCart -= 1;
+                $(".shopping-cart").text(countInCart);
 
                 $(e).closest('.item-order').remove();
             },
             error: function(XMLHttpRequest, textStatus, errorThrown){
             }
         }); 
+    });
+    
+    $(".btn-pay-home").click( function(){
+        var priceTotal = $("#carttotal").text();
+        var shipmentFee = $("#cartshipfee").text();
+        var customer = $("#customerName").val();
+        var phoneNumber = $("#phoneNumber").val();
+        var email = $("#email").val();
+        var note = $("#customerNote").val();
+        var address = $("#customerAddress").val();
+        var statusOrder = 'new';
+        var province = $("#ProfileItems_0_DistrictId option:selected").text();
+        
+        priceTotal = priceTotal.replace(/\./g, '');
+        shipmentFee = shipmentFee.replace(/\./g, '');
+        
+        if( address == '' || address.trim() == '') {
+            $("#customerAddress").focus();
+            $("#customerAddress").addClass("error-order");
+        } else if (customer == '' || customer.trim() == '') {
+            $("#customerAddress").removeClass("error-order");
+            $("#customerName").focus();
+            $("#customerName").addClass("error-order");
+        } else if (phoneNumber == '' || phoneNumber.trim() == '') {
+            $("#customerAddress").removeClass("error-order");
+            $("#customerName").removeClass("error-order");
+            $("#phoneNumber").focus();
+            $("#phoneNumber").addClass("error-order");
+        } else {
+            address = address + ", " + province;
+            var url = "cart.php";
+            $.ajax({
+                type: 'POST', 
+                url: url, 
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                data: {
+                    priceTotal: priceTotal, 
+                    shipmentFee: shipmentFee, 
+                    customer: customer, 
+                    phoneNumber: phoneNumber, 
+                    email: email, 
+                    note: note, 
+                    address: address, 
+                    statusOrder: statusOrder, 
+                    type: 'createOrder'
+                },
+                success: function(data){ 
+                    window.location.href = "order_success.php";
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown){
+                }
+            }); 
+        }
     });
 });
 

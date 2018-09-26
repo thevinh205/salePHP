@@ -153,10 +153,10 @@ nav ul li a {
 .widget-title {
     position: absolute;
     top: 200px;
-    left: 7%;
+    left: 0%;
     margin-top: -50px;
-    margin-left: -50px;
-    width: 90%;
+    margin-left: 6px;
+    width: 118%;
     height: 100px;
 }
 

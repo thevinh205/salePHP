@@ -6,7 +6,7 @@
         <link rel="stylesheet" type="text/css" href="resources/css/main.css">
         <script src="resources/js/jquery.min.js" ></script>
         <script src="resources/js/jquery-ui.min.js" ></script>
-        <script src="resources/js/common.js"></script>
+        <script src="resources/js/common_mobile.js"></script>
         <header class="clearfix">
             <div class="head-area">
                 <div id="logo" itemscope="" itemtype="http://schema.org/WPHeader">

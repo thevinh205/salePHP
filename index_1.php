@@ -44,10 +44,12 @@
                                 <?php
                                     session_start();
                                     $countInCart = 0;
-                                    foreach($_SESSION['cart'] as $id => $value) { 
-                                        if($id != '')
-                                            $countInCart += $value;
-                                    } 
+                                    if(isset($_SESSION['cart'])) {
+                                        foreach($_SESSION['cart'] as $id => $value) { 
+                                            if($id != '')
+                                                $countInCart += $value;
+                                        } 
+                                    }
                                     echo "<b class='num sh shopping-cart' style='visibility: visible;'>".$countInCart."</b>";
                                 ?>
                             </span> 
@@ -225,7 +227,7 @@
                                 echo            "<img class='lazy loaded' alt='".$tv_2['name']."' src='resources/img/sanpham/".$tv_2['id']."/".$tv_2['avatar']."' data-was-processed='true'/>";
                                 echo        "</a>";
                                 echo        "<div class='info'>";
-                                echo            "<a href='/may-tinh-bang/huawei-mediapad-t3-10-2017' title='".$tv_2['name']."' class='name'>".$tv_2['name']."</a>";
+                                echo            "<a href='detail.php?product_id=".$tv_2['id']."' title='".$tv_2['name']."' class='name'>".$tv_2['name']."</a>";
                                 echo            "<div class='prices'>";
                                 echo                "<span class='new numbers'>".$tv_2['price_sell']."</span>₫";
 //                                echo                "<span class='line'>4.490.000₫</span>";
