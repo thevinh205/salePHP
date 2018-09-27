@@ -1,12 +1,9 @@
-<?php 
-    include("config.php");
-?>
 <html>
     <head>
-        <link rel="icon" type="image/gif" href="resources/img/icon/long-den.jpg" />
-        <script src="resources/js/jquery.min.js"></script>
-        <script src="resources/js/common.js"></script>
-        <link rel="stylesheet" type="text/css" href="resources/css/index.css">
+        <link rel="icon" type="image/gif" href="../resources/img/icon/long-den.jpg" />
+        <script src="../resources/js/jquery.min.js"></script>
+        <script src="../resources/js/common.js"></script>
+        <link rel="stylesheet" type="text/css" href="../resources/css/index_mobile.css">
     </head>
     <body>
         
@@ -16,7 +13,7 @@
                 <form class="mainsearch" onsubmit="return submitSearch(this)">
                     <div class="pr">
                         <input type="text" name="key" placeholder="Bạn mua gì?" maxlength="50"> 
-                        <button type="submit" class="btnsearch"><i class="icon-search"></i></button> 
+<!--                        <button type="submit" class="btnsearch"><i class="icon-search"></i></button> -->
                         <span id="searchclear" class="searchclear"><i class="icon-searchclr"></i></span>
                     </div>
                 </form>
@@ -31,8 +28,9 @@
                 <div class="wrap">
                     <div class="profile">
                         <a class="cart" href="order.php"> 
-                            <i class="icon-cart"></i> 
-                            <span>Giỏ hàng
+<!--                            <i class="icon-cart"></i> -->
+                            <img src="../resources/img/icon/cart.png" style="width: 90px; height: 90px; float: right"/>
+                            <span>
                                 <?php
                                     session_start();
                                     $countInCart = 0;
@@ -78,25 +76,21 @@
         </style>
 
         <div id="slider1_container" class="slider_container">
-            <!-- Loading Screen -->
-            <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
-                <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="../svg/loading/static-svg/spin.svg" />
-            </div>
 
             <!-- Slides Container -->
             <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 1200px; height: 442px;
             overflow: hidden;">
                 <div>
-                    <img data-u="image" src="resources/img/banner/1.png" />
+                    <img data-u="image" src="../resources/img/banner/1.png" />
                 </div>
                 <div>
-                    <img data-u="image" src="resources/img/banner/2.jpg" />
+                    <img data-u="image" src="../resources/img/banner/2.jpg" />
                 </div>
                 <div>
-                    <img data-u="image" src="resources/img/banner/3.jpg" />
+                    <img data-u="image" src="../resources/img/banner/3.jpg" />
                 </div>
                 <div>
-                    <img data-u="image" src="resources/img/banner/4.jpg" />
+                    <img data-u="image" src="../resources/img/banner/4.jpg" />
                 </div>
             </div>
             
@@ -144,12 +138,8 @@
     </div>
         
     <script>
-        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-            top.location.href = "mobile";
-        }
-
         jQuery(document).ready(function ($) {
-            var url = "list_product.php";
+            var url = "list_product_mobile.php";
             $.ajax({	
                     type: 'GET', 
                     url: url, 
@@ -168,11 +158,11 @@
         
     </div>
         <?php 
-            include("footer.php");
+            include("../footer.php");
         ?>
     
-        <script type="text/javascript">
+<!--        <script type="text/javascript">
             function add_chatinline(){var hccid=82244800;var nt=document.createElement("script");nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;var ct=document.getElementsByTagName("script")[0];ct.parentNode.insertBefore(nt,ct);}add_chatinline(); 
-        </script>
+        </script>-->
     </body>
 </html>

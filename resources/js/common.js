@@ -1,7 +1,3 @@
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    top.location.href = "index_1.php";
-}
-
 $(document).ready(function(){
     $('.add-to-cart').on('click', function () {
         var cart = $('.shopping-cart');

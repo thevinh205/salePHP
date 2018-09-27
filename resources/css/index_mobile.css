@@ -1,0 +1,640 @@
+body {
+    background-color: #eaeaea;
+}
+
+a, button {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a, a:-webkit-any-link {
+    text-decoration: none;
+    color: #4a90e2;
+}
+
+header {
+    position: relative;
+    z-index: 998;
+    padding: 1px 100px;
+    height: 0px;
+}
+
+header .wrap {
+    margin: auto;
+    overflow: hidden;
+}
+
+header .profile {
+    float: right;
+    text-align: right;
+    line-height: 44px;
+}
+
+header .profile a.cart {
+    line-height: 20px;
+    font-size: 16px;
+    color: #fe7a12;
+    display: inline-block;
+    position: relative;
+    padding-left: 31px;
+    box-sizing: border-box;
+    text-align: left;
+    vertical-align: middle;
+    min-height: 35px;
+    text-decoration: none;
+    width: 300px;
+    margin-top: 10px;
+}
+
+header .profile a.cart i {
+    margin-left: 0;
+    position: absolute;
+    left: -4px;
+}
+
+.icon-cart {
+    background-position: -473px -319px;
+    width: 30px;
+    height: 29px;
+}
+
+[class^="icon-"], [class*="icon-"] {
+    background-image: url(//cdn.tgdd.vn/vuivui/www/Content/images/desktop/icononlinedesk@2x.v201807171046.png);
+    background-size: 634px auto;
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+header .profile a.cart span {
+    font-size: 16px;
+    color: #fff;
+    display: block;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+header .profile span {
+    text-align: left;
+}
+
+header .profile span, header .profile .odhistory {
+    display: inline-block;
+    font-size: 14px;
+    color: #fe7a12;
+    letter-spacing: .14px;
+    margin-left: 70px;
+    position: relative;
+    vertical-align: middle;
+}
+
+header .profile a.cart b {
+    background: #f30600;
+    color: #fff;
+    border-radius: 100%;
+    width: 90px;
+    height: 90px;
+    display: inline-block;
+    font-size: 45px;
+    line-height: 20px;
+    text-align: center;
+    visibility: hidden;
+    margin-left: 3px;
+    float:right;
+    padding-top: 30px;
+}
+
+header .profile a.cart span.total {
+    display: block;
+    font-size: 14px;
+    padding: 0;
+    color: #fff;
+    margin-top: -3px;
+}
+
+header .profile span, header .profile .odhistory {
+    display: inline-block;
+    font-size: 14px;
+    color: #fe7a12;
+    letter-spacing: .14px;
+    margin-left: 70px;
+    position: relative;
+    vertical-align: middle;
+}
+
+header .profile .odhistory a.his {
+    color: #fe7a12;
+}
+
+a, a:-webkit-any-link {
+    text-decoration: none;
+    color: #4a90e2;
+}
+
+.profile .odhistory .save-product {
+    position: absolute;
+    top: 25px;
+    background: #fe7a12;
+    right: 0;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,.45098039215686275);
+    z-index: 9;
+    border-radius: 3px;
+    color: #fff;
+    line-height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    display: none;
+    padding-right: 4px;
+    min-width: 166px;
+}
+
+.orange, .search-menu.orange {
+    background: #fe7500;
+    height: 120px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0px;
+}
+
+.search-menu {
+    padding: 7px 0;
+}
+
+.search-menu .container1 {
+    padding-top: 0;
+    margin-bottom: 0;
+    width: 1200px;
+    margin: 0 auto;
+    overflow: initial;
+    background: none;
+}
+
+.search-menu form {
+    width: 600px;
+    position: relative;
+    float: left;
+}
+
+.search-menu form input {
+    background: #fff;
+    border-radius: 4px;
+    border: none;
+    padding: 12.5px 30px 12.5px 10px;
+    width: 100%;
+    color: #e88f49;
+    box-sizing: border-box;
+    outline: 0;
+    font-size: 50px;
+}
+
+.search-menu form button {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    background: no-repeat;
+    outline: none;
+    border: none;
+    transform: translateY(-50%);
+}
+
+.search-menu form button .icon-search {
+    position: absolute;
+    background-position: -162px -287px;
+    width: 22px;
+    height: 22px;
+    left: 0;
+    top: 0;
+    filter: grayscale(100%);
+}
+
+.search-menu form .searchclear {
+    display: none;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    height: 25px;
+    width: 28px;
+    background-color: #fff;
+    margin: auto;
+    cursor: pointer;
+    padding: 8px 0 0 16px;
+    border-radius: 10px;
+}
+
+.search-menu form .searchclear .icon-searchclr {
+    background-position: -70px -25px;
+    width: 16px;
+    height: 16px;
+}
+
+[class^="icon-"], [class*="icon-"] {
+    background-image: url(//cdn.tgdd.vn/vuivui/www/Content/images/desktop/icononlinedesk@2x.v201807170902.png);
+    background-size: 634px auto;
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.big-campain {
+    display: block;
+    position: relative;
+    background-color: #eaeaea;
+}
+
+.big-milks {
+    background-color: #f1ce0b;
+    padding-bottom: 50px;
+}
+
+.big-milks .bigcam-item {
+    background-image: url(//cdn.tgdd.vn/vuivui/www/Content/images/campain/desktop/milks_campain.v201807171046.png);
+    background-position: center;
+    width: 1200px;
+    height: 475px;
+    background-repeat: no-repeat;
+}
+
+.bigcam-item, .bigcam-itemv2 {
+    width: 1200px;
+    margin: auto;
+}
+
+.bigcam-pro {
+    padding-top: 65px;
+    margin: 0 auto;
+}
+
+.bigcam-pro .productcam {
+    width: calc(100%/3);
+    position: relative;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-left: 0;
+    float: left;
+}
+
+.bigcam-pro .productcam a {
+    display: block;
+    width: 330px;
+    height: 330px;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+}
+
+a, a:-webkit-any-link {
+    text-decoration: none;
+    color: #4a90e2;
+}
+
+.bigcam-pro .productcam img {
+    max-width: 330px;
+    width: auto;
+    height: auto;
+    max-height: 330px;
+}
+
+.big-milks img {
+    display: block;
+    margin: auto;
+    width: auto;
+    max-width: 100%;
+}
+
+.bigcam-pro .productcam .name {
+    padding: 5px 0;
+    color: #fff;
+    margin-left: 50px;
+}
+
+.bigcam-pro .productcam .info {
+    display: block;
+    margin: 0 auto;
+    margin-left: 50px;
+}
+
+.bigcam-pro .productcam .prices {
+    display: block;
+    float: left;
+    margin-right: 10px;
+}
+
+.bigcam-pro .productcam .new {
+    display: block;
+    vertical-align: middle;
+    color: #f0d621;
+    font-size: 16px;
+}
+
+.bigcam-pro .productcam .line {
+    display: block;
+    color: #048335;
+    text-decoration: line-through;
+}
+
+.bigcam-pro .productcam .buy {
+    border-radius: 20px;
+    height: 32px;
+    line-height: 32px;
+    color: #005623;
+    font-weight: bold;
+    width: 120px;
+    background-color: #f0d621;
+    float: left;
+    text-transform: uppercase;
+    border: 1px solid #f0d621;
+}
+
+.itembuy, .itembuy1 {
+    border: 1px solid #fe7500;
+    border-radius: 20px;
+    height: 26px;
+    line-height: 26px;
+    color: #fe7500;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    overflow: hidden;
+    width: 100px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.big-milks .bigcam-prohide {
+    margin: 0 auto;
+    padding: 15px 0;
+}
+
+.bg-orange {
+    background-color: #eaeaea;
+}
+
+.flashsale {
+    display: block;
+    clear: both;
+    overflow: hidden;
+    background: #fff;
+    width: 1200px;
+    margin: 0 auto;
+    border-right: none;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
+}
+
+.flashsale h2 {
+    color: #fe7500;
+    font-weight: bold;
+    font-size: 50px;
+    padding: 20px 0 0 20px;
+}
+
+.owl-carousel.owl-loaded {
+    overflow: visible !important;
+}
+
+.flashsale .scrollflash {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    border-left: 0;
+    max-height: 1000px;
+    overflow: hidden;
+}
+
+.scrollflash {
+    width: 100%;
+}
+
+.owl-carousel {
+    -webkit-tap-highlight-color: transparent;
+    z-index: 1;
+}
+
+.owl-carousel .owl-stage-outer {
+    overflow: visible !important;
+}
+
+.owl-carousel .owl-stage-outer {
+    position: relative;
+}
+
+.owl-carousel .owl-stage {
+    position: relative;
+    -ms-touch-action: pan-Y;
+    touch-action: manipulation;
+    -moz-backface-visibility: hidden;
+}
+
+.scrollflash.owl-carousel .owl-item {
+    transition: box-shadow .3s ease-out,transform .3s ease-out;
+}
+
+.owl-carousel .owl-item {
+    overflow: visible !important;
+}
+
+.owl-carousel .owl-item {
+    position: relative;
+    min-height: 1px;
+    float: left;
+}
+
+.fpro {
+    float: left;
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+    padding-bottom: 10px;
+    height: 100%;
+}
+
+.fpro .flimg {
+    position: relative;
+    display: table-cell !important;
+    width: 1100px;
+    vertical-align: bottom;
+    margin-left: 50px;
+}
+
+.fpro .flimg img {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    background: #fff;
+    width: 1100px;
+    height: 850px;
+    margin: 10px 0 0 50px;
+}
+
+.lazy.loaded, .owl-lazy.loaded {
+    animation: none;
+    background: none;
+}
+
+.fpro .info {
+    text-align: center;
+    display: block !important;
+    position: absolute;
+    bottom: 0px;
+    width: 1200px;
+    height: 350px;
+    padding-top: 30px;
+}
+
+.owl-carousel .owl-item a {
+    display: block;
+}
+
+.fpro .name {
+    display: block;
+    color: #999;
+    text-align: center;
+    padding: 5px 16px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    text-decoration: none;
+    opacity: 1;
+    text-transform: uppercase;
+    font-size: 50px
+}
+
+.fpro .prices {
+    display: block;
+    text-align: center;
+    font-size: 50px;
+}
+
+.fpro .prices .new {
+    color: #333;
+    margin-right: 5px;
+}
+
+.fpro .prices .new, .fpro .prices .line, .fpro .discount {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 50px;
+}
+
+.fpro .prices .line {
+    color: #999;
+    text-decoration: line-through;
+}
+
+.fpro .discount {
+    color: #fff;
+    font-weight: bold;
+    background-color: #ff7706;
+    padding: 0 2px;
+    font-size: 12px;
+    margin-left: 10px;
+    border-radius: 0 3px 3px 0;
+    position: relative;
+}
+
+.fpro .buy {
+    border: 1px solid #fe7500;
+    border-radius: 20px;
+    height: 100px;
+    line-height: 26px;
+    color: #fe7500;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    overflow: hidden;
+    width: 600px;
+    box-sizing: border-box;
+    text-align: center;
+    background: none;
+    text-transform: uppercase;
+}
+
+footer {
+    width: 100%;
+    -moz-min-width: 980px;
+    -ms-min-width: 980px;
+    -o-min-width: 980px;
+    -webkit-min-width: 980px;
+    min-width: 980px;
+    margin: 0 auto 0;
+    background: #183543;
+    clear: both;
+}
+
+footer>div {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.footer_content {
+    overflow: hidden;
+    clear: both;
+    background: #183543;
+}
+
+.footer_content ul {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 10px;
+    min-width: 980px;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.footer_content li:first-child {
+    width: 65%;
+    margin-top: 15px;
+}
+
+.footer_content li {
+    float: left;
+    width: 15%;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.footer_content li a {
+    display: block;
+    overflow: hidden;
+    font-size: 13px;
+    color: #478cdb;
+    margin-bottom: 5px;
+}
+
+footer .deliverynote {
+    background: #fe7500;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.2em;
+    width: 100%;
+}
+
+.slider_container {
+    visibility: hidden; 
+    position: relative; 
+    margin: 125px auto; 
+    width: 1200px; 
+    height: 442px; 
+    overflow: hidden;
+    margin-bottom: 10px;
+}
