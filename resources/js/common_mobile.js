@@ -1,3 +1,4 @@
+var url = "../cart.php";
 $(document).ready(function(){
     $('.add-to-cart').on('click', function () {
         var cart = $('.shopping-cart');
@@ -28,7 +29,6 @@ $(document).ready(function(){
                 var countProduct = $(".shopping-cart").text();
                 countProduct = parseInt(countProduct) + 1;
                 $(".shopping-cart").text(countProduct);
-                var url = "cart.php";
                 $.ajax({
                     type: 'POST', 
                     url: url, 
@@ -104,6 +104,20 @@ $(document).ready(function(){
         updateCount(this, count);
     });
     
+    $(".down").click( function(){
+        var count = $("input[name*='txtQuantity']").val();
+        count -= 1;
+        if(count < 0)
+            count = 0;
+        $("input[name*='txtQuantity']").val(count);
+    });
+    
+    $(".up").click( function(){
+        var count = $("input[name*='txtQuantity']").val();
+        count = parseInt(count) + 1;
+        $("input[name*='txtQuantity']").val(count);
+    });
+    
     $('#ProfileItems_0_DistrictId').on('change', function() {
         var shipFee = $("#cartshipfee").text();
         var total = $("#cartsumtotalfinal").text();
@@ -128,7 +142,6 @@ $(document).ready(function(){
     $(".od-delete-product").click( function(){
         var productId = $(this).closest('.item-order').find(".product-id").val();
         var e = this;
-        var url = "cart.php";
         $.ajax({
             type: 'POST', 
             url: url, 
@@ -194,7 +207,6 @@ $(document).ready(function(){
             $("#phoneNumber").addClass("error-order");
         } else {
             address = address + ", " + province;
-            var url = "cart.php";
             $.ajax({
                 type: 'POST', 
                 url: url, 
@@ -236,7 +248,6 @@ function addProductAndToCart() {
     var productId = $("input[id*='product_id']").val();
     var count = $("input[name*='txtQuantity']").val();
     
-    var url = "cart.php";
     $.ajax({
         type: 'POST', 
         url: url, 

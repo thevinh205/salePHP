@@ -65,7 +65,7 @@
         <div style="width: 100%; text-align: center; background-color: #fff; margin-top: 80px">
             <nav class="flex bread">
                 <a href="./" class="navi item brdc">Trang chủ</a> 
-                <a href="javascript:void(0)" class="navi item brdc">Điện thoại</a> 
+                <a href="javascript:void(0)" class="navi item brdc">Phụ kiện</a> 
             </nav>
         </div>
         

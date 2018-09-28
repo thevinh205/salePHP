@@ -1,50 +1,39 @@
 ﻿<?php 
-    include("config.php");
+    include("../config.php");
 ?>
 <html>
     <head>
-        <link rel="icon" type="image/gif" href="resources/img/icon/long-den.jpg" />
-        <script src="resources/js/jquery.min.js"></script>
-        <script src="resources/js/common.js"></script>
-        <link rel="stylesheet" type="text/css" href="resources/css/index.css">
-        <link rel="stylesheet" type="text/css" href="resources/css/detail.css">
+        <link rel="icon" type="image/gif" href="../resources/img/icon/long-den.jpg" />
+        <script src="../resources/js/jquery.min.js"></script>
+        <script src="../resources/js/common_mobile.js"></script>
+        <link rel="stylesheet" type="text/css" href="../resources/css/index_mobile.css">
+        <link rel="stylesheet" type="text/css" href="../resources/css/detail_mobile.css">
     </head>
-    <body>
+    <body style="width: 1200px">
         <div class="search-menu orange">
             <div class="container1">
-                <form class="mainsearch" style="width: 350px">
+                <form class="mainsearch" onsubmit="return submitSearch(this)">
                     <div class="pr">
-                        <input type="text" name="key" placeholder="Bạn mua gì?" maxlength="50"> 
-                        <button type="submit" class="btnsearch"><i class="icon-search"></i></button> 
+                        <input type="text" name="key" placeholder="Bạn mua gì?" style="height: 115px;"> 
+<!--                        <button type="submit" class="btnsearch"><i class="icon-search"></i></button> -->
                         <span id="searchclear" class="searchclear"><i class="icon-searchclr"></i></span>
                     </div>
                 </form>
-
-                <div class="mnu-ct">
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Tai nghe</a>
-                    </div>    
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Loa vi tính</a>
-                    </div>  
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Loa blutooth</a>
-                    </div>  
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Mic hát karaoke</a>
-                    </div>   
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Massage</a>
-                    </div> 
-                </div>
+<!--                <div class="hotline">
+                    <img src="//cdn.tgdd.vn/vuivui/www/Content/images/desktop/delivery-motorbike.png">
+                    <a href="https://vieclam.thegioididong.com/tuyen-dung/giao-hang-xe-may.html" target="_blank"> Cần 500 anh em Giao hàng xe máy. Ứng tuyển ngay TẠI ĐÂY »</a>
+                </div>-->
+                <div class="clr"></div>    
             </div>   
             
             <header>
                 <div class="wrap">
                     <div class="profile">
                         <a class="cart" href="order.php"> 
-                            <i class="icon-cart"></i> 
-                            <?php
+<!--                            <i class="icon-cart"></i> -->
+                            <img src="../resources/img/icon/cart.png" style="width: 90px; height: 90px; float: right"/>
+                            <span>
+                                <?php
                                     session_start();
                                     $countInCart = 0;
                                     if(isset($_SESSION['cart'])) {
@@ -53,8 +42,9 @@
                                                 $countInCart += $value;
                                         } 
                                     }
-                                    echo "<b class='num sh' style='visibility: visible;'>".$countInCart."</b>";
+                                    echo "<b class='num sh shopping-cart' style='visibility: visible; height: 65px;'>".$countInCart."</b>";
                                 ?>
+                            </span> 
 <!--                            <span class="total">Tiền hàng: 6.440.000₫</span> -->
                         </a>
                     </div>
@@ -62,10 +52,10 @@
             </header>
         </div>
         
-        <div style="width: 100%; text-align: center; background-color: #fff; margin-top: 80px">
+        <div style="width: 100%; text-align: center; background-color: #fff; margin-top: 135px">
             <nav class="flex bread">
                 <a href="./" class="navi item brdc">Trang chủ</a> 
-                <a href="javascript:void(0)" class="navi item brdc">Điện thoại</a> 
+                <a href="javascript:void(0)" class="navi item brdc">Phụ kiện</a> 
             </nav>
         </div>
         
@@ -82,14 +72,14 @@
                 <div class="gallery" data-id="112970" data-cate="42">
                     <div class="wrapslide">
                         <?php
-                            echo "<img onclick='OpenPhotoSwipe(0)' class='avatar' src='resources/img/sanpham/".$_GET['product_id']."/".$data['avatar']."' alt='' width='560' height='310'>";
+                            echo "<img onclick='OpenPhotoSwipe(0)' class='avatar' src='../resources/img/sanpham/".$_GET['product_id']."/".$data['avatar']."' alt='' width='560' height='310'>";
                         ?>
                     </div>
                     <div class="colorandpic tele">
                         <ul>
                             
                             <?php 
-                                $path    = "resources/img/sanpham/".$_GET['product_id'];
+                                $path    = "../resources/img/sanpham/".$_GET['product_id'];
                                 $files = scandir($path);
                                 
                                 foreach ($files as $file) {
@@ -97,7 +87,7 @@
                                         echo "<li class='gal'>";
                                         echo    "<a href='javascript:' onclick='OpenPhotoSwipe(0)'>";
                                         echo        "<div>";
-                                        echo            "<img src='resources/img/sanpham/".$_GET['product_id']."/".$file."'>";
+                                        echo            "<img src='../resources/img/sanpham/".$_GET['product_id']."/".$file."'>";
                                         echo        "</div>";
                                         echo    "</a>";
                                         echo "</li>";   
@@ -148,11 +138,11 @@
                         </div>
                         <div>
                             <i class="iconict-dt"></i>
-                            <p><span>Đổi trả sản phẩm lỗi miễn phí tại nhà trong 7 ngày <a href="/chinh-sach-doi-tra">(Xem chi tiết)</a></span></p>
+                            <p><span>Đổi trả sản phẩm lỗi miễn phí tại nhà trong 7 ngày</span></p>
                         </div>
                         <div>
                             <i class="iconict-gh"></i>
-                            <p><span> Giao hàng toàn quốc </span> Nếu giao trễ, tặng phiếu mua hàng giá trị 100.000đ</p>
+                            <p><span> Giao hàng toàn quốc </span></p>
                         </div>
                     </div>
                     <div class="options">
@@ -191,7 +181,7 @@
                 <div class="boxcontent">
                     <div class="detail">
                         <?php 
-                            echo "<h3 class='brand'>Sản phẩm: <span style='font-weight: bold; font-size: 20px;'>".$data['name']."</span></h3>"; 
+                            echo "<h3 class='brand'>Sản phẩm: <span style='font-weight: bold; font-size: 50px;'>".$data['name']."</span></h3>"; 
                         ?>
                         
                         
@@ -222,7 +212,7 @@
                 </div>
             </div>
             
-            <div class="slide-right">
+<!--            <div class="slide-right">
                 <div class="box-item relative" style="width: 100%">
                     <h4 class="prorelative">Sản phẩm liên quan</h4>
                     <ul class="bxrelative flex" style="width: 100%">
@@ -266,11 +256,11 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div>-->
         </div>
         
         <?php 
-            include("footer.php");
+            include("../footer.php");
         ?>
     </body>
 </html>

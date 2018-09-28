@@ -601,13 +601,13 @@ ol, ul {
 }
 
 .footer_content li:first-child {
-    width: 65%;
+    width: 50%;
     margin-top: 15px;
 }
 
 .footer_content li {
     float: left;
-    width: 15%;
+    width: 50%;
     overflow: hidden;
     margin-top: 15px;
 }
@@ -615,7 +615,7 @@ ol, ul {
 .footer_content li a {
     display: block;
     overflow: hidden;
-    font-size: 13px;
+    font-size: 50px;
     color: #478cdb;
     margin-bottom: 5px;
 }

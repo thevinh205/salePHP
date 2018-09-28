@@ -104,6 +104,20 @@ $(document).ready(function(){
         updateCount(this, count);
     });
     
+    $(".down").click( function(){
+        var count = $("input[name*='txtQuantity']").val();
+        count -= 1;
+        if(count < 0)
+            count = 0;
+        $("input[name*='txtQuantity']").val(count);
+    });
+    
+    $(".up").click( function(){
+        var count = $("input[name*='txtQuantity']").val();
+        count = parseInt(count) + 1;
+        $("input[name*='txtQuantity']").val(count);
+    });
+    
     $('#ProfileItems_0_DistrictId').on('change', function() {
         var shipFee = $("#cartshipfee").text();
         var total = $("#cartsumtotalfinal").text();
