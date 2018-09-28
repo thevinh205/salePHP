@@ -81,7 +81,7 @@
                 echo    "<div class='flashsale' id='flashsales-1'>";
                 echo        "<h2 style='text-transform: uppercase;'>".$tv_1['type_name']."</h2>";
                 echo        "<div class='scrollflash scroll owl-carousel owl-theme owl-loaded owl-drag' data-position='1' data-isch='false' data-take='16'>";
-                            $sql="SELECT p.id, p.name, p.price_sell, p.avatar, sp.count, p.guarantee FROM shop_party_relationship sp left join product p on sp.product_id=p.id where sp.type='product' and p.show_web=1 and p.product_type='".$tv_1['type_id']."';";
+                            $sql="SELECT p.id, p.name, p.price_sell, p.avatar, sp.count, p.guarantee, p.prom, p.price_prom FROM shop_party_relationship sp left join product p on sp.product_id=p.id where sp.type='product' and p.show_web=1 and p.product_type='".$tv_1['type_id']."';";
                             $result=mysqli_query($con,$sql);
 
                              while($tv_2=mysqli_fetch_array($result)) {
@@ -94,9 +94,10 @@
                                 echo        "<div class='info'>";
                                 echo            "<a href='detail.php?product_id=".$tv_2['id']."' title='".$tv_2['name']."' class='name'>".$tv_2['name']."</a>";
                                 echo            "<div class='prices'>";
-                                echo                "<span class='new numbers'>".$tv_2['price_sell']."</span>₫";
-//                                echo                "<span class='line'>4.490.000₫</span>";
-//                                echo                "<span class='discount'>- 18%</span>";
+                                if($tv_2['price_prom'])
+                                echo                "<span class='new'><span class='numbers'>".$tv_2['price_sell']."</span>₫</span>";
+                                echo                "<span class='line'>4.490.000₫</span>";
+                                echo                "<span class='discount'>- 18%</span>";
                                 echo                "<button class='buy add-to-cart' onclick='return buynow(111223,false,'Huawei MediaPad T3 10 (2017)','Máy tính bảng','Huawei',3690000.00,false,this,false)'>Thêm vào giỏ hàng</button>";
                                 echo            "</div>";
                                 echo        "</div>";

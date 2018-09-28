@@ -73,10 +73,10 @@
             <div class="productinfo">
                 <?php
                     echo "<input type='hidden' value='".$_GET['product_id']."' id='product_id'/>";
-                    $sql = "SELECT p.name, sp.count, p.avatar, p.price_sell, p.price_prom, p.prom, p.description FROM shop_party_relationship sp left join product p on sp.product_id = p.id where p.id='$_GET[product_id]'";
+                    $sql = "SELECT p.name, sp.count, p.avatar, p.price_sell, p.price_prom, p.prom, p.description, p.category_name FROM shop_party_relationship sp left join product p on sp.product_id = p.id where p.id='$_GET[product_id]'";
                     $result=mysqli_query($con,$sql);
                     $data = mysqli_fetch_assoc($result);
-                    $productName = $data['name'];
+                    $categoryName = $data['category_name'];
                 ?>
                 
                 <div class="gallery" data-id="112970" data-cate="42">
@@ -232,44 +232,36 @@
                 <div class="box-item relative" style="width: 100%">
                     <h4 class="prorelative">Sản phẩm liên quan</h4>
                     <ul class="bxrelative flex" style="width: 100%">
-                        <li class="prohv">
-                            <a href="/dien-thoai-di-dong/nokia-61-plus">
-                                <figure class="pic">
-                                    <img width="200" height="200" alt="Nokia 6.1 Plus" class="view" src="https://cdn.tgdd.vn/Products/Images/42/167150/nokia-61-plus-2-200x200.jpg"/>
-                                </figure>
-                            </a>
-                            <div class="prodsame">
-                                <a href="/dien-thoai-di-dong/nokia-61-plus">
-                                    <div class="riki-name active">Nokia 6.1 Plus</div>
-                                </a>
-                                <div class="prices">
-                                    <span class="price">6.325.000₫</span> 
-                                    <span class="line">6.590.000₫</span> 
-                                    <label class="discount">4%</label>
-                                </div>
-                                <div class="itembuy prodebuy" onclick="window.location.href='/dien-thoai-di-dong/nokia-61-plus'" title="Nokia 6.1 Plus">XEM CHI TIẾT
-                                </div> 
-                            </div>
-                        </li>
-                        
-                        <li class="prohv">
-                            <a href="/dien-thoai-di-dong/xiaomi-mi-a2">
-                                <figure class="pic">
-                                    <img width="200" height="200" alt="Xiaomi Mi A2" class="view" src="https://cdn.tgdd.vn/Products/Images/42/182151/xiaomi-mi-a2-2-200x200.jpg">
-                                </figure>
-                            </a>
-                            <div class="prodsame">
-                                <a href="/dien-thoai-di-dong/xiaomi-mi-a2">
-                                    <div class="riki-name active">Xiaomi Mi A2</div>
-                                </a>
-                                <div class="prices">
-                                    <span class="price">6.420.000₫</span> 
-                                    <span class="line">6.690.000₫</span> 
-                                    <label class="discount">4%</label>
-                                </div>
-                                <div class="itembuy prodebuy" onclick="window.location.href='/dien-thoai-di-dong/xiaomi-mi-a2'" title="Xiaomi Mi A2">XEM CHI TIẾT</div>     
-                            </div>
-                        </li>
+                        <?php
+                            $sql1 = "SELECT id, name, avatar, price_sell, price_prom, prom FROM product where id != '$_GET[product_id]' and category_name = '$categoryName' and show_web='1' ORDER BY RAND() limit 4";
+                            $result1=mysqli_query($con,$sql1);
+                            while($tv_1=mysqli_fetch_array($result1)) {
+                                echo "<li class='prohv'>";
+                                echo    "<a href='detail.php?product_id=".$tv_1['id']."'>";
+                                echo        "<figure class='pic'>";
+                                echo            "<img alt='".$tv_1['name']."' class='view' src='resources/img/sanpham/".$tv_1['id']."/".$tv_1['avatar']."'/>";
+                                echo        "</figure>";
+                                echo    "</a>";
+                                echo    "<div class='prodsame'>";
+                                echo        "<a href='detail.php?product_id=".$tv_1['id']."'>";
+                                echo            "<div class='riki-name active'>".$tv_1['name']."</div>";
+                                echo        "</a>";
+                                echo        "<div class='prices'>";
+                                if($tv_1['prom']) {
+                                    $rateProm = round(($tv_1['price_sell'] - $tv_1['price_prom'])/$tv_1['price_sell'] * 100);
+                                    echo            "<span class='price'><span>".$tv_1['price_prom']."</span>₫</span>";
+                                    echo            "<span class='line'><span>".$tv_1['price_sell']."</span>₫</span>"; 
+                                    echo            "<label class='discount'>".$rateProm."%</label>";
+                                } else {
+                                    echo            "<span class='price'><span class='numbers'>".$tv_1['price_sell']."</span>₫</span>";
+                                }
+                                echo        "</div>";
+                                echo        "<div class='itembuy prodebuy' title='".$tv_1['name']."'><a href='detail.php?product_id=".$tv_1['id']."' style='color:#fe7500; font-size:13px'>XEM CHI TIẾT</a>";
+                                echo        "</div>"; 
+                                echo    "</div>";
+                                echo "</li>";
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>

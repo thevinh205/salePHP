@@ -29,11 +29,13 @@
         $priceSell = $_POST['priceSell'];
         $description = $_POST['description'];
         $avatar = $_POST['avatar'];
-		$typeName = $_POST['typeName'];
-		$showWeb = $_POST['showWeb'];
-		$guarantee = $_POST['guarantee'];
+        $typeName = $_POST['typeName'];
+        $showWeb = $_POST['showWeb'];
+        $guarantee = $_POST['guarantee'];
+        $prom = $_POST['prom'];
+        $priceProm = $_POST['priceProm'];
         
-        $sql = "UPDATE product SET name='".$productName."', description='".$description."', avatar='".$avatar."', category_name='".$typeName."', price_buy='".$priceBuy."', price_sell='".$priceSell."', show_web=$showWeb, guarantee='$guarantee', product_type='".$productType."'
+        $sql = "UPDATE product SET name='".$productName."', description='".$description."', avatar='".$avatar."', category_name='".$typeName."', price_buy='".$priceBuy."', price_sell='".$priceSell."', show_web=$showWeb, guarantee='$guarantee', product_type='".$productType."', prom=$prom, price_prom='".$priceProm."'
 		WHERE id='".$productId."'";
 		
 		if (mysqli_query($con, $sql)) {

@@ -205,11 +205,15 @@ function linkDeleteProduct(e){
     var productType = $("select[name*='productTypeEdit']").val();
     var priceBuy = $("input[name*='priceBuyEdit']").val();
     var priceSell = $("input[name*='priceSellEdit']").val();
+    var priceProm = $("input[name*='pricePromEdit']").val();
     var description = $("textarea[name*='descriptionEdit']").val();
     //description = description.replace(/\n/g, '<br />');
     var typeName = $("#productTypeEdit option:selected").text();
     var guarantee = $("input[name*='guaranteeEdit']").val();
     var showWeb = 0;
+    var prom = 0;
+    if($("input[name*='prom']").is(':checked'))
+            prom = 1;
     if($("input[name*='showWebEdit']").is(':checked'))
             showWeb = 1;
     var avatar = $("#avatar").val();
@@ -245,10 +249,12 @@ function linkDeleteProduct(e){
             priceSell : priceSell,
             description : description,
             avatar : avatar,
-			typeName : typeName,
-			showWeb : showWeb,
-			guarantee : guarantee,
-			type : 'editProduct'
+            typeName : typeName,
+            showWeb : showWeb,
+            guarantee : guarantee,
+            prom : prom,
+            priceProm : priceProm,
+            type : 'editProduct'
         },
         success: function(data){
             uploadImage(productId);
