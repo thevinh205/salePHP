@@ -1,5 +1,7 @@
 var url = "../cart.php";
+var oldImgSelected;
 $(document).ready(function(){
+    oldImgSelected = $(".img-first");
     $('.add-to-cart').on('click', function () {
         var cart = $('.shopping-cart');
         var imgtodrag = $(this).closest('.fpro').find("img").eq(0);
@@ -287,3 +289,11 @@ function updateCount(e, count) {
     $(e).closest('#block1').find("#cartsumtotalfinal").text(total);
 }
 
+function changeImageShow(e) {
+    var srcNew  = $(e).attr("src");
+    $(".pri-avatar").attr("src", srcNew);
+    $(e).closest('div').addClass("img-selected");
+    if(oldImgSelected != null)
+        $(oldImgSelected).closest('div').removeClass("img-selected");
+    oldImgSelected = e;
+}

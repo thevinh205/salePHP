@@ -125,10 +125,10 @@ nav .navi.brdc:after {
 }
 
 .wrapslide .avatar {
-    width: 100%;
+    width: auto;
     max-width: 100%;
     cursor: pointer;
-    height: auto;
+    height: 650px;
 }
 
 .colorandpic.tele {
@@ -750,4 +750,8 @@ ol, ul {
     width: 0;
     top: 0;
     border-radius: 3px;
+}
+
+.img-selected {
+    border-color: #fe7500 !important;
 }

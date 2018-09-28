@@ -1,3 +1,4 @@
+var oldImgSelected;
 $(document).ready(function(){
     $('.add-to-cart').on('click', function () {
         var cart = $('.shopping-cart');
@@ -232,6 +233,8 @@ $(document).ready(function(){
             }); 
         }
     });
+    
+    oldImgSelected = $(".img-first");
 });
 
 function addCommas(nStr){
@@ -288,5 +291,14 @@ function updateCount(e, count) {
     $(e).closest('.item-order').find(".product-price").text(productPriceNew);
     $(e).closest('#block1').find("#carttotal").text(totalProduct);
     $(e).closest('#block1').find("#cartsumtotalfinal").text(total);
+}
+
+function changeImageShow(e) {
+    var srcNew  = $(e).attr("src");
+    $(".pri-avatar").attr("src", srcNew);
+    $(e).closest('div').addClass("img-selected");
+    if(oldImgSelected != null)
+        $(oldImgSelected).closest('div').removeClass("img-selected");
+    oldImgSelected = e;
 }
 

@@ -743,3 +743,7 @@ ol, ul {
     top: 0;
     border-radius: 3px;
 }
+
+.img-selected {
+    border-color: #fe7500 !important;
+}

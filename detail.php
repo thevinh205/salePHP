@@ -82,7 +82,7 @@
                 <div class="gallery" data-id="112970" data-cate="42">
                     <div class="wrapslide">
                         <?php
-                            echo "<img onclick='OpenPhotoSwipe(0)' class='avatar' src='resources/img/sanpham/".$_GET['product_id']."/".$data['avatar']."' alt='' width='560' height='310'>";
+                            echo "<img class='avatar pri-avatar' src='resources/img/sanpham/".$_GET['product_id']."/".$data['avatar']."' alt='' width='560' height='310'>";
                         ?>
                     </div>
                     <div class="colorandpic tele">
@@ -91,16 +91,22 @@
                             <?php 
                                 $path    = "resources/img/sanpham/".$_GET['product_id'];
                                 $files = scandir($path);
-                                
+                                $i = 0;
                                 foreach ($files as $file) {
                                     if($file != "." && $file != "..") {
                                         echo "<li class='gal'>";
-                                        echo    "<a href='javascript:' onclick='OpenPhotoSwipe(0)'>";
-                                        echo        "<div>";
-                                        echo            "<img src='resources/img/sanpham/".$_GET['product_id']."/".$file."'>";
+                                        echo    "<a href='javascript:'>";
+                                        if($i == 0) {
+                                            echo        "<div class='img-selected'>";
+                                            echo            "<img src='resources/img/sanpham/".$_GET['product_id']."/".$file."' onclick='changeImageShow(this)' class='img-first'>";
+                                        } else {
+                                            echo        "<div>";
+                                            echo            "<img src='resources/img/sanpham/".$_GET['product_id']."/".$file."' onclick='changeImageShow(this)'>";
+                                        }
                                         echo        "</div>";
                                         echo    "</a>";
                                         echo "</li>";   
+                                        $i++;
                                     }
                                 }
                             ?>

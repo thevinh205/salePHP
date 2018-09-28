@@ -9,7 +9,7 @@
         <link rel="stylesheet" type="text/css" href="../resources/css/index_mobile.css">
         <link rel="stylesheet" type="text/css" href="../resources/css/detail_mobile.css">
     </head>
-    <body style="width: 1200px">
+    <body style="width: 1200px; min-height:116%; position:relative;">
         <div class="search-menu orange">
             <div class="container1">
                 <form class="mainsearch" onsubmit="return submitSearch(this)">
@@ -72,7 +72,7 @@
                 <div class="gallery" data-id="112970" data-cate="42">
                     <div class="wrapslide">
                         <?php
-                            echo "<img onclick='OpenPhotoSwipe(0)' class='avatar' src='../resources/img/sanpham/".$_GET['product_id']."/".$data['avatar']."' alt='' width='560' height='310'>";
+                            echo "<img class='avatar pri-avatar' src='../resources/img/sanpham/".$_GET['product_id']."/".$data['avatar']."' alt='' width='560' height='310'>";
                         ?>
                     </div>
                     <div class="colorandpic tele">
@@ -81,16 +81,22 @@
                             <?php 
                                 $path    = "../resources/img/sanpham/".$_GET['product_id'];
                                 $files = scandir($path);
-                                
+                                $i = 0;
                                 foreach ($files as $file) {
                                     if($file != "." && $file != "..") {
                                         echo "<li class='gal'>";
-                                        echo    "<a href='javascript:' onclick='OpenPhotoSwipe(0)'>";
-                                        echo        "<div>";
-                                        echo            "<img src='../resources/img/sanpham/".$_GET['product_id']."/".$file."'>";
+                                        echo    "<a href='javascript:'>";
+                                        if($i == 0) {
+                                            echo        "<div class='img-selected'>";
+                                            echo            "<img src='../resources/img/sanpham/".$_GET['product_id']."/".$file."' onclick='changeImageShow(this)' class='img-first'>";
+                                        } else {
+                                            echo        "<div>";
+                                            echo            "<img src='../resources/img/sanpham/".$_GET['product_id']."/".$file."' onclick='changeImageShow(this)'>";
+                                        }
                                         echo        "</div>";
                                         echo    "</a>";
                                         echo "</li>";   
+                                        $i++;
                                     }
                                 }
                             ?>
@@ -258,9 +264,10 @@
                 </div>
             </div>-->
         </div>
-        
-        <?php 
-            include("../footer.php");
-        ?>
+        <div style="position:absolute; bottom:0">
+            <?php 
+                include("../footer.php");
+            ?>
+        </div>
     </body>
 </html>

@@ -78,7 +78,7 @@
                                     while($tv_2=mysqli_fetch_array($result)) {
                                         echo "<div class='item-order'>";
                                         echo    "<div class='item'>";
-                                        echo        "<img alt='OPPO F5 Youth' src='../resources/img/sanpham/".$tv_2['id']."/".$tv_2['avatar']."' width='80' height='80'/>";
+                                        echo        "<img alt='".$tv_2['name']."' src='../resources/img/sanpham/".$tv_2['id']."/".$tv_2['avatar']."' width='80' height='80'/>";
                                         echo        "<div class='colinfo'>";
                                         echo            "<a href='detail.php?product_id=".$tv_2['id']."' class='name'>".$tv_2['name']."</a>";
                                         echo            "<div class='quantity'>";
