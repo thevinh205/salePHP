@@ -233,7 +233,7 @@
                     <h4 class="prorelative">Sản phẩm liên quan</h4>
                     <ul class="bxrelative flex" style="width: 100%">
                         <?php
-                            $sql1 = "SELECT id, name, avatar, price_sell, price_prom, prom FROM product where id != '$_GET[product_id]' and category_name = '$categoryName' and show_web='1' ORDER BY RAND() limit 4";
+                            $sql1 = "SELECT id, name, avatar, price_sell, price_prom, prom FROM product where id != '$_GET[product_id]' and category_name = '$categoryName' and show_web=1 ORDER BY RAND() limit 4";
                             $result1=mysqli_query($con,$sql1);
                             while($tv_1=mysqli_fetch_array($result1)) {
                                 echo "<li class='prohv'>";

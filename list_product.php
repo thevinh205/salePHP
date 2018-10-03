@@ -94,10 +94,14 @@
                                 echo        "<div class='info'>";
                                 echo            "<a href='detail.php?product_id=".$tv_2['id']."' title='".$tv_2['name']."' class='name'>".$tv_2['name']."</a>";
                                 echo            "<div class='prices'>";
-                                if($tv_2['price_prom'])
-                                echo                "<span class='new'><span class='numbers'>".$tv_2['price_sell']."</span>₫</span>";
-                                echo                "<span class='line'>4.490.000₫</span>";
-                                echo                "<span class='discount'>- 18%</span>";
+                                if($tv_2['prom']) {
+                                    $rateProm = round(($tv_2['price_sell'] - $tv_2['price_prom'])/$tv_2['price_sell'] * 100);
+                                    echo                "<span class='new'><span class='numbers'>".$tv_2['price_prom']."</span>₫</span>";
+                                    echo                "<span class='line'><span class='numbers'>".$tv_2['price_sell']."</span>₫</span>";
+                                    echo                "<span class='discount'>- ".$rateProm."%</span>";
+                                } else {
+                                    echo                "<span class='new'><span class='numbers'>".$tv_2['price_sell']."</span>₫</span>";
+                                }
                                 echo                "<button class='buy add-to-cart' onclick='return buynow(111223,false,'Huawei MediaPad T3 10 (2017)','Máy tính bảng','Huawei',3690000.00,false,this,false)'>Thêm vào giỏ hàng</button>";
                                 echo            "</div>";
                                 echo        "</div>";
