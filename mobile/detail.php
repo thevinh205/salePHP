@@ -264,7 +264,7 @@
                 </div>
             </div>-->
         </div>
-        <div style="position:absolute; bottom:0">
+        <div style=" bottom:0">
             <?php 
                 include("../footer.php");
             ?>
