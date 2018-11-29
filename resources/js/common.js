@@ -1,5 +1,11 @@
 var oldImgSelected;
+
+     
 $(document).ready(function(){
+    
+    var obj = $("img[name*='imagename']");
+    obj.src = obj.src + "?" + Math.random();
+    
     $('.add-to-cart').on('click', function () {
         var cart = $('.shopping-cart');
         var imgtodrag = $(this).closest('.fpro').find("img").eq(0);
@@ -57,8 +63,8 @@ $(document).ready(function(){
     });
     
     $(window).scroll(function() {
-        if($(window).scrollTop() == ($(document).height() - $(window).height() - 500)) {
-
+        if($(window).scrollTop() == $(document).height() - $(window).height()) {
+           alert('hehe');
         }
     });
     

@@ -149,23 +149,26 @@
         }
 
         jQuery(document).ready(function ($) {
-            var url = "list_product.php";
-            $.ajax({	
-                    type: 'GET', 
-                    url: url, 
-                    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-                    async: false,
-                    success: function(data){ 
-                        $("#listProduct").append(data);
-                    },
-                    error: function(XMLHttpRequest, textStatus, errorThrown){
-                    }
-                }); 
+            //$( "#listProduct" ).load(window.location.href + "#listProduct" );
+//            var url = "list_product.php";
+//            $.ajax({	
+//                    type: 'GET', 
+//                    url: url, 
+//                    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+//                    async: false,
+//                    success: function(data){ 
+//                        $("#listProduct").append(data);
+//                    },
+//                    error: function(XMLHttpRequest, textStatus, errorThrown){
+//                    }
+//                }); 
         });
     </script>
         
     <div id="listProduct">
-        
+        <?php 
+            include("list_product.php");
+        ?>
     </div>
         <?php 
             include("footer.php");

@@ -89,7 +89,7 @@
                                 echo    "<div class='fpro' data-id='111223'>";
                                 echo        "<input type='hidden' class='product-id' value='".$tv_2['id']."'/>"; 
                                 echo        "<a href='detail.php?product_id=".$tv_2['id']."' class='flimg'>";
-                                echo            "<img class='lazy loaded' alt='".$tv_2['name']."' src='resources/img/sanpham/".$tv_2['id']."/".$tv_2['avatar']."' data-was-processed='true'/>";
+                                echo            "<img class='lazy loaded' alt='".$tv_2['name']."' src='resources/img/sanpham/".$tv_2['id']."/".$tv_2['avatar']."' name='imagename'/>";
                                 echo        "</a>";
                                 echo        "<div class='info'>";
                                 echo            "<a href='detail.php?product_id=".$tv_2['id']."' title='".$tv_2['name']."' class='name'>".$tv_2['name']."</a>";
