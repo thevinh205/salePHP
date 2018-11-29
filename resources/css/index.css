@@ -441,6 +441,7 @@ a, a:-webkit-any-link {
     position: relative;
     min-height: 1px;
     float: left;
+    display: none;
 }
 
 .fpro {

@@ -2,9 +2,7 @@
     include("config.php");
 ?>
 <html>
-    <head>
-        <script src="resources/js/jquery.min.js"></script>
-        <script src="resources/js/common.js"></script>
+    <head>        
         <link rel="stylesheet" type="text/css" href="resources/css/index.css">
         <script src="resources/js/bootstrap.min.js"></script>
         <script src="resources/js/docs.min.js"></script>
@@ -72,41 +70,56 @@
         });
     </script>
         
-        //<?php
+        <?php
             
             $sql1="SELECT pt.type_id, pt.type_name FROM product_type pt where pt.type_id in ('loa', 'loa_bluetooth', 'micro_kara', 'camera', 'massage', 'duphong', 'tainghe') order by pt.index;";
             $result1=mysqli_query($con,$sql1);
              while($tv_1=mysqli_fetch_array($result1)) {
                 echo "<section class='bg-orange'>";
-                echo    "<div class='flashsale' id='flashsales-1'>";
+                echo    "<div class='flashsale'>";
                 echo        "<h2 style='text-transform: uppercase;'>".$tv_1['type_name']."</h2>";
-                echo        "<div class='scrollflash scroll owl-carousel owl-theme owl-loaded owl-drag' data-position='1' data-isch='false' data-take='16'>";
+                echo        "<div class='scrollflash scroll owl-carousel owl-theme owl-loaded owl-drag' data-position='1' data-isch='false' data-take='16' id='list_product_".$tv_1['type_id']."'>";
                             $sql="SELECT p.id, p.name, p.price_sell, p.avatar, sp.count, p.guarantee, p.prom, p.price_prom FROM shop_party_relationship sp left join product p on sp.product_id=p.id where sp.type='product' and p.show_web=1 and p.product_type='".$tv_1['type_id']."';";
                             $result=mysqli_query($con,$sql);
 
                              while($tv_2=mysqli_fetch_array($result)) {
-                                echo "<div class='owl-item active' style='width: 240px; height: 300px;'>";
-                                echo    "<div class='fpro' data-id='111223'>";
-                                echo        "<input type='hidden' class='product-id' value='".$tv_2['id']."'/>"; 
-                                echo        "<a href='detail.php?product_id=".$tv_2['id']."' class='flimg'>";
-                                echo            "<img class='lazy loaded' alt='".$tv_2['name']."' src='resources/img/sanpham/".$tv_2['id']."/".$tv_2['avatar']."' name='imagename'/>";
-                                echo        "</a>";
-                                echo        "<div class='info'>";
-                                echo            "<a href='detail.php?product_id=".$tv_2['id']."' title='".$tv_2['name']."' class='name'>".$tv_2['name']."</a>";
-                                echo            "<div class='prices'>";
-                                if($tv_2['prom']) {
-                                    $rateProm = round(($tv_2['price_sell'] - $tv_2['price_prom'])/$tv_2['price_sell'] * 100);
-                                    echo                "<span class='new'><span class='numbers'>".$tv_2['price_prom']."</span>₫</span>";
-                                    echo                "<span class='line'><span class='numbers'>".$tv_2['price_sell']."</span>₫</span>";
-                                    echo                "<span class='discount'>- ".$rateProm."%</span>";
-                                } else {
-                                    echo                "<span class='new'><span class='numbers'>".$tv_2['price_sell']."</span>₫</span>";
-                                }
-                                echo                "<button class='buy add-to-cart' onclick='return buynow(111223,false,'Huawei MediaPad T3 10 (2017)','Máy tính bảng','Huawei',3690000.00,false,this,false)'>Thêm vào giỏ hàng</button>";
-                                echo            "</div>";
-                                echo        "</div>";
-                                echo    "</div>";
-                                echo "</div>";
+//                                echo "<div class='owl-item active' style='width: 240px; height: 300px;'>";
+//                                echo    "<div class='fpro' data-id='111223'>";
+//                                echo        "<input type='hidden' class='product-id' value='".$tv_2['id']."'/>"; 
+//                                echo        "<a href='detail.php?product_id=".$tv_2['id']."' class='flimg'>";
+//                                echo            "<img class='lazy loaded' alt='".$tv_2['name']."' src='resources/img/sanpham/".$tv_2['id']."/".$tv_2['avatar']."' name='imagename'/>";
+//                                echo        "</a>";
+//                                echo        "<div class='info'>";
+//                                echo            "<a href='detail.php?product_id=".$tv_2['id']."' title='".$tv_2['name']."' class='name'>".$tv_2['name']."</a>";
+//                                echo            "<div class='prices'>";
+//                                if($tv_2['prom']) {
+//                                    $rateProm = round(($tv_2['price_sell'] - $tv_2['price_prom'])/$tv_2['price_sell'] * 100);
+//                                    echo                "<span class='new'><span class='numbers'>".$tv_2['price_prom']."</span>₫</span>";
+//                                    echo                "<span class='line'><span class='numbers'>".$tv_2['price_sell']."</span>₫</span>";
+//                                    echo                "<span class='discount'>- ".$rateProm."%</span>";
+//                                } else {
+//                                    echo                "<span class='new'><span class='numbers'>".$tv_2['price_sell']."</span>₫</span>";
+//                                }
+//                                echo                "<button class='buy add-to-cart' onclick='return buynow(111223,false,'Huawei MediaPad T3 10 (2017)','Máy tính bảng','Huawei',3690000.00,false,this,false)'>Thêm vào giỏ hàng</button>";
+//                                echo            "</div>";
+//                                echo        "</div>";
+//                                echo    "</div>";
+//                                echo "</div>";
+                                 
+                                echo "<script>";
+                                echo    "var url = 'item_product.php?product_id=".$tv_2['id']."';";
+                                echo    "$.ajax({";	
+                                echo            "type: 'GET',"; 
+                                echo            "url: url,"; 
+                                echo            "contentType: 'application/x-www-form-urlencoded; charset=UTF-8',";
+                                echo            "async: false,";
+                                echo            "success: function(data){"; 
+                                echo                "$('#list_product_".$tv_1['type_id']."').append(data);";
+                                echo            "},";
+                                echo            "error: function(XMLHttpRequest, textStatus, errorThrown){";
+                                echo            "}";
+                                echo        "});"; 
+                                echo "</script>";
                             }
 
                 echo        "</div>";
@@ -115,7 +128,16 @@
              }
         ?>
     
-    //<?php
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".owl-item").each(function(i) {
+                $(this).delay(50 * i).show(0);
+            });
+        });
+    </script>
+    
+    <?php
+    
 //            
 //    
 //        echo    "<div class='flashsale' id='flashsales-1'>";
@@ -147,6 +169,6 @@
 //        echo        "</div>";
 //        echo    "</div>";
 //           
-//        ?>
+        ?>
     </body>
 </html>
