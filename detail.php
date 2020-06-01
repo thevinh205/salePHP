@@ -2,94 +2,50 @@
     include("config.php");
 ?>
 <html>
-    <head>
-        <link rel="icon" type="image/gif" href="resources/img/icon/long-den.jpg" />
-        <script src="resources/js/jquery.min.js"></script>
-        <script src="resources/js/common.js"></script>
-        <link rel="stylesheet" type="text/css" href="resources/css/index.css">
+	<head>
+		<link rel="icon" type="image/gif" href="resources/img/icon/long-den.jpg" />
         <link rel="stylesheet" type="text/css" href="resources/css/detail.css">
-    </head>
+	</head>
     <body>
-        <div class="search-menu orange">
-            <div class="container1">
-                <form class="mainsearch" style="width: 350px">
-                    <div class="pr">
-                        <input type="text" name="key" placeholder="Bạn mua gì?" maxlength="50"> 
-                        <button type="submit" class="btnsearch"><i class="icon-search"></i></button> 
-                        <span id="searchclear" class="searchclear"><i class="icon-searchclr"></i></span>
-                    </div>
-                </form>
+        <?php 
+		    include("header.php");
+            $link = $_SERVER['REQUEST_URI'];
+    		$link_array = explode('/',$link);
+   			$idString = end($link_array);
+			$parts = explode('-', $idString);
+			$id = $parts[count($parts)-1];
 
-                <div class="mnu-ct">
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Tai nghe</a>
-                    </div>    
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Loa vi tính</a>
-                    </div>  
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Loa blutooth</a>
-                    </div>  
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Mic hát karaoke</a>
-                    </div>   
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Massage</a>
-                    </div> 
-                </div>
-            </div>   
-            
-            <header>
-                <div class="wrap">
-                    <div class="profile">
-                        <a class="cart" href="order.php"> 
-                            <i class="icon-cart"></i> 
-                            <?php
-                                    session_start();
-                                    $countInCart = 0;
-                                    if(isset($_SESSION['cart'])) {
-                                        foreach($_SESSION['cart'] as $id => $value) { 
-                                            if($id != '')
-                                                $countInCart += $value;
-                                        } 
-                                    }
-                                    echo "<b class='num sh' style='visibility: visible;'>".$countInCart."</b>";
-                                ?>
-<!--                            <span class="total">Tiền hàng: 6.440.000₫</span> -->
-                        </a>
-                    </div>
-                </div>
-            </header>
-        </div>
+            echo "<input type='hidden' value='".$id."' id='product_id'/>";
+            $sql = "SELECT p.name, sp.count, p.avatar, p.price_sell, p.price_prom, p.prom, p.description, p.category_name FROM shop_party_relationship sp left join product p on sp.product_id = p.id where p.id='$id'";
+            $result=mysqli_query($con,$sql);
+            $data = mysqli_fetch_assoc($result);
+            $categoryName = $data['category_name'];
+			echo "<title>$data[name]</title>";
+        ?>
+        
         
         <div style="width: 100%; text-align: center; background-color: #fff; margin-top: 80px">
             <nav class="flex bread">
                 <a href="./" class="navi item brdc">Trang chủ</a> 
-                <a href="javascript:void(0)" class="navi item brdc">Phụ kiện</a> 
+                <a href="javascript:void(0)" class="navi item brdc">Chi tiết</a> 
             </nav>
         </div>
         
         <div class="mainctn">
             <div class="productinfo">
-                <?php
-                    echo "<input type='hidden' value='".$_GET['product_id']."' id='product_id'/>";
-                    $sql = "SELECT p.name, sp.count, p.avatar, p.price_sell, p.price_prom, p.prom, p.description, p.category_name FROM shop_party_relationship sp left join product p on sp.product_id = p.id where p.id='$_GET[product_id]'";
-                    $result=mysqli_query($con,$sql);
-                    $data = mysqli_fetch_assoc($result);
-                    $categoryName = $data['category_name'];
-                ?>
+                
                 
                 <div class="gallery" data-id="112970" data-cate="42">
                     <div class="wrapslide">
                         <?php
-                            echo "<img class='avatar pri-avatar' src='resources/img/sanpham/".$_GET['product_id']."/".$data['avatar']."' alt='' width='560' height='310'>";
+                            echo "<img class='avatar pri-avatar' src='resources/img/sanpham/".$id."/".$data['avatar']."' alt='' width='560' height='310'>";
                         ?>
                     </div>
                     <div class="colorandpic tele">
                         <ul>
                             
                             <?php 
-                                $path    = "resources/img/sanpham/".$_GET['product_id'];
+                                $path    = "resources/img/sanpham/".$id;
                                 $files = scandir($path);
                                 $i = 0;
                                 foreach ($files as $file) {
@@ -98,10 +54,10 @@
                                         echo    "<a href='javascript:'>";
                                         if($i == 0) {
                                             echo        "<div class='img-selected'>";
-                                            echo            "<img src='resources/img/sanpham/".$_GET['product_id']."/".$file."' onclick='changeImageShow(this)' class='img-first'>";
+                                            echo            "<img src='resources/img/sanpham/".$id."/".$file."' onclick='changeImageShow(this)' class='img-first'>";
                                         } else {
                                             echo        "<div>";
-                                            echo            "<img src='resources/img/sanpham/".$_GET['product_id']."/".$file."' onclick='changeImageShow(this)'>";
+                                            echo            "<img src='resources/img/sanpham/".$id."/".$file."' onclick='changeImageShow(this)'>";
                                         }
                                         echo        "</div>";
                                         echo    "</a>";
@@ -154,7 +110,7 @@
                         </div>
                         <div>
                             <i class="iconict-dt"></i>
-                            <p><span>Đổi trả sản phẩm lỗi miễn phí tại nhà trong 7 ngày <a href="/chinh-sach-doi-tra">(Xem chi tiết)</a></span></p>
+                            <p><span>Đổi trả sản phẩm lỗi miễn phí tại nhà trong 7 ngày <a href="chinh-sach-doi-tra">(Xem chi tiết)</a></span></p>
                         </div>
                         <div>
                             <i class="iconict-gh"></i>
@@ -176,11 +132,12 @@
                             </div> 
                         </div>
                         <div class="quantity center opt">
-                            <span>Chọn số lượng</span> 
-                            <label> 
-                                <span class="down">-</span> 
-                                <input type="text" min="1" max="50" maxlength="2" name="txtQuantity" value="1"/> 
-                                <span class="up">+</span> 
+                            <span>Chọn số lượng:</span> 
+                            <label style="margin-top:10px"> 
+                                <input type='button' class='minus down' value='-' onclick='reductionProductNumber(this)' style='top:15px;left: 100px;'/>
+        						<input name="txtQuantity" class='input-dat-hang count-product' style='width:75px; margin-left: 10px' value="1"/>
+        						<input type='button' class='plus up' value='+' onclick='increaseProductNumber(this)' style='top:-10px;left: 100px;'/>
+                                
                             </label>
                         </div>
                         <span class="error hide">(*)Vui lòng chọn màu</span>
@@ -233,7 +190,7 @@
                     <h4 class="prorelative">Sản phẩm liên quan</h4>
                     <ul class="bxrelative flex" style="width: 100%">
                         <?php
-                            $sql1 = "SELECT id, name, avatar, price_sell, price_prom, prom FROM product where id != '$_GET[product_id]' and category_name = '$categoryName' and show_web=1 ORDER BY RAND() limit 4";
+                            $sql1 = "SELECT id, name, avatar, price_sell, price_prom, prom FROM product where id != '$id' and category_name = '$categoryName' and show_web=1 ORDER BY RAND() limit 4";
                             $result1=mysqli_query($con,$sql1);
                             while($tv_1=mysqli_fetch_array($result1)) {
                                 echo "<li class='prohv'>";

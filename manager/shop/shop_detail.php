@@ -44,6 +44,7 @@
                                 if($_SESSION["role"] == 'manager') {
                                     echo "<li><a href='javascript:void(0)' onclick='changeTab(\"employeeList\")'><strong>Nhân viên</strong></a></li>";
                                     echo "<li><a href='javascript:void(0)' onclick='changeTab(\"statistic\")'><strong>Thống kê</strong></a></li>";
+									echo "<li><a href='javascript:void(0)' onclick='changeTab(\"handbook\")'><strong>Cẩm nang</strong></a></li>";
                                 }
                             ?>
 			  </ul>

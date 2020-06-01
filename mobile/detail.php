@@ -3,56 +3,14 @@
 ?>
 <html>
     <head>
-        <link rel="icon" type="image/gif" href="../resources/img/icon/long-den.jpg" />
-        <script src="../resources/js/jquery.min.js"></script>
-        <script src="../resources/js/common_mobile.js"></script>
-        <link rel="stylesheet" type="text/css" href="../resources/css/index_mobile.css">
         <link rel="stylesheet" type="text/css" href="../resources/css/detail_mobile.css">
     </head>
     <body style="width: 1200px; min-height:116%; position:relative;">
-        <div class="search-menu orange">
-            <div class="container1">
-                <form class="mainsearch" onsubmit="return submitSearch(this)">
-                    <div class="pr">
-                        <input type="text" name="key" placeholder="Bạn mua gì?" style="height: 115px;"> 
-<!--                        <button type="submit" class="btnsearch"><i class="icon-search"></i></button> -->
-                        <span id="searchclear" class="searchclear"><i class="icon-searchclr"></i></span>
-                    </div>
-                </form>
-<!--                <div class="hotline">
-                    <img src="//cdn.tgdd.vn/vuivui/www/Content/images/desktop/delivery-motorbike.png">
-                    <a href="https://vieclam.thegioididong.com/tuyen-dung/giao-hang-xe-may.html" target="_blank"> Cần 500 anh em Giao hàng xe máy. Ứng tuyển ngay TẠI ĐÂY »</a>
-                </div>-->
-                <div class="clr"></div>    
-            </div>   
-            
-            <header>
-                <div class="wrap">
-                    <div class="profile">
-                        <a class="cart" href="order.php"> 
-<!--                            <i class="icon-cart"></i> -->
-                            <img src="../resources/img/icon/cart.png" style="width: 90px; height: 90px; float: right"/>
-                            <span>
-                                <?php
-                                    session_start();
-                                    $countInCart = 0;
-                                    if(isset($_SESSION['cart'])) {
-                                        foreach($_SESSION['cart'] as $id => $value) { 
-                                            if($id != '')
-                                                $countInCart += $value;
-                                        } 
-                                    }
-                                    echo "<b class='num sh shopping-cart' style='visibility: visible; height: 65px;'>".$countInCart."</b>";
-                                ?>
-                            </span> 
-<!--                            <span class="total">Tiền hàng: 6.440.000₫</span> -->
-                        </a>
-                    </div>
-                </div>
-            </header>
-        </div>
+         <?php 
+		    include("header.php");
+		?>
         
-        <div style="width: 100%; text-align: center; background-color: #fff; margin-top: 135px">
+        <div style="width: 100%; text-align: center; background-color: #fff">
             <nav class="flex bread">
                 <a href="./" class="navi item brdc">Trang chủ</a> 
                 <a href="javascript:void(0)" class="navi item brdc">Phụ kiện</a> 
@@ -62,24 +20,33 @@
         <div class="mainctn">
             <div class="productinfo">
                 <?php
-                    echo "<input type='hidden' value='".$_GET['product_id']."' id='product_id'/>";
-                    $sql = "SELECT p.name, sp.count, p.avatar, p.price_sell, p.price_prom, p.prom, p.description FROM shop_party_relationship sp left join product p on sp.product_id = p.id where p.id='$_GET[product_id]'";
+                	$link = $_SERVER['REQUEST_URI'];
+					$link_array = explode('/',$link);
+					$idString = end($link_array);
+					$parts = explode('-', $idString);
+					$id = $parts[count($parts)-1];
+                	
+                	$id = str_replace("-","_",$id);
+
+                    echo "<input type='hidden' value='".$id."' id='product_id'/>";
+                    $sql = "SELECT p.name, sp.count, p.avatar, p.price_sell, p.price_prom, p.prom, p.description FROM shop_party_relationship sp left join product p on sp.product_id = p.id where p.id='$id'";
                     $result=mysqli_query($con,$sql);
                     $data = mysqli_fetch_assoc($result);
                     $productName = $data['name'];
+					echo " <title>$productName</title>";
                 ?>
                 
                 <div class="gallery" data-id="112970" data-cate="42">
                     <div class="wrapslide">
                         <?php
-                            echo "<img class='avatar pri-avatar' src='../resources/img/sanpham/".$_GET['product_id']."/".$data['avatar']."' alt='' width='560' height='310'>";
+                            echo "<img class='avatar pri-avatar' src='../resources/img/sanpham/".$id."/".$data['avatar']."' alt='' width='560' height='310'>";
                         ?>
                     </div>
                     <div class="colorandpic tele">
                         <ul>
                             
                             <?php 
-                                $path    = "../resources/img/sanpham/".$_GET['product_id'];
+                                $path    = "../resources/img/sanpham/".$id;
                                 $files = scandir($path);
                                 $i = 0;
                                 foreach ($files as $file) {
@@ -88,10 +55,10 @@
                                         echo    "<a href='javascript:'>";
                                         if($i == 0) {
                                             echo        "<div class='img-selected'>";
-                                            echo            "<img src='../resources/img/sanpham/".$_GET['product_id']."/".$file."' onclick='changeImageShow(this)' class='img-first'>";
+                                            echo            "<img src='../resources/img/sanpham/".$id."/".$file."' onclick='changeImageShow(this)' class='img-first'>";
                                         } else {
                                             echo        "<div>";
-                                            echo            "<img src='../resources/img/sanpham/".$_GET['product_id']."/".$file."' onclick='changeImageShow(this)'>";
+                                            echo            "<img src='../resources/img/sanpham/".$id."/".$file."' onclick='changeImageShow(this)'>";
                                         }
                                         echo        "</div>";
                                         echo    "</a>";

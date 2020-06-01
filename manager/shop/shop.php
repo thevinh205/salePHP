@@ -170,6 +170,43 @@
         } else {
             echo "Error in update spend: " . $sql . "<br>" . mysqli_error($con);
         }
+    } else if($type == 'createHandBook') {
+        session_start();
+        $shopId = $_POST['shopId'];
+        $avatar = $_POST['avatar'];
+		$newId = $_POST['newId'];
+        $description = $_POST['description'];
+		$description = mysqli_real_escape_string($con, $description);
+        $title = $_POST['title'];
+        $username = $_SESSION["username"];
+        $sql = "INSERT INTO hand_book (id, title, description, create_date, create_by, shop_id, avatar) 
+        VALUES ($newId, '$title', '$description', NOW(), '$username', $shopId, '$avatar')";
+        if (mysqli_query($con, $sql)) {
+            echo "Add new handbook successful ";
+        } else {
+            echo "Error add new handbook: " . $sql . "<br>" . mysqli_error($con);
+        }
+    } else if($type == 'updateHandBook') {
+		$handBookId = $_POST['newId'];
+        $description = $_POST['description'];
+		$description = mysqli_real_escape_string($con, $description);
+        $title = $_POST['title'];
+
+        $sql = "UPDATE hand_book SET description='$description', title='$title' WHERE id=$handBookId";
+        if (mysqli_query($con, $sql)) {
+            echo "Update handbook successful ";
+        } else {
+            echo "Error in update handbook: " . $sql . "<br>" . mysqli_error($con);
+        }
+    } else if($type == 'deleteHandBook') {
+		$handBookId = $_POST['id'];
+
+        $sql = "DELETE FROM hand_book WHERE id=$handBookId";
+        if (mysqli_query($con, $sql)) {
+            echo "Delete handbook successful ";
+        } else {
+            echo "Error in delete handbook: " . $sql . "<br>" . mysqli_error($con);
+        }
     }
 ?>
 

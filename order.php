@@ -4,63 +4,12 @@
 <html>
     <head>
         <link rel="icon" type="image/gif" href="resources/img/icon/long-den.jpg" />
-        <script src="resources/js/jquery.min.js"></script>
-        <script src="resources/js/common.js"></script>
-        <link rel="stylesheet" type="text/css" href="resources/css/index.css">
         <link rel="stylesheet" type="text/css" href="resources/css/order.css">
     </head>
     <body>
-        <div class="search-menu orange">
-            <div class="container1">
-                <form class="mainsearch" style="width: 350px">
-                    <div class="pr">
-                        <input type="text" name="key" placeholder="Bạn mua gì?" maxlength="50"> 
-                        <button type="submit" class="btnsearch"><i class="icon-search"></i></button> 
-                        <span id="searchclear" class="searchclear"><i class="icon-searchclr"></i></span>
-                    </div>
-                </form>
-
-                <div class="mnu-ct">
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Tai nghe</a>
-            </div>   
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Loa vi tính</a>
-                    </div>  
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Loa blutooth</a>
-                    </div>  
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Mic hát karaoke</a>
-                    </div>   
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Massage</a>
-                    </div> 
-                </div>
-            </div>   
-            
-            <header>
-                <div class="wrap">
-                    <div class="profile">
-                        <a class="cart" href="javascript:void(0)"> 
-                            <i class="icon-cart"></i> 
-                            <?php
-                                    session_start();
-                                    $countInCart = 0;
-                                    if(isset($_SESSION['cart'])) {
-                                        foreach($_SESSION['cart'] as $id => $value) { 
-                                            if($id != '')
-                                                $countInCart += $value;
-                                        } 
-                                    }
-                                    echo "<b class='num sh shopping-cart' style='visibility: visible;'>".$countInCart."</b>";
-                                ?>
-<!--                            <span class="total">Tiền hàng: 6.440.000₫</span> -->
-                        </a>
-                    </div>
-                </div>
-            </header>
-        </div>
+        <?php 
+		    include("header.php");
+		?>
         
         <div style="width: 100%; text-align: center; background-color: #fff; margin-top: 80px;">
             <nav class="flex bread">
@@ -94,9 +43,9 @@
                                         echo            "<div class='quantity'>";
                                         echo                "<label>Số lượng:</label>";
                                         echo                "<div class='quantitynum'>";
-                                        echo                    "<i class='noselect desc-count'>-</i>";
-                                        echo                    "<input type='number' class='qty noselect count-product' value='".$_SESSION['cart'][$tv_2['id']]."'/>";
-                                        echo                    "<i class='noselect inc-count'>+</i>";
+										echo 				"<input type='button' class='minus desc-count' value='-' onclick='reductionProductNumber(this)' style='top:50px;left: 170px;'/>";
+        								echo 				"<input size='6' value='".$_SESSION['cart'][$tv_2['id']]."' min='1' max='50' class='input-dat-hang count-product' style='width:75px'/>";
+        								echo 				"<input type='button' class='plus inc-count' value='+' onclick='increaseProductNumber(this)' style='top:25px;left: 170px;'/>";
                                         echo                "</div>";
                                         echo            "</div> <!---->"; 
                                         echo            "<div class='info-text'></div>"; 
@@ -279,4 +228,3 @@
         ?>
     </body>
 </html>
-

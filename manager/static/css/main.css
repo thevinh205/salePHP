@@ -93,7 +93,7 @@ a , a:HOVER{
     padding: 5px 40px;
     border-radius: 5px;
     font-size: 18px;
-    z-index: 99999px;
+    z-index: 99999;
 }
 
 .image-preview {

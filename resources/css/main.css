@@ -221,3 +221,426 @@ footer .footer-section {
     margin-right: 0%;
     float: left;
 }
+
+.chinh-sach-doi-tra {
+	width: 80%;
+	background-color: #fff;
+	margin: 90px 0 20px 10%;
+	padding: 20px 0 10px 5%;
+	font-family: inherit;
+}
+
+.title-doi-tra {
+	width: 85%;
+    height: 30px;
+    border-bottom: 2px solid #d4caca;
+    font-size: 1.625rem;
+    font-weight: bold;
+    margin-left: 5%;
+}
+
+.content-doi-tra {
+	width: 85%;
+	margin-top:10px;
+	margin-left: 5%;
+	font-size: 15px;
+	line-height: 1.7;
+}
+
+.thuong-hieu {	
+	height: 280px;
+	width: 100%;
+	margin-top: 75px;
+}
+
+.cup-thuong {
+	width: 33.33%;
+	height: 100%;
+	border-right: 1px solid white;
+	float: left;
+}
+
+.huy-chuong {
+	width: 33.33%;
+	height: 100%;
+	border-right: 1px solid white;
+	float: left;
+}
+
+.hanh-trinh {
+	width: 33.33%;
+	height: 100%;
+	float: left;
+}
+
+.icon-thuong-hieu {
+	width: 70%;
+    height: 70%;
+    margin-top: 20%;
+}
+
+.border-circle {
+	width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+    margin-top:15px;
+}
+
+.border-circle:hover {
+	background-color: #446084;
+}
+
+.text-thuong-hieu {
+	text-align: center;
+	margin-top: 10px;
+}
+
+.thuong-hieu-title {
+	font-weight: bold;
+    font-size: 17px;
+}
+
+.thuong-hieu-description {
+	width: 80%;
+    margin-left: 10%;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+}
+
+.su-menh {
+	height: 400px;
+	width: 100%;
+	background-color: white;
+}
+
+.img-su-menh {
+	width: 50%;
+	height: 100%;
+	float: left;
+	padding: 35px 0 0 120px;
+}
+
+.text-su-menh {
+	width: 50%;
+	float: right;
+	position: relative;
+	top: 30%;
+}
+
+.title-su-menh {
+	font-family: "Roboto", sans-serif;
+	font-size: 1.6em;
+	font-weight: 700;
+	color: #555;
+	line-height: 1.2;
+}
+
+.description-su-menh {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    font-size: 17px;
+    width: 80%;
+}
+
+.chat-luong {
+	width: 100%;
+	height: 400px;
+	background-color: #e4e4dc;
+}
+
+.img-chat-luong {
+	width: 50%;
+	height: 100%;
+	float: right;
+	padding: 35px 0 0 0px;
+}
+
+.text-chat-luong {
+	width: 50%;
+	float: left;
+	position: relative;
+	top: 20%;
+	padding: 35px 0 0 120px;
+}
+
+.title-chat-luong {
+	font-family: "Roboto", sans-serif;
+	font-size: 1.6em;
+	font-weight: 700;
+	color: #555;
+	line-height: 1.2;
+}
+
+.description-chat-luong {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    font-size: 17px;
+    width: 80%;
+}
+
+.keu-goi {
+	width: 100%;
+	height: 200px;
+	background-color: #333;
+}
+
+.text-keu-goi {
+	width: 60%;
+	height: 100%;
+	float: left;
+	text-align: center;
+    padding-top: 60px;
+}
+
+.title-keu-goi {
+	font-family: "Roboto", sans-serif;
+	color: #fff;
+	font-size: 1.6em;
+	line-height: 1.2;
+	font-weight: bold;
+}
+
+.description-keu-goi {
+	color: #f1f1f1;
+    font-family: "Roboto", sans-serif;
+    width: 80%;
+    margin-left: 10%;
+    font-size: 17px;
+}
+
+.goi-ngay {
+	width: 40%;
+	height: 100%;
+	float: right;
+	text-align: center;
+}
+
+.form-goi-ngay {
+	width: 280px;
+    height: 50px;
+    border: 2px solid #fff;
+    display: table;
+    margin-top: 70px;
+    cursor: pointer;
+    margin-left: 50px;
+}
+
+.form-goi-ngay:hover {
+	background-color: #fff;
+}
+
+.text-goi-ngay {
+	color: #f1f1f1;
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.text-goi-ngay:hover{
+	color: #777;
+}
+
+.lien-he {
+	margin-top: 95px;
+	width: 90%;
+	height: 500px;
+	margin-left: 5%;
+}
+
+.contact-info {
+	width: 40%;
+    height: 100%;
+    float: left;
+    margin-left: 5%;
+}
+
+.send-message {
+	width: 40%;
+	height: 100%;
+	float: right;
+	margin-right: 5%;
+}
+
+.title-contact-info {
+	width: 100%;
+    height: 40px;
+    vertical-align: middle;
+    font-weight: 700;
+    font-size: 1.6em;
+    border-bottom: 2px solid #bda9a9;
+}
+
+.title-company {
+	font-size: 1.3em;
+    font-weight: 600;
+    margin-top: 30px;
+}
+
+.name-fanpage {
+	color: #58370d !important;
+    font-weight: bold;
+    text-decoration: none !important;
+}
+
+.title-send-message {
+	font-size: 17px;
+    font-weight: bold;
+}
+
+.input-send-message {
+	box-sizing: border-box;
+    border: 1px solid #b3b39e;
+    padding: 0 .75em;
+    height: 2.6em;
+    font-size: .97em;
+    max-width: 100%;
+    width: 100%;
+    vertical-align: middle;
+    background-color: #fff;
+    color: #333;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    transition: color .3s, border .3s, background .3s, opacity .3s;
+    border-radius: 5px;
+}
+
+.text-send-message {
+	max-width: 100%;
+    width: 100%;
+     box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    transition: color .3s, border .3s, background .3s, opacity .3s;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: 1px solid #b3b39e;
+    padding: 0 .75em;
+    height: 100px;
+    font-size: .97em;
+}
+
+.submit-send-message {
+	width: 100px;
+    height: 40px;
+    background-color: #4099ad;
+    color: white;
+    border: 1px solid #9c9898;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.map {
+	width: 100%;
+	border: 1px solid;
+	margin-bottom: 10px''
+}
+
+.img-map {
+	width: 100%;
+}
+
+.send-msg-success {
+	position: fixed;
+    width: 300px;
+    height: 50px;
+    top: 0;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: 10px;
+    text-align: center;
+    border: 1px solid #ad9393;
+    background-color: #3bc365;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+    border-radius: 10px;
+    display: none;
+    z-index: 1000;
+}
+
+.cam-nang {
+	width: 74%;
+	margin: 10px 0 10px 5%;
+	padding: 20px;
+	background-color: #fff;
+	float: left;
+}
+
+.title-cam-nang {
+	width: 90%;
+	margin: 90px 0 10px 5%;
+	height: 40px;
+    background-color: #ffd200;
+    border-radius: 20px 0 0 20px;
+    padding: 10px 0 0 20px;
+    font-size: 17px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #fff;
+    color: #000;
+    font-family: 'UTMCafeta';
+    text-transform: uppercase;
+}
+
+.item-cam-nang {
+	width: 100%;
+	height: 200px;
+	margin: 10px 0 0 10px;
+}
+
+.content-cam-nang {
+	width: 70%;
+	float: left;
+	padding: 0 10px 20px 30px;
+}
+
+.img-cam-nang {
+	width: 20%;
+	float: left;
+	max-height: 99%;
+}
+
+.title-item-camnang{
+	color: #446CB3;
+	text-decoration: none !important;
+	font-size: 18px;
+}
+
+.item-content {
+	margin-top: 20px;
+}
+
+.des-item-camnang {
+	display: block;/* or inline-block */
+  	text-overflow: ellipsis;
+  	word-wrap: break-word;
+  	overflow: hidden;
+ 	max-height: 3.6em;
+  line-height: 1.8em;
+}
+
+.cam-nang-left {
+	width: 75%;
+	float: left;
+}
+
+.cam-nang-right {
+	width: 24%;
+	float: right;
+}
+
+.center-div {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}

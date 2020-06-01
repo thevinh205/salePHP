@@ -1,54 +1,13 @@
 <html>
     <head>
-        <link rel="icon" type="image/gif" href="../resources/img/icon/long-den.jpg" />
-        <script src="../resources/js/jquery.min.js"></script>
-        <script src="../resources/js/common.js"></script>
-        <link rel="stylesheet" type="text/css" href="../resources/css/index_mobile.css">
+        <title>PHỤ KIỆN PT</title>
     </head>
     <body>
         
         
-        <div class="search-menu orange">
-            <div class="container1">
-                <form class="mainsearch" onsubmit="return submitSearch(this)">
-                    <div class="pr">
-                        <input type="text" name="key" placeholder="Bạn mua gì?" maxlength="50"> 
-<!--                        <button type="submit" class="btnsearch"><i class="icon-search"></i></button> -->
-                        <span id="searchclear" class="searchclear"><i class="icon-searchclr"></i></span>
-                    </div>
-                </form>
-<!--                <div class="hotline">
-                    <img src="//cdn.tgdd.vn/vuivui/www/Content/images/desktop/delivery-motorbike.png">
-                    <a href="https://vieclam.thegioididong.com/tuyen-dung/giao-hang-xe-may.html" target="_blank"> Cần 500 anh em Giao hàng xe máy. Ứng tuyển ngay TẠI ĐÂY »</a>
-                </div>-->
-                <div class="clr"></div>    
-            </div>   
-            
-            <header>
-                <div class="wrap">
-                    <div class="profile">
-                        <a class="cart" href="order.php"> 
-<!--                            <i class="icon-cart"></i> -->
-                            <img src="../resources/img/icon/cart.png" style="width: 90px; height: 90px; float: right"/>
-                            <span>
-                                <?php
-                                    session_start();
-                                    $countInCart = 0;
-                                    if(isset($_SESSION['cart'])) {
-                                        foreach($_SESSION['cart'] as $id => $value) { 
-                                            if($id != '')
-                                                $countInCart += $value;
-                                        } 
-                                    }
-                                    echo "<b class='num sh shopping-cart' style='visibility: visible;'>".$countInCart."</b>";
-                                ?>
-                            </span> 
-<!--                            <span class="total">Tiền hàng: 6.440.000₫</span> -->
-                        </a>
-                    </div>
-                </div>
-            </header>
-        </div>
+        <?php 
+		    include("header.php");
+		?>
         
         
         
@@ -81,7 +40,7 @@
             <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 1200px; height: 442px;
             overflow: hidden;">
                 <div>
-                    <img data-u="image" src="../resources/img/banner/1.png" />
+                    <img data-u="image" src="../resources/img/banner/1.jpg" />
                 </div>
                 <div>
                     <img data-u="image" src="../resources/img/banner/2.jpg" />
@@ -147,6 +106,9 @@
                     async: false,
                     success: function(data){ 
                         $("#listProduct").append(data);
+						$(".numbers").each(function(c, obj){
+							$(obj).text(addCommas(parseFloat($(obj).text())));
+						});
                     },
                     error: function(XMLHttpRequest, textStatus, errorThrown){
                     }
@@ -158,7 +120,7 @@
         
     </div>
         <?php 
-            include("../footer.php");
+            include("footer.php");
         ?>
     
 <!--        <script type="text/javascript">

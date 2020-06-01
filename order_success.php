@@ -10,56 +10,9 @@
         <link rel="stylesheet" type="text/css" href="resources/css/order.css">
     </head>
     <body>
-        <div class="search-menu orange">
-            <div class="container1">
-                <form class="mainsearch" style="width: 350px">
-                    <div class="pr">
-                        <input type="text" name="key" placeholder="Bạn mua gì?" maxlength="50"> 
-                        <button type="submit" class="btnsearch"><i class="icon-search"></i></button> 
-                        <span id="searchclear" class="searchclear"><i class="icon-searchclr"></i></span>
-                    </div>
-                </form>
-
-                <div class="mnu-ct">
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Tai nghe</a>
-            </div>   
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Loa vi tính</a>
-                    </div>  
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Loa blutooth</a>
-                    </div>  
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Mic hát karaoke</a>
-                    </div>   
-                    <div class="item">
-                        <a href="/dien-thoai-di-dong">Massage</a>
-                    </div> 
-                </div>
-            </div>   
-            
-            <header>
-                <div class="wrap">
-                    <div class="profile">
-                        <a class="cart" href="order.php"> 
-                            <i class="icon-cart"></i> 
-                            <?php
-                                    session_start();
-                                    $countInCart = 0;
-                                    if(isset($_SESSION['cart'])) {
-                                        foreach($_SESSION['cart'] as $id => $value) { 
-                                            if($id != '')
-                                                $countInCart += $value;
-                                        } 
-                                    }
-                                    echo "<b class='num sh shopping-cart' style='visibility: visible;'>".$countInCart."</b>";
-                                ?>
-                        </a>
-                    </div>
-                </div>
-            </header>
-        </div>
+        <?php 
+		    include("header.php");
+		?>
         
         <div style="width: 100%; text-align: center; background-color: #fff; margin-top: 80px;">
             <nav class="flex bread">

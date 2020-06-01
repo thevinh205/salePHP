@@ -102,6 +102,7 @@ function showAddProduct() {
             data.append("file", filesUpload[i]);
             data.append("productId", productId);
             data.append("fileName", fileName);
+            data.append("type", "product");
             
             $.ajax({
                 url: url,

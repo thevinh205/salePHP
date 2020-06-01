@@ -99,6 +99,8 @@ $(document).ready(function(){
     $(".desc-count").click( function(){
         var count = $(this).closest('div').find('.count-product').val();
         count -= 1;
+        if(count < 1)
+        	count = 1;
         $(this).closest('div').find('.count-product').val(count);
         updateCount(this, count);
     });
@@ -231,7 +233,7 @@ $(document).ready(function(){
                     type: 'createOrder'
                 },
                 success: function(data){ 
-                    window.location.href = "order_success.php";
+                    window.location.href = "order-success";
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown){
                 }
@@ -305,5 +307,43 @@ function changeImageShow(e) {
     if(oldImgSelected != null)
         $(oldImgSelected).closest('div').removeClass("img-selected");
     oldImgSelected = e;
+}
+
+function sendMessage() {
+	$("#btnSendMessage").attr("disabled", true);
+	var customerName = $("input[name*='customerName']").val();
+	var customerPhone = $("input[name*='customerPhone']").val();
+	var customerMessage = $("textarea[name*='customerMessage']").val();
+	
+	if(!customerName.trim()) {
+		$("input[name*='customerName']").focus();
+		$("#btnSendMessage").attr("disabled", false);
+		return;
+	}
+	
+	if(!customerPhone.trim()) {
+		$("input[name*='customerPhone']").focus();
+		$("#btnSendMessage").attr("disabled", false);
+		return;
+	}
+	
+	if(!customerMessage.trim()) {
+		$("textarea[name*='customerMessage']").focus();
+		$("#btnSendMessage").attr("disabled", false);
+		return;
+	}
+	
+	$("input[name*='customerName']").val('');
+	$("input[name*='customerPhone']").val('');
+	$("textarea[name*='customerMessage']").val('');
+	
+	$("#sendMsgSuccess").show("slow");
+	setTimeout(
+			  function() 
+			  {
+				  $("#sendMsgSuccess").hide("slow");
+			  }, 5000);
+	
+	$("#btnSendMessage").attr("disabled", false);
 }
 

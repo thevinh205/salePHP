@@ -1,60 +1,15 @@
-<?php 
-    include("config.php");
-?>
 <html>
     <head>
         <link rel="icon" type="image/gif" href="resources/img/icon/long-den.jpg" />
-        <script src="resources/js/jquery.min.js"></script>
-        <script src="resources/js/common.js"></script>
-        <link rel="stylesheet" type="text/css" href="resources/css/index.css">
+        <title>Phụ kiện PT</title>
     </head>
     <body>
         
-        
-        <div class="search-menu orange">
-            <div class="container1">
-                <form class="mainsearch" onsubmit="return submitSearch(this)">
-                    <div class="pr">
-                        <input type="text" name="key" placeholder="Bạn mua gì?" maxlength="50"> 
-                        <button type="submit" class="btnsearch"><i class="icon-search"></i></button> 
-                        <span id="searchclear" class="searchclear"><i class="icon-searchclr"></i></span>
-                    </div>
-                </form>
-<!--                <div class="hotline">
-                    <img src="//cdn.tgdd.vn/vuivui/www/Content/images/desktop/delivery-motorbike.png">
-                    <a href="https://vieclam.thegioididong.com/tuyen-dung/giao-hang-xe-may.html" target="_blank"> Cần 500 anh em Giao hàng xe máy. Ứng tuyển ngay TẠI ĐÂY »</a>
-                </div>-->
-                <div class="clr"></div>    
-            </div>   
-            
-            <header>
-                <div class="wrap">
-                    <div class="profile">
-                        <a class="cart" href="order.php"> 
-                            <i class="icon-cart"></i> 
-                            <span>Giỏ hàng
-                                <?php
-                                    session_start();
-                                    $countInCart = 0;
-                                    if(isset($_SESSION['cart'])) {
-                                        foreach($_SESSION['cart'] as $id => $value) { 
-                                            if($id != '')
-                                                $countInCart += $value;
-                                        } 
-                                    }
-                                    echo "<b class='num sh shopping-cart' style='visibility: visible;'>".$countInCart."</b>";
-                                ?>
-                            </span> 
-<!--                            <span class="total">Tiền hàng: 6.440.000₫</span> -->
-                        </a>
-                    </div>
-                </div>
-            </header>
-        </div>
-        
-        
-        
-        <div class="container">
+        <?php 
+		    include("header.php");
+		?>
+
+        <div class="container2">
         <!-- Jssor Slider Begin -->
 
         <style>
@@ -87,7 +42,7 @@
             <div data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 1200px; height: 442px;
             overflow: hidden;">
                 <div>
-                    <img data-u="image" src="resources/img/banner/1.png" />
+                    <img data-u="image" src="resources/img/banner/1.jpg" />
                 </div>
                 <div>
                     <img data-u="image" src="resources/img/banner/2.jpg" />
@@ -147,21 +102,57 @@
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
             top.location.href = "mobile";
         }
-
         jQuery(document).ready(function ($) {
-            //$( "#listProduct" ).load(window.location.href + "#listProduct" );
-//            var url = "list_product.php";
-//            $.ajax({	
-//                    type: 'GET', 
-//                    url: url, 
-//                    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-//                    async: false,
-//                    success: function(data){ 
-//                        $("#listProduct").append(data);
-//                    },
-//                    error: function(XMLHttpRequest, textStatus, errorThrown){
-//                    }
-//                }); 
+            var options = {
+                $AutoPlay: 1,                                       //[Optional] Auto play or not, to enable slideshow, this option must be set to greater than 0. Default value is 0. 0: no auto play, 1: continuously, 2: stop at last slide, 4: stop on click, 8: stop on user navigation (by arrow/bullet/thumbnail/drag/arrow key navigation)
+                $AutoPlaySteps: 1,                                  //[Optional] Steps to go for each navigation request (this options applys only when slideshow disabled), the default value is 1
+                $Idle: 5000,                                        //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+                $PauseOnHover: 1,                                   //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
+
+                $ArrowKeyNavigation: 1,   			                //[Optional] Steps to go for each navigation request by pressing arrow key, default value is 1.
+                $SlideEasing: $Jease$.$OutQuint,                    //[Optional] Specifies easing for right to left animation, default value is $Jease$.$OutQuad
+                $SlideDuration: 800,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+                $MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide, default value is 20
+                //$SlideWidth: 600,                                 //[Optional] Width of every slide in pixels, default value is width of 'slides' container
+                //$SlideHeight: 300,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+                $SlideSpacing: 0, 					                //[Optional] Space between each slide in pixels, default value is 0
+                $UISearchMode: 1,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
+                $PlayOrientation: 1,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
+                $DragOrientation: 1,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $Cols is greater than 1, or parking position is not 0)
+
+                $ArrowNavigatorOptions: {                           //[Optional] Options to specify and enable arrow navigator or not
+                    $Class: $JssorArrowNavigator$,                  //[Requried] Class to create arrow navigator instance
+                    $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                    $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
+                },
+
+                $BulletNavigatorOptions: {                          //[Optional] Options to specify and enable navigator or not
+                    $Class: $JssorBulletNavigator$,                 //[Required] Class to create navigator instance
+                    $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                    $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
+                    $SpacingX: 12,                                  //[Optional] Horizontal space between each item in pixel, default value is 0
+                    $Orientation: 1                                 //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
+                }
+            };
+
+            var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+
+            //responsive code begin
+            //you can remove responsive code if you don't want the slider scales while window resizing
+            function ScaleSlider() {
+                var parentWidth = jssor_slider1.$Elmt.parentNode.clientWidth;
+                if (parentWidth) {
+                    jssor_slider1.$ScaleWidth(parentWidth - 0);
+                }
+                else
+                    window.setTimeout(ScaleSlider, 30);
+            }
+            ScaleSlider();
+
+            $(window).bind("load", ScaleSlider);
+            $(window).bind("resize", ScaleSlider);
+            $(window).bind("orientationchange", ScaleSlider);
+            //responsive code end
         });
     </script>
         
@@ -174,8 +165,38 @@
             include("footer.php");
         ?>
     
-        <script type="text/javascript">
-            function add_chatinline(){var hccid=82244800;var nt=document.createElement("script");nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;var ct=document.getElementsByTagName("script")[0];ct.parentNode.insertBefore(nt,ct);}add_chatinline(); 
+        <script type="text/javascript">	
+	        jQuery(document).ready(function ($) {
+	        	$(".menu-trang-chu").addClass("select-menu");
+	        	$("img[name*='imagename']").css("display","block");
+	        });
+	        
+            //function add_chatinline(){var hccid=82244800;var nt=document.createElement("script");nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;var ct=document.getElementsByTagName("script")[0];ct.parentNode.insertBefore(nt,ct);}add_chatinline(); 
         </script>
+        
+      <!-- Load Facebook SDK for JavaScript -->
+      <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v6.0'
+          });
+        };
+
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+      <!-- Your customer chat code -->
+      <div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="1877829242481532">
+      </div>
     </body>
+    
 </html>
