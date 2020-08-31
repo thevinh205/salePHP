@@ -127,4 +127,7 @@
          <input type="hidden" value="<?php echo $maxFileName[0];?>" id="maxFileName"/>
          <input type="hidden" value="<?php echo count($files);?>" id="imageTotal"/>
     </form>
+    <?php 
+    	$con->close();
+    ?>
 </html>

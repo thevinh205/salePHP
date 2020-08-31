@@ -1,0 +1,18 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^gioi-thieu gioi-thieu.php
+RewriteRule ^san-pham san-pham.php
+RewriteRule ^lien-he lien-he.php
+RewriteRule ^tuyen-dung tuyen-dung.php
+RewriteRule ^khuyen-mai khuyen-mai.php
+RewriteRule ^gio-hang gio-hang.php
+RewriteRule ^order-success order-success.php
+RewriteRule ^cam-nang-mua-hang cam-nang.php
+RewriteRule ^doi-tra-hang chinh-sach-doi-tra.php
+
+RewriteRule ^([a-zA-Z0-9_-]+)$ detail.php?id=$1
+RewriteRule ^cam-nang/([a-zA-Z0-9_-]+)$ cam-nang/chi-tiet.php?id=$1
+
+
+

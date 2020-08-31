@@ -133,6 +133,7 @@ function vn_to_str ($str){
 			return strtolower($str);
  
 		}
+		$con->close();
         ?>
     </body>
 </html>

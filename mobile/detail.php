@@ -234,6 +234,7 @@
         <div style=" bottom:0">
             <?php 
                 include("../footer.php");
+				$con->close();
             ?>
         </div>
     </body>

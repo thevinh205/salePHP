@@ -258,6 +258,7 @@ function linkDeleteProduct(e){
             type : 'editProduct'
         },
         success: function(data){
+        	alert(data);
             uploadImage(productId);
             filesUpload = [];
             countImage = 0;

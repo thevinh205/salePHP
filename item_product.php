@@ -79,6 +79,8 @@
 			return strtolower($str);
  
 		}
+
+    	$con->close();
         ?>
     
     </body>

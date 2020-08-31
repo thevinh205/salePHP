@@ -245,3 +245,6 @@
     
 <script src="../static/js/shop-product-list.js"></script>
 <script src="../static/js/common.js"></script>
+<?php 
+	$con->close();
+?>

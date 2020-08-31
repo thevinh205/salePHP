@@ -35,11 +35,13 @@
                                     $sql=substr($sql, 0, -1).") ORDER BY name ASC"; 
                                     $result=mysqli_query($con,$sql);
                                     while($tv_2=mysqli_fetch_array($result)) {
+										$link = vn_to_str($tv_2['name']);
+										$link = $link ."-". $tv_2['id'];
                                         echo "<div class='item-order'>";
                                         echo    "<div class='item'>";
                                         echo        "<img alt='OPPO F5 Youth' src='resources/img/sanpham/".$tv_2['id']."/".$tv_2['avatar']."' width='80' height='80'/>";
                                         echo        "<div class='colinfo'>";
-                                        echo            "<a href='detail.php?product_id=".$tv_2['id']."' class='name'>".$tv_2['name']."</a>";
+                                        echo            "<a href='$link' class='name'>".$tv_2['name']."</a>";
                                         echo            "<div class='quantity'>";
                                         echo                "<label>Số lượng:</label>";
                                         echo                "<div class='quantitynum'>";
@@ -224,7 +226,52 @@
         </div>
         
         <?php 
+        function vn_to_str ($str){
+ 
+				$unicode = array(
+ 
+				'a'=>'á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ',
+ 
+				'd'=>'đ',
+ 
+				'e'=>'é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ',
+ 
+				'i'=>'í|ì|ỉ|ĩ|ị',
+ 
+				'o'=>'ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ',
+ 
+				'u'=>'ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự',
+ 
+				'y'=>'ý|ỳ|ỷ|ỹ|ỵ',
+ 
+				'A'=>'Á|À|Ả|Ã|Ạ|Ă|Ắ|Ặ|Ằ|Ẳ|Ẵ|Â|Ấ|Ầ|Ẩ|Ẫ|Ậ',
+ 
+				'D'=>'Đ',
+ 
+				'E'=>'É|È|Ẻ|Ẽ|Ẹ|Ê|Ế|Ề|Ể|Ễ|Ệ',
+ 
+				'I'=>'Í|Ì|Ỉ|Ĩ|Ị',
+ 
+				'O'=>'Ó|Ò|Ỏ|Õ|Ọ|Ô|Ố|Ồ|Ổ|Ỗ|Ộ|Ơ|Ớ|Ờ|Ở|Ỡ|Ợ',
+ 
+				'U'=>'Ú|Ù|Ủ|Ũ|Ụ|Ư|Ứ|Ừ|Ử|Ữ|Ự',
+ 
+				'Y'=>'Ý|Ỳ|Ỷ|Ỹ|Ỵ',
+ 
+			);
+ 
+			foreach($unicode as $nonUnicode=>$uni){
+ 
+				$str = preg_replace("/($uni)/i", $nonUnicode, $str);
+ 
+			}
+			$str = str_replace(' ','-',$str);
+ 
+			return strtolower($str);
+ 
+		}
             include("footer.php");
+			$con->close();
         ?>
     </body>
 </html>

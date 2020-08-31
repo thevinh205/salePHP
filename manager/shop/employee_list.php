@@ -164,3 +164,6 @@
     
 <script src="../static/js/shop-employee-list.js"></script>
 <script src="../static/js/common.js"></script>
+<?php 
+	$con->close();
+?>

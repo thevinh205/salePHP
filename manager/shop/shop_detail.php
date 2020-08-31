@@ -74,3 +74,6 @@
     <!--<div th:replace="layout/footer :: footer"/>-->
     </body>
 </html>
+<?php 
+	$con->close();
+?>

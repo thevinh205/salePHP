@@ -83,7 +83,7 @@
 		       	else
 		       		echo "<a href='javascript:void(0)' class='page gradient' onclick='loadProductTable($i)'>$i</a>";
 	        }
-        	
+        	$con->close();
         ?>
     </div>
 </html>

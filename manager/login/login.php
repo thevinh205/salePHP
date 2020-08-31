@@ -24,4 +24,5 @@
 		unset($_SESSION["nameLogin"]);
 		unset($_COOKIE['role']);
 	}
+	$con->close();
 ?>

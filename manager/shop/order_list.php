@@ -591,3 +591,6 @@
   </div>
 </div>
 <script src="../static/js/shop-order-list.js"></script>
+<?php 
+	$con->close();
+?>

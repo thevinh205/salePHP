@@ -73,6 +73,7 @@
                 echo    "</div>";
                 echo "</section>";      
              }
+			$con->close();
         ?>
     
     <script>

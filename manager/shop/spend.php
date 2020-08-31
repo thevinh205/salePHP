@@ -199,3 +199,6 @@
 </div>
     
 <script src="../static/js/spend.js"></script>
+<?php 
+	$con->close();
+?>

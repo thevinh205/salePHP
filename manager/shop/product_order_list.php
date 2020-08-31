@@ -32,6 +32,7 @@
                 echo "</tr>";
                 $index++;
             }
+			$con->close();
         ?>
     </tbody>
 </table>

@@ -1,7 +1,4 @@
-﻿<?php 
-    include("config.php");
-?>
-<html>
+﻿<html>
     <head>
         <link rel="icon" type="image/gif" href="resources/img/icon/long-den.jpg" />
         <script src="resources/js/jquery.min.js"></script>

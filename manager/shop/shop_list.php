@@ -35,6 +35,7 @@
                             echo    "</a>";
                             echo "</div>"; 
                         }
+						$con->close();
                     ?>
                 </div>
             </div>

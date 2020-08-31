@@ -164,3 +164,6 @@
     <!-- end edit product -->
     </body>
 </html>
+<?php 
+	$con->close();
+?>

@@ -266,6 +266,7 @@
         
         <?php 
             include("../footer.php");
+			$con->close();
         ?>
     </body>
 </html>

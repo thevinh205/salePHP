@@ -208,5 +208,6 @@
             echo "Error in delete handbook: " . $sql . "<br>" . mysqli_error($con);
         }
     }
+	$con->close();
 ?>
 

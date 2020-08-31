@@ -182,3 +182,7 @@
 	<!-- End Delete black list -->
     </body>
 </html>
+
+<?php 
+    $con->close();
+?>

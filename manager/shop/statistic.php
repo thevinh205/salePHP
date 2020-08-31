@@ -101,3 +101,6 @@
         </table>
     </div>
 </div>
+<?php 
+	$con->close();
+?>
